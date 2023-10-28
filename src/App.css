@@ -3,7 +3,7 @@
 }
 
 .App-header {
-  background-color: #000000; /* black */
+  background-color: #000000;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -14,39 +14,44 @@
 }
 
 .animated-text {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: Courier New;
   overflow: hidden;
-  border-right: 2px solid rgba(255, 255, 255, 0.75); /* The typewriter cursor */
+  border-right: 2px solid rgba(255, 255, 255, 0.75);
   white-space: nowrap;
-  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-  letter-spacing: .15em; /* Adjust as needed */
-  animation: 
-    typing 3.5s steps(40, end),
-    blink-caret .75s step-end infinite;
+  animation:
+    typing 3s steps(23, end),
+    blink-caret 0.75s step-end infinite;
 }
 
 @keyframes typing {
-  from { width: 0 }
-  to { width: 100% }
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 14ch;
+  }
 }
 
 @keyframes blink-caret {
-  from, to { border-color: transparent }
-  50% { border-color: orange; } /* Adjust if you want to change the cursor color */
+
+  0%,
+  100% {
+    border-color: transparent;
+  }
+
+  50% {
+    border-color: rgba(255, 255, 255, 0.75);
+  }
 }
 
-/* Styles for the navigation menu */
-nav {
-  background-color: #000000; /* black */
-}
-
-nav ul {
+.Navigation ul {
+  list-style: none;
   padding: 0;
-  list-style-type: none;
 }
 
-nav ul li {
-  display: inline-block;
-  margin-right: 20px;
-  color: white; /* If you want the text color to be white */
+.Navigation li {
+  color: white;
+  margin-bottom: 1rem;
+  /* Or any space you prefer */
 }
