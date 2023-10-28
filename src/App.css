@@ -22,7 +22,7 @@
   white-space: nowrap;
   /* Prevents text from breaking onto the next line */
   animation:
-    typing 3s steps(25, end),
+    typing 3s steps(23, end),
     /* Duration should align with the number of steps/characters */
     blink-caret 0.75s step-end infinite;
   /* Cursor blinking effect */
@@ -35,7 +35,7 @@
   }
 
   to {
-    width: 16ch;
+    width: 15ch;
     /* 'ch' units corresponding to the number of characters */
   }
 }
