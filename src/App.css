@@ -3,7 +3,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #000000;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -16,14 +16,10 @@
 .animated-text {
   font-family: Courier New;
   overflow: clip;
-  /* Ensures the content is clipped, and no scrollbars are visible */
-  border-right: 2px solid rgba(255, 255, 255, 0.75);
-  /* Cursor next to the text */
+  border-right: 0px solid rgba(255, 255, 255, 0.75);
   white-space: nowrap;
-  /* Prevents text from breaking onto the next line */
   animation:
     typing 3s steps(23, end),
-    /* Duration should align with the number of steps/characters */
     blink-caret 0.75s step-end infinite;
   /* Cursor blinking effect */
 }
@@ -31,12 +27,10 @@
 @keyframes typing {
   from {
     width: 0;
-    /* Start from zero to only show a blinking cursor */
   }
 
   to {
-    width: 15ch;
-    /* 'ch' units corresponding to the number of characters */
+    width: 14ch;
   }
 }
 
@@ -46,11 +40,7 @@
   100% {
     border-color: transparent;
   }
-
-  /* Cursor is invisible at the start/end */
   30% {
     border-color: rgba(255, 255, 255, 0.75);
   }
-
-  /* Halfway through the animation, the cursor becomes visible */
 }
