@@ -1,8 +1,8 @@
 import React from 'react';
 
-const About = () => (
+const Contact = () => (
   <div>
   </div>
 );
 
-export default About;
+export default Contact;

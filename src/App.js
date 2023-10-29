@@ -4,11 +4,14 @@ import Home from './Home';
 import About from './About';
 import Experience from './Experience';
 import DownloadCV from './DownloadCV';
+import Contact from './Contact';
 import './App.css';
+import homeIcon from './Images/favicon-32x32.png';
 
 function App() {
   const [showText, setShowText] = useState(true);
-  const [showMenu, setShowMenu] = useState(false); // New state for managing menu visibility
+  const [showMenu, setShowMenu] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false); // State to manage if the menu is open
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
@@ -18,32 +21,40 @@ function App() {
     return () => clearTimeout(timeoutId);
   }, []);
 
-  // New handler for menu toggling
   const toggleMenu = () => {
-    setShowMenu(!showMenu);
+    setMenuOpen(!menuOpen);
+    setShowMenu(!showMenu); // Toggle between showing and hiding the menu content
   };
 
-  // Conditional rendering of the menu based on 'showMenu' state
   const renderMenu = () => {
     if (!showMenu) return null;
     return (
       <div className={`Navigation ${!showText ? 'active' : ''}`}>
         <ul>
-          <li><Link to="/">Home</Link></li>
           <li><Link to="/about">About</Link></li>
           <li><Link to="/experience">Experience</Link></li>
           <li><Link to="/download-cv">Download CV</Link></li>
+          <li><Link to="/contact">Contact</Link></li>
         </ul>
       </div>
     );
   };
 
-  // Hamburger icon component with click handler
+  const menuClasses = showMenu ? "HamburgerMenu animate" : "HamburgerMenu";
+
   const hamburgerIcon = (
-    <div className="HamburgerMenu" onClick={toggleMenu} style={{ display: showText ? 'none' : 'block' }}>
-      <div className="HamburgerLine"></div>
-      <div className="HamburgerLine"></div>
-      <div className="HamburgerLine"></div>
+    <div className={menuClasses} onClick={toggleMenu} style={{ display: showText ? 'none' : 'block' }}>
+      <div></div> {/* Line 1 */}
+      <div></div> {/* Line 2 */}
+      <div></div> {/* Line 3 */}
+    </div>
+  );
+
+  const homeImageButton = (
+    <div style={{ display: showText ? 'none' : 'block' }}>
+      <Link to="/" className="HomeButton">
+        <img src={homeIcon} alt="Home" />
+      </Link>
     </div>
   );
 
@@ -53,14 +64,18 @@ function App() {
         <header className="App-header">
           {showText && <h1 className="animated-text">Hello World...</h1>}
           {hamburgerIcon}
+          {homeImageButton}
           {renderMenu()}
         </header>
 
         <Switch>
-          <Route path="/" exact component={Home} />
+        <Route path="/" exact>
+            <Home /> {/* This is your home page component */}
+          </Route>
           <Route path="/about" component={About} />
           <Route path="/experience" component={Experience} />
           <Route path="/download-cv" component={DownloadCV} />
+          <Route path="/contact" component={Contact} />
         </Switch>
       </div>
     </Router>

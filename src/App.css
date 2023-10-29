@@ -48,23 +48,40 @@
 }
 
 .HamburgerMenu {
-  width: 25px;
-  height: 2px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  cursor: pointer;
+  width: 36px;
+  height: 36px;
   position: absolute;
   top: 15px;
   right: 15px;
-  background-color: transparent;
-  margin: 6px 0;
+  display: block;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  cursor: pointer;
+  text-align: center;
 
 }
 
 .HamburgerMenu div {
-  height: 2px;
-  background: rgb(255, 255, 255);
+  width: 70%;
+  height: 3px;
+  background-color: white;
+  margin: 6px auto; /* Adjust margin to center the lines */
+  transition: all 0.3s ease-in-out; /* This will make sure transformations animate */
+}
+
+/* New styles for animating the lines into an "X" */
+.HamburgerMenu.animate div:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px); /* Rotated and moved to form part of "X" */
+}
+
+.HamburgerMenu.animate div:nth-child(2) {
+  opacity: 0; /* Middle line disappears */
+}
+
+.HamburgerMenu.animate div:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px); /* Rotated and moved to form part of "X" */
 }
 
 .Navigation {
@@ -119,4 +136,28 @@
 .Navigation a:hover {
   font-weight: bold;
   cursor: pointer;
+}
+
+.HomeButton {
+  position: absolute;
+  top: 22px;
+  left: 22px;
+  border: none;
+  /* Remove default button styles */
+  background: transparent;
+  /* Remove default button styles */
+  padding: 0;
+  /* Remove default button padding */
+  cursor: pointer;
+}
+
+.HomeButton img {
+  width: 34px;
+  /* Adjust based on your preference or the actual image size */
+  height: 34px;
+  /* Adjust based on your preference or the actual image size */
+}
+.HamburgerMenu div.extended {
+  width: 120%; /* or whatever value makes it visually even */
+  transition: width 0.3s ease-in-out;
 }
