@@ -17,13 +17,14 @@
 .Navigation {
   position: absolute;
   top: 0;
-  left: 0;
+  right: 0; /* aligns the container to the right */
   margin: 10px;
   display: none; /* Ensures the navigation doesn't show initially */
+  text-align: left; /* Aligns the text of the menu items to the left */
 }
 
 .Navigation.active {
-  display: block; /* Navigation will show when this class is added */
+  display: block; 
 }
 
 .animated-text {
@@ -61,6 +62,7 @@
 .Navigation ul {
   padding: 0;
   list-style: none;
+  margin: 0; 
 }
 
 .Navigation li {
