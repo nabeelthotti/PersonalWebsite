@@ -1,57 +1,21 @@
-.App {
-  text-align: center;
-}
-
-.App-header {
-  background-color: #000000;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.animated-text {
-  font-family: Courier New;
-  overflow: hidden;
-  border-right: 2px solid rgba(255, 255, 255, 0.75);
-  white-space: nowrap;
-  animation:
-    typing 3s steps(23, end),
-    blink-caret 0.75s step-end infinite;
-}
-
-@keyframes typing {
-  from {
-    width: 0;
-  }
-
-  to {
-    width: 14ch;
-  }
-}
-
-@keyframes blink-caret {
-
-  0%,
-  100% {
-    border-color: transparent;
-  }
-
-  50% {
-    border-color: rgba(255, 255, 255, 0.75);
-  }
-}
-
 .Navigation ul {
-  list-style: none;
   padding: 0;
+  list-style: none;
 }
 
 .Navigation li {
+  margin: 0.5rem 0;
+}
+
+.Navigation a {
+  text-decoration: none;
   color: white;
-  margin-bottom: 1rem;
-  /* Or any space you prefer */
+  background-color: #333;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.Navigation a:hover {
+  background-color: #555;
 }

@@ -1,38 +1,50 @@
+// App.js
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import Home from './Home'; // Import your components
+import About from './About';
+import Experience from './Experience';
+import DownloadCV from './DownloadCV';
 import './App.css';
 
 function App() {
   const [showText, setShowText] = useState(true);
 
   useEffect(() => {
-    // When the component is mounted, wait for 4 seconds, then hide the text.
     const timeoutId = setTimeout(() => {
       setShowText(false);
-    }, 4000); // 4000ms = 4s
+    }, 4000);
 
-    // Cleanup function
-    return () => {
-      clearTimeout(timeoutId);
-    };
+    return () => clearTimeout(timeoutId);
   }, []);
 
-  return (
-    <div className="App">
-      <header className="App-header">
-        {showText ? (
-          <h1 className="animated-text">Hello World...</h1>
-        ) : (
-          <div className="Navigation">
-            <ul>
-              <li>Home</li>
-              <li>About</li>
-              <li>Experience</li>
-              <li>Download CV</li>
-            </ul>
-          </div>
-        )}
-      </header>
+  const renderNavigation = () => (
+    <div className="Navigation">
+      <ul>
+        <li><Link to="/">Home</Link></li>
+        <li><Link to="/about">About</Link></li>
+        <li><Link to="/experience">Experience</Link></li>
+        <li><Link to="/download-cv">Download CV</Link></li>
+      </ul>
     </div>
+  );
+
+  return (
+    <Router>
+      <div className="App">
+        <header className="App-header">
+          {showText ? <h1 className="animated-text">Hello World...</h1> : renderNavigation()}
+        </header>
+
+        {/* Define your routes */}
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/about" component={About} />
+          <Route path="/experience" component={Experience} />
+          <Route path="/download-cv" component={DownloadCV} />
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
