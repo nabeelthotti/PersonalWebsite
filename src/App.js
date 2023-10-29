@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Home from './Home';
 import About from './About';
 import Experience from './Experience';
-import DownloadCV from './DownloadCV';
+import DownloadCV from './Resume';
 import Contact from './Contact';
 import './App.css';
 import homeIcon from './Images/favicon-32x32.png';
@@ -33,7 +33,7 @@ function App() {
         <ul>
           <li><Link to="/about">About</Link></li>
           <li><Link to="/experience">Experience</Link></li>
-          <li><Link to="/download-cv">Download CV</Link></li>
+          <li><Link to="/download-cv">Resume</Link></li>
           <li><Link to="/contact">Contact</Link></li>
         </ul>
       </div>

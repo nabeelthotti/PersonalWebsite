@@ -11,7 +11,7 @@ const Home = () => {
       <div className="text-section">
         <h1>Welcome to my personal website. </h1>
         <p>
-        Embark on a journey through my digital portfolio, a showcase of intricate projects and hands-on experiences that mark my path in the tech landscape. Here, innovation meets expertise, inviting you to explore the milestones that have shaped my professional voyage.
+        Discover the symphony of innovation and purpose, where each project composes a note in my professional odyssey.
         </p>
       </div>
     </div>
