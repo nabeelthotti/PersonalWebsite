@@ -3,7 +3,8 @@
 }
 
 .App-header {
-  position: relative; /* Ensures the child absolute positioning is relative to this container */
+  position: relative;
+  /* Ensures the child absolute positioning is relative to this container */
   background-color: #000000;
   min-height: 100vh;
   display: flex;
@@ -45,9 +46,10 @@
     border-color: rgba(255, 255, 255, 0.75);
   }
 }
+
 .HamburgerMenu {
   width: 35px;
-  height: 35px;
+  height: 100px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -60,7 +62,6 @@
 .HamburgerMenu div {
   height: 2px;
   background: white;
-  border-radius: 1px;
 }
 
 .Navigation {
@@ -75,7 +76,7 @@
 }
 
 .Navigation.active {
-  display: block; 
+  display: block;
 }
 
 .Navigation ul {
@@ -105,7 +106,7 @@
 }
 
 .Navigation a {
-  text-decoration: underline; 
+  text-decoration: underline;
   color: white;
   font-family: 'Courier New', Courier, monospace;
   padding: 0.5rem 1rem;
@@ -116,6 +117,6 @@
 }
 
 .Navigation a:hover {
-  font-weight: bold; 
-  cursor: pointer; 
+  font-weight: bold;
+  cursor: pointer;
 }

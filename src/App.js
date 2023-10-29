@@ -53,7 +53,7 @@ function App() {
         <header className="App-header">
           {showText && <h1 className="animated-text">Hello World...</h1>}
           {hamburgerIcon}
-          {renderMenu()} {/* Here, we call the new renderMenu method */}
+          {renderMenu()}
         </header>
 
         <Switch>
