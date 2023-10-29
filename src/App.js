@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Navbar from './Navbar'; // Make sure this path is correct
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Home from './Home';
 import About from './About';
 import Experience from './Experience';
@@ -9,6 +8,7 @@ import './App.css';
 
 function App() {
   const [showText, setShowText] = useState(true);
+  const [showMenu, setShowMenu] = useState(false); // New state for managing menu visibility
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
@@ -18,12 +18,42 @@ function App() {
     return () => clearTimeout(timeoutId);
   }, []);
 
+  // New handler for menu toggling
+  const toggleMenu = () => {
+    setShowMenu(!showMenu);
+  };
+
+  // Conditional rendering of the menu based on 'showMenu' state
+  const renderMenu = () => {
+    if (!showMenu) return null;
+    return (
+      <div className={`Navigation ${!showText ? 'active' : ''}`}>
+        <ul>
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/about">About</Link></li>
+          <li><Link to="/experience">Experience</Link></li>
+          <li><Link to="/download-cv">Download CV</Link></li>
+        </ul>
+      </div>
+    );
+  };
+
+  // Hamburger icon component with click handler
+  const hamburgerIcon = (
+    <div className="HamburgerMenu" onClick={toggleMenu} style={{ display: showText ? 'none' : 'block' }}>
+      <div className="HamburgerLine"></div>
+      <div className="HamburgerLine"></div>
+      <div className="HamburgerLine"></div>
+    </div>
+  );
+
   return (
     <Router>
       <div className="App">
         <header className="App-header">
           {showText && <h1 className="animated-text">Hello World...</h1>}
-          <Navbar /> {/* Navbar component is added here */}
+          {hamburgerIcon}
+          {renderMenu()}
         </header>
 
         <Switch>
