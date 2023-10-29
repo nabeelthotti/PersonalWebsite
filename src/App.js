@@ -11,25 +11,25 @@ import homeIcon from './Images/favicon-32x32.png';
 function App() {
   const [showText, setShowText] = useState(true);
   const [showMenu, setShowMenu] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false); // State to manage if the menu is open
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
       setShowText(false);
-    }, 4000); // <- Time until the text animation is considered finished
+    }, 4000); // Adjust time as needed
 
     return () => clearTimeout(timeoutId);
   }, []);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
-    setShowMenu(!showMenu); // Toggle between showing and hiding the menu content
+    setShowMenu(!showMenu);
   };
 
   const renderMenu = () => {
     if (!showMenu) return null;
     return (
-      <div className={`Navigation ${!showText ? 'active' : ''}`}>
+      <div className={`Navigation ${menuOpen ? 'active' : ''}`}>
         <ul>
           <li><Link to="/about">About</Link></li>
           <li><Link to="/experience">Experience</Link></li>
@@ -40,13 +40,11 @@ function App() {
     );
   };
 
-  const menuClasses = showMenu ? "HamburgerMenu animate" : "HamburgerMenu";
-
   const hamburgerIcon = (
-    <div className={menuClasses} onClick={toggleMenu} style={{ display: showText ? 'none' : 'block' }}>
-      <div></div> {/* Line 1 */}
-      <div></div> {/* Line 2 */}
-      <div></div> {/* Line 3 */}
+    <div className={menuOpen ? "HamburgerMenu animate" : "HamburgerMenu"} onClick={toggleMenu} style={{ display: showText ? 'none' : 'block' }}>
+      <div></div>
+      <div></div>
+      <div></div>
     </div>
   );
 
@@ -61,22 +59,25 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <header className="App-header">
-          {showText && <h1 className="animated-text">Hello World...</h1>}
-          {hamburgerIcon}
-          {homeImageButton}
-          {renderMenu()}
-        </header>
-
-        <Switch>
-        <Route path="/" exact>
-            <Home /> {/* This is your home page component */}
-          </Route>
-          <Route path="/about" component={About} />
-          <Route path="/experience" component={Experience} />
-          <Route path="/download-cv" component={DownloadCV} />
-          <Route path="/contact" component={Contact} />
-        </Switch>
+        {/* Conditionally rendering the animated text or the actual content */}
+        {showText ? (
+          <header className="App-header">
+            <h1 className="animated-text">Hello World...</h1>
+          </header>
+        ) : (
+          <>
+            {hamburgerIcon}
+            {homeImageButton}
+            {renderMenu()}
+            <Switch>
+              <Route path="/" exact component={Home} />
+              <Route path="/about" component={About} />
+              <Route path="/experience" component={Experience} />
+              <Route path="/download-cv" component={DownloadCV} />
+              <Route path="/contact" component={Contact} />
+            </Switch>
+          </>
+        )}
       </div>
     </Router>
   );

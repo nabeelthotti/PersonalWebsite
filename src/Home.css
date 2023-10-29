@@ -1,31 +1,32 @@
-/* Home.css */
-
 .home-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px;
+    height: 100vh; /* This keeps your container to the height of the viewport */
+    box-sizing: border-box;
   }
   
-  .image-section {
-    flex: 1; /* adjust as needed */
-    max-width: 50%; /* adjust as needed */
-    padding-right: 20px; /* creates some space between the image and the text */
+  .image-section, 
+  .text-section {
+    flex: 1;
+    padding: 200px; /* This keeps the original padding */
   }
   
   .image-section img {
-    width: 100%; /* makes image responsive */
-    height: auto; /* maintain aspect ratio */
-    max-width: 100%; /* it is important that it is not larger than its container */
-    border-radius: 4px; /* optional: for rounded corners */
+    width: 100%;
+    height: auto;
+    border-radius: 14px;
   }
   
   .text-section {
-    flex: 1; /* adjust as needed */
-    max-width: 50%; /* adjust as needed */
+    text-align: left;
+    font: courier;
+    padding-left: 30px; /* This reduces only the left padding, moving your text closer to the image. Adjust the '150px' as necessary to get the desired spacing. */
   }
   
-  .text-section h1, .text-section p {
-    margin: 0 0 20px 0; /* adjust as needed, adds some space below each element */
+  .text-section h1, 
+  .text-section p {
+    margin: 0 0 20px 0; /* Keeps the spacing between text elements */
   }
   

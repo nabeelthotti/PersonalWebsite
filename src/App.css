@@ -1,24 +1,31 @@
 .App {
   text-align: center;
+  background-color: #000; /* Ensures background continuity */
+  color: #fff; /* Ensures text is visible against the dark background */
+  min-height: 100%; /* At least fills the viewport height */
+  height: 100vh; /* Viewport height */
+  overflow: hidden; /* Prevents scrolling */
 }
 
+
 .App-header {
-  position: relative;
-  /* Ensures the child absolute positioning is relative to this container */
-  background-color: #000000;
-  min-height: 100vh;
+  background-color: #000000; /* black */
+  min-height: 100vh; /* Full height */
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: center; /* Centered alignment */
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+body {
+  font-family: 'Courier New', Courier, monospace;
 }
 
 .animated-text {
   font-family: Courier New;
   overflow: hidden;
-  border-right: 2px solid rgba(255, 255, 255, 0.75);
+  border-right: 2px solid rgba(0, 0, 0, 0.75);
   white-space: nowrap;
   animation:
     typing 3s steps(23, end),
@@ -46,7 +53,9 @@
     border-color: rgba(255, 255, 255, 0.75);
   }
 }
-
+.hidden-header {
+  display: none;
+}
 .HamburgerMenu {
   width: 36px;
   height: 36px;
@@ -67,21 +76,21 @@
   width: 70%;
   height: 3px;
   background-color: white;
-  margin: 6px auto; /* Adjust margin to center the lines */
-  transition: all 0.3s ease-in-out; /* This will make sure transformations animate */
+  margin: 6px auto; 
+  transition: all 0.3s ease-in-out; 
 }
 
-/* New styles for animating the lines into an "X" */
+
 .HamburgerMenu.animate div:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px); /* Rotated and moved to form part of "X" */
+  transform: rotate(45deg) translate(5px, 5px); 
 }
 
 .HamburgerMenu.animate div:nth-child(2) {
-  opacity: 0; /* Middle line disappears */
+  opacity: 0;
 }
 
 .HamburgerMenu.animate div:nth-child(3) {
-  transform: rotate(-45deg) translate(7px, -6px); /* Rotated and moved to form part of "X" */
+  transform: rotate(-45deg) translate(7px, -6px); 
 }
 
 .Navigation {
@@ -143,21 +152,16 @@
   top: 22px;
   left: 22px;
   border: none;
-  /* Remove default button styles */
   background: transparent;
-  /* Remove default button styles */
   padding: 0;
-  /* Remove default button padding */
   cursor: pointer;
 }
 
 .HomeButton img {
   width: 34px;
-  /* Adjust based on your preference or the actual image size */
   height: 34px;
-  /* Adjust based on your preference or the actual image size */
 }
 .HamburgerMenu div.extended {
-  width: 120%; /* or whatever value makes it visually even */
+  width: 120%; 
   transition: width 0.3s ease-in-out;
 }

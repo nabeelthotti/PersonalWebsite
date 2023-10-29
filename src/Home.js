@@ -1,8 +1,6 @@
-// Home.js
-
 import React from 'react';
-import './Home.css'; // Make sure to import the CSS file here
-import sampleImage from './Images/IMG_3743.png'; // Adjust the path as necessary
+import './Home.css';
+import sampleImage from './Images/IMG_3743.jpg';
 
 const Home = () => {
   return (
@@ -11,9 +9,9 @@ const Home = () => {
         <img src={sampleImage} alt="Sample" />
       </div>
       <div className="text-section">
-        <h1>Header Content</h1>
+        <h1>Welcome to my personal website. </h1>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Embark on a journey through my digital portfolio, a showcase of intricate projects and hands-on experiences that mark my path in the tech landscape. Here, innovation meets expertise, inviting you to explore the milestones that have shaped my professional voyage.
         </p>
       </div>
     </div>
