@@ -99,6 +99,7 @@ body {
   right: 10px;
   top: 50px;
   text-align: left;
+  z-index: 1000;
 }
 
 .Navigation.active {
