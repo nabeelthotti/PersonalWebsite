@@ -41,9 +41,9 @@ function App() {
   // Hamburger icon component with click handler
   const hamburgerIcon = (
     <div className="HamburgerMenu" onClick={toggleMenu} style={{ display: showText ? 'none' : 'block' }}>
-      <div></div>
-      <div></div>
-      <div></div>
+      <div className="HamburgerLine"></div>
+      <div className="HamburgerLine"></div>
+      <div className="HamburgerLine"></div>
     </div>
   );
 
