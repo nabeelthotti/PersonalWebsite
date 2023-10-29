@@ -12,14 +12,14 @@ function App() {
   useEffect(() => {
     const timeoutId = setTimeout(() => {
       setShowText(false);
-    }, 4000);
+    }, 4000); // <- Time until the text animation is considered finished
 
     return () => clearTimeout(timeoutId);
   }, []);
 
-  // This will now always render the navigation, regardless of the text state
+  // Navigation markup with dynamic class
   const navigation = (
-    <div className="Navigation">
+    <div className={`Navigation ${!showText ? 'active' : ''}`}>
       <ul>
         <li><Link to="/">Home</Link></li>
         <li><Link to="/about">About</Link></li>
@@ -34,7 +34,7 @@ function App() {
       <div className="App">
         <header className="App-header">
           {showText && <h1 className="animated-text">Hello World...</h1>}
-          {navigation} {/* Rendered outside of the conditional rendering */}
+          {navigation} {/* This is now outside the conditional rendering */}
         </header>
 
         <Switch>
@@ -43,7 +43,7 @@ function App() {
           <Route path="/experience" component={Experience} />
           <Route path="/download-cv" component={DownloadCV} />
         </Switch>
-      </div>
+        </div>
     </Router>
   );
 }

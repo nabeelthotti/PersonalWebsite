@@ -3,7 +3,7 @@
 }
 
 .App-header {
-  position: relative; /* Added line */
+  position: relative; /* Ensures the child absolute positioning is relative to this container */
   background-color: #000000;
   min-height: 100vh;
   display: flex;
@@ -15,10 +15,15 @@
 }
 
 .Navigation {
-  position: absolute; /* Added line */
-  top: 0;             /* Added line */
-  left: 0;            /* Changed from right to left */
-  margin: 10px;       /* Added line */
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 10px;
+  display: none; /* Ensures the navigation doesn't show initially */
+}
+
+.Navigation.active {
+  display: block; /* Navigation will show when this class is added */
 }
 
 .animated-text {
