@@ -2,31 +2,50 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
-    height: 100vh; /* This keeps your container to the height of the viewport */
-    box-sizing: border-box;
-  }
-  
-  .image-section, 
-  .text-section {
+    height: 100%;
+    padding: 100px 200px;
+}
+
+.image-section {
     flex: 1;
-    padding: 200px; /* This keeps the original padding */
-  }
-  
-  .image-section img {
+    padding-right: 50px;
+}
+
+.image-section img {
     width: 100%;
     height: auto;
-    border-radius: 14px;
-  }
-  
-  .text-section {
-    text-align: left;
-    font: courier;
-    padding-left: 30px; /* This reduces only the left padding, moving your text closer to the image. Adjust the '150px' as necessary to get the desired spacing. */
-  }
-  
-  .text-section h1, 
-  .text-section p {
-    margin: 0 0 20px 0; /* Keeps the spacing between text elements */
-  }
-  
+}
+
+.text-section {
+    flex: 1;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .home-container {
+        flex-direction: column;
+    }
+
+    .image-section,
+    .text-section {
+        padding: 50px;
+    }
+
+    .image-section img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .image-section,
+    .text-section {
+        padding: 25px;
+    }
+
+    .text-section {
+        padding-left: 0;
+        text-align: center;
+    }
+}
