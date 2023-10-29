@@ -1,11 +1,6 @@
 // App.js
 import React, { useState, useEffect } from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import Home from './Home';
 import About from './About';
 import Experience from './Experience';
@@ -40,12 +35,12 @@ function App() {
                 <li><Link to="/download-cv">Download CV</Link></li>
               </ul>
             </nav>
-            <Switch>
-              <Route path="/about"><About /></Route>
-              <Route path="/experience"><Experience /></Route>
-              <Route path="/download-cv"><DownloadCV /></Route>
-              <Route path="/"><Home /></Route>
-            </Switch>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/experience" element={<Experience />} />
+              <Route path="/download-cv" element={<DownloadCV />} />
+            </Routes>
           </>
         )}
       </div>
