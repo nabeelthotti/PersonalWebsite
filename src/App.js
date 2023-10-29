@@ -8,6 +8,7 @@ import './App.css';
 
 function App() {
   const [showText, setShowText] = useState(true);
+  const [showMenu, setShowMenu] = useState(false); // New state for managing menu visibility
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
@@ -17,15 +18,32 @@ function App() {
     return () => clearTimeout(timeoutId);
   }, []);
 
-  // Navigation markup with dynamic class
-  const navigation = (
-    <div className={`Navigation ${!showText ? 'active' : ''}`}>
-      <ul>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/about">About</Link></li>
-        <li><Link to="/experience">Experience</Link></li>
-        <li><Link to="/download-cv">Download CV</Link></li>
-      </ul>
+  // New handler for menu toggling
+  const toggleMenu = () => {
+    setShowMenu(!showMenu);
+  };
+
+  // Conditional rendering of the menu based on 'showMenu' state
+  const renderMenu = () => {
+    if (!showMenu) return null;
+    return (
+      <div className={`Navigation ${!showText ? 'active' : ''}`}>
+        <ul>
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/about">About</Link></li>
+          <li><Link to="/experience">Experience</Link></li>
+          <li><Link to="/download-cv">Download CV</Link></li>
+        </ul>
+      </div>
+    );
+  };
+
+  // Hamburger icon component with click handler
+  const hamburgerIcon = (
+    <div className="HamburgerMenu" onClick={toggleMenu} style={{ display: showText ? 'none' : 'block' }}>
+      <div></div>
+      <div></div>
+      <div></div>
     </div>
   );
 
@@ -34,7 +52,8 @@ function App() {
       <div className="App">
         <header className="App-header">
           {showText && <h1 className="animated-text">Hello World...</h1>}
-          {navigation} {/* This is now outside the conditional rendering */}
+          {hamburgerIcon}
+          {renderMenu()} {/* Here, we call the new renderMenu method */}
         </header>
 
         <Switch>
@@ -43,7 +62,7 @@ function App() {
           <Route path="/experience" component={Experience} />
           <Route path="/download-cv" component={DownloadCV} />
         </Switch>
-        </div>
+      </div>
     </Router>
   );
 }

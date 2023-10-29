@@ -14,19 +14,6 @@
   color: white;
 }
 
-.Navigation {
-  position: absolute;
-  top: 0;
-  right: 0; /* aligns the container to the right */
-  margin: 10px;
-  display: none; /* Ensures the navigation doesn't show initially */
-  text-align: left; /* Aligns the text of the menu items to the left */
-}
-
-.Navigation.active {
-  display: block; 
-}
-
 .animated-text {
   font-family: Courier New;
   overflow: hidden;
@@ -58,15 +45,62 @@
     border-color: rgba(255, 255, 255, 0.75);
   }
 }
+.HamburgerMenu {
+  width: 35px;
+  height: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+.HamburgerMenu div {
+  height: 3px;
+  background: white;
+  border-radius: 5px;
+}
+
+.Navigation {
+  display: none;
+  position: absolute;
+  right: 10px;
+  top: 50px;
+  background: #333;
+  border-radius: 5px;
+  text-align: left;
+  box-shadow: 0px 0px 10px 0px #000000;
+}
+
+.Navigation.active {
+  display: block; 
+}
 
 .Navigation ul {
   padding: 0;
   list-style: none;
-  margin: 0; 
+  margin: 0;
 }
 
 .Navigation li {
-  margin: 0.5rem 0;
+  padding: 15px 20px;
+  border-bottom: 1px solid #222;
+}
+
+.Navigation li:last-child {
+  border-bottom: none;
+}
+
+.Navigation li a {
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s ease;
+}
+
+.Navigation li a:hover {
+  color: #ddd;
 }
 
 .Navigation a {
