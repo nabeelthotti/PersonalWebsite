@@ -1,7 +1,6 @@
-// App.js
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import Home from './Home'; // Import your components
+import Home from './Home';
 import About from './About';
 import Experience from './Experience';
 import DownloadCV from './DownloadCV';
@@ -18,7 +17,8 @@ function App() {
     return () => clearTimeout(timeoutId);
   }, []);
 
-  const renderNavigation = () => (
+  // This will now always render the navigation, regardless of the text state
+  const navigation = (
     <div className="Navigation">
       <ul>
         <li><Link to="/">Home</Link></li>
@@ -33,10 +33,10 @@ function App() {
     <Router>
       <div className="App">
         <header className="App-header">
-          {showText ? <h1 className="animated-text">Hello World...</h1> : renderNavigation()}
+          {showText && <h1 className="animated-text">Hello World...</h1>}
+          {navigation} {/* Rendered outside of the conditional rendering */}
         </header>
 
-        {/* Define your routes */}
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/about" component={About} />

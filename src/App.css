@@ -3,6 +3,7 @@
 }
 
 .App-header {
+  position: relative; /* Added line */
   background-color: #000000;
   min-height: 100vh;
   display: flex;
@@ -11,6 +12,13 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.Navigation {
+  position: absolute; /* Added line */
+  top: 0;             /* Added line */
+  left: 0;            /* Changed from right to left */
+  margin: 10px;       /* Added line */
 }
 
 .animated-text {
@@ -55,14 +63,16 @@
 }
 
 .Navigation a {
-  text-decoration: none;
+  text-decoration: underline; 
   color: white;
-  background-color: #333;
+  font-family: 'Courier New', Courier, monospace;
   padding: 0.5rem 1rem;
   border-radius: 5px;
-  transition: background-color 0.3s ease;
+  transition: color 0.3s ease;
+  background-color: transparent;
 }
 
 .Navigation a:hover {
-  background-color: #555;
+  font-weight: bold; 
+  cursor: pointer; 
 }
