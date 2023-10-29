@@ -3,9 +3,7 @@
 }
 
 .App-header {
-  position: relative;
-  /* Ensures the child absolute positioning is relative to this container */
-  background-color: #000000;
+  background-color: #282c34; /* Or any other color you prefer */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -16,107 +14,23 @@
 }
 
 .animated-text {
-  font-family: Courier New;
-  overflow: hidden;
-  border-right: 2px solid rgba(255, 255, 255, 0.75);
-  white-space: nowrap;
+  font-family: Courier New, Courier, monospace; /* Adjust as necessary */
+  overflow: hidden; /* Ensures the "typing" effect contains the letters */
+  white-space: nowrap; /* Keeps the content on a single line */
+  letter-spacing: .15em; /* Adjust as necessary */
   animation:
-    typing 3s steps(23, end),
-    blink-caret 0.75s step-end infinite;
+    typing 3.5s steps(40, end), /* The typing effect */
+    blink-caret .75s step-end infinite; /* The cursor effect */
 }
 
+/* Typing keyframes for the "typing" effect animation */
 @keyframes typing {
-  from {
-    width: 0;
-  }
-
-  to {
-    width: 14ch;
-  }
+  from { width: 0 }
+  to { width: 100% }
 }
 
+/* Blinking keyframes for the cursor effect */
 @keyframes blink-caret {
-
-  0%,
-  100% {
-    border-color: transparent;
-  }
-
-  50% {
-    border-color: rgba(255, 255, 255, 0.75);
-  }
-}
-
-.HamburgerMenu {
-  width: 25px;
-  height: 2px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  cursor: pointer;
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  background-color: transparent;
-  margin: 6px 0;
-
-}
-
-.HamburgerMenu div {
-  height: 2px;
-  background: rgb(255, 255, 255);
-}
-
-.Navigation {
-  display: none;
-  position: absolute;
-  right: 10px;
-  top: 50px;
-  text-align: left;
-}
-
-.Navigation.active {
-  display: block;
-}
-
-.Navigation ul {
-  padding: 0;
-  list-style: none;
-  margin: 0;
-}
-
-.Navigation li {
-  padding: 10px 20px;
-  border-bottom: 1px solid #555;
-}
-
-.Navigation li:last-child {
-  border-bottom: none;
-}
-
-.Navigation li a {
-  text-decoration: none;
-  color: white;
-  font-size: 14px;
-  transition: color 0.3s ease;
-}
-
-.Navigation li a:hover {
-  color: #ddd;
-}
-
-.Navigation a {
-  text-decoration: underline;
-  color: white;
-  font-family: 'Courier New', Courier, monospace;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
-  font-size: 14px;
-  transition: color 0.3s ease;
-  background-color: transparent;
-}
-
-.Navigation a:hover {
-  font-weight: bold;
-  cursor: pointer;
+  from, to { border-color: transparent }
+  50% { border-color: white; }
 }
