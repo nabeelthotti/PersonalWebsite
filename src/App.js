@@ -73,7 +73,7 @@ function App() {
               <Route path="/" exact component={Home} />
               <Route path="/about" component={About} />
               <Route path="/experience" component={Experience} />
-              <Route path="/download-cv" component={DownloadCV} />
+              <Route path="/resume" component={Resume} />
               <Route path="/contact" component={Contact} />
             </Switch>
           </>
