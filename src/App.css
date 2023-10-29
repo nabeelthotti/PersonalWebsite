@@ -47,7 +47,7 @@
 }
 .HamburgerMenu {
   width: 35px;
-  height: 25px;
+  height: 35px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -58,9 +58,9 @@
 }
 
 .HamburgerMenu div {
-  height: 3px;
+  height: 2px;
   background: white;
-  border-radius: 5px;
+  border-radius: 1px;
 }
 
 .Navigation {
@@ -96,6 +96,7 @@
 .Navigation li a {
   text-decoration: none;
   color: white;
+  font-size: 14px;
   transition: color 0.3s ease;
 }
 
@@ -109,6 +110,7 @@
   font-family: 'Courier New', Courier, monospace;
   padding: 0.5rem 1rem;
   border-radius: 5px;
+  font-size: 14px;
   transition: color 0.3s ease;
   background-color: transparent;
 }
