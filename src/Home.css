@@ -3,39 +3,37 @@
     justify-content: space-between;
     align-items: center;
     height: 100%;
-    padding: 100px 200px;
+    padding: 50px; /* Existing padding */
 }
 
 .image-section {
     flex: 1;
-    padding-right: 50px;
+    padding-right: 20px; /* Existing right padding */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px; /* Keeps a space between the image and text */
 }
 
 .image-section img {
-    width: 100%;
-    height: auto;
+    max-width: 70%;
+    max-height: 70%;
+    border: 3px solid #000000; /* Border to create a frame around the image */
+    padding: 10px; /* Space between the border and the actual image */
+    box-sizing: border-box;
+    object-fit: contain;
+    border-radius: 10px; /* Makes the image corners rounded */
 }
 
 .text-section {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 0px; /* Reduced padding to move text more to the left */
+    margin-left: -120px; /* Shifts everything slightly to the left */
 }
 
-/* Responsive styles */
-@media (max-width: 768px) {
-    .home-container {
-        flex-direction: column;
-    }
-
-    .image-section,
-    .text-section {
-        padding: 50px;
-    }
-
-    .image-section img {
-        max-width: 100%;
-        height: auto;
-    }
-}
 
 @media (max-width: 480px) {
 
