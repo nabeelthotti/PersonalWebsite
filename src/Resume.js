@@ -1,15 +1,17 @@
 import React from 'react';
 
 const Resume = () => (
-  <div>
-    <h1>RESUME</h1>
-    {/* Display the converted image of your resume */}
-    <img src="NabeelsReume.jpg" alt="Resume" style={{ width: '100%', height: 'auto' }} />
-    
-    {/* Link to download the original PDF */}
-    <a href="NabeelsResume.pdf" download="Your_Resume_Name.pdf">
-      <button style={{ marginTop: '20px' }}>Download</button>
-    </a>
+  <div style={{ width: '100vw', height: '100vh', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+    <img 
+      src="/NabeelsResume.png" 
+      alt="Resume" 
+      style={{ maxHeight: '80vh', maxWidth: '100vw', width: 'auto', height: 'auto', objectFit: 'contain' }} 
+    />
+    <div style={{ marginTop: '20px' }}>
+      <a href="/NabeelsResume.pdf" download="NabeelsResume.pdf">
+        <button>Download</button>
+      </a>
+    </div>
   </div>
 );
 
