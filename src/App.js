@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Home from './Home';
+import Chessboard from './Chess/Chessboard';
 //import About from './About';
 //import Experience from './Experience';
 import Resume from './Resume';
 import Contact from './Contact';
 import './App.css';
 import homeIcon from './Images/favicon-32x32.png';
+import { scryRenderedComponentsWithType } from 'react-dom/test-utils';
 
 function App() {
   const [showText, setShowText] = useState(true);
@@ -37,6 +39,7 @@ function App() {
 */}
           <li><Link to="/resume">Resume</Link></li>
           <li><Link to="/contact">Contact</Link></li>
+          <li><Link to="/chess">Play Chess</Link></li>
         </ul>
       </div>
     );
@@ -79,6 +82,8 @@ function App() {
 */}
               <Route path="/resume" component={Resume} />
               <Route path="/contact" component={Contact} />
+              <Route path="/chess" component={Chessboard} />
+
             </Switch>
           </>
         )}

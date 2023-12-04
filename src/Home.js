@@ -9,9 +9,9 @@ const Home = () => {
         <img src={sampleImage} alt="Sample" />
       </div>
       <div className="text-section">
-        <h1>Welcome to my personal website. </h1>
+        <h1>Welcome to Nabeel Thotti's personal website.</h1>
         <p>
-        Discover the symphony of innovation and purpose, where each project composes a note in my professional odyssey.
+        Discover the symphony of innovation and purpose, where each project composes a note in his professional odyssey.
         </p>
       </div>
     </div>
