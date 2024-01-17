@@ -8,7 +8,6 @@ import Resume from './Resume';
 import Contact from './Contact';
 import './App.css';
 import homeIcon from './Images/favicon-32x32.png';
-import { scryRenderedComponentsWithType } from 'react-dom/test-utils';
 
 function App() {
   const [showText, setShowText] = useState(true);
