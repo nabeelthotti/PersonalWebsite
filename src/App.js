@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Home from './Home';
-import Chessboard from './Chess/Chessboard';
-//import About from './About';
-//import Experience from './Experience';
+import About from './About';
+import Experience from './Experience';
+import Game from './Chess/src/components/game';
 import Resume from './Resume';
 import Contact from './Contact';
 import './App.css';
@@ -32,10 +32,9 @@ function App() {
     return (
       <div className={`Navigation ${menuOpen ? 'active' : ''}`}>
         <ul>
-          {/*
-  <li><Link to="/about">About</Link></li>
-  <li><Link to="/experience">Experience</Link></li>
-*/}
+          
+          <li><Link to="/about">About</Link></li>
+          <li><Link to="/experience">Projects</Link></li>
           <li><Link to="/resume">Resume</Link></li>
           <li><Link to="/contact">Contact</Link></li>
           <li><Link to="/chess">Play Chess</Link></li>
@@ -75,13 +74,11 @@ function App() {
             {renderMenu()}
             <Switch>
               <Route path="/" exact component={Home} />
-              {/* 
-  <Route path="/about" component={About} />
-  <Route path="/experience" component={Experience} />
-*/}
+              <Route path="/about" component={About} />
+              <Route path="/experience" component={Experience} />
               <Route path="/resume" component={Resume} />
               <Route path="/contact" component={Contact} />
-              <Route path="/chess" component={Chessboard} />
+              <Route path="/chess" component={Game} />
 
             </Switch>
           </>
