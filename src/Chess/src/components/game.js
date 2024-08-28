@@ -72,7 +72,7 @@ export default class Game extends React.Component {
 
         if (isCheckMe) {
           this.setState(oldState => ({
-            status: "Wrong selection. Choose valid source and destination again. Now you have a check!",
+            status: "Wrong selection. Choose valid source and destination again. You are in check!",
             sourceSelection: -1,
           }))
         } else {
