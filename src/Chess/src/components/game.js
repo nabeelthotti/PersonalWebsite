@@ -123,9 +123,8 @@ export default class Game extends React.Component {
   }
 
   render() {
-
     return (
-      <div>
+      <div className="game-container">  {/* This is the new container for centering the game */}
         <div className="game">
           <div className="game-board">
             <Board
@@ -135,24 +134,20 @@ export default class Game extends React.Component {
           </div>
           <div className="game-info">
             <div id="player-turn-box" style={{ backgroundColor: this.state.turn }}>
-
             </div>
             <div className="game-status">{this.state.status}</div>
-
             <div className="fallen-soldier-block">
-
-              {<FallenSoldierBlock
+              <FallenSoldierBlock
                 whiteFallenSoldiers={this.state.whiteFallenSoldiers}
                 blackFallenSoldiers={this.state.blackFallenSoldiers}
               />
-              }
             </div>
           </div>
         </div>
+        <div className="icons-attribution">
+          
+        </div>
       </div>
-
-
     );
   }
-}
-
+}  

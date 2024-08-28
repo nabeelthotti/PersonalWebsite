@@ -4,6 +4,24 @@
   background-color: #ECECEA;
 }
 
+.game-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* This makes the container take the full height of the viewport */
+  width: 100vw; /* This makes the container take the full width of the viewport */
+}
+
+.game {
+  max-width: 90%; /* Limits the game width and allows some margin around it */
+  max-height: 90%; /* Limits the game height and ensures it does not overflow the viewport */
+  display: flex;
+  flex-direction: column; /* Organizes children elements vertically */
+  justify-content: center; /* Center children vertically */
+  align-items: center; /* Center children horizontally */
+}
+
+
 .game-page ol, ul {
   padding-left: 30px;
 }
