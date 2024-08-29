@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Home from './Home';
 import About from './About';
 import Experience from './Experience';
+import Articles from './Articles';  
 import Game from './Chess/src/components/game';
 import Resume from './Resume';
 import Contact from './Contact';
@@ -34,10 +35,12 @@ function App() {
         <ul>
           
           <li><Link to="/about">About</Link></li>
-          <li><Link to="/experience">Projects</Link></li>
+          <li><Link to="/experience">Experience</Link></li>
           <li><Link to="/resume">Resume</Link></li>
+          <li><Link to="/articles">Articles</Link></li>
           <li><Link to="/contact">Contact</Link></li>
           <li><Link to="/chess">Play Chess</Link></li>
+          
         </ul>
       </div>
     );
@@ -76,6 +79,7 @@ function App() {
               <Route path="/" exact component={Home} />
               <Route path="/about" component={About} />
               <Route path="/experience" component={Experience} />
+              <Route path="/articles" component={Articles} />
               <Route path="/resume" component={Resume} />
               <Route path="/contact" component={Contact} />
               <Route path="/chess" component={Game} />

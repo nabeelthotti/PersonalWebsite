@@ -1,114 +1,73 @@
-/* Base styles for the IDE-like container */
-.ide-container {
-    background-color: #282c34;
- 
+.articles-container {
     padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-    max-width: 800px;
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: calc(100% - 40px);
-    box-sizing: border-box;
-}
-
-/* Styles for the header of the IDE container */
-.ide-header {
-    background-color: #21252b;
-    padding: 10px 15px;
-    border-radius: 3px;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 1em;
-}
-
-/* Flex container for the code editor's internal layout */
-.ide-code-editor {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
-    font-family: 'Courier New', Courier, monospace;
-}
-
-/* Line of code within the editor */
-.ide-line {
-    display: flex;
+    justify-content: center;
     align-items: center;
-}
-
-/* Code and comments within the editor */
-.ide-code {
-    margin-right: 5px;
-    color: #c5a5c5;
-}
-
-.ide-comment {
-    margin-right: 5px;
-    color: #6a9955;
-}
-
-/* Input fields within the editor */
-.ide-input,
-.ide-textarea {
-    background-color: transparent;
-    border: none;
-    color: #9cdcfe;
-    border-bottom: 1px solid #484d58;
-    padding: 4px 8px;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 1em;
-    outline: none;
-}
-
-.ide-input::placeholder,
-.ide-textarea::placeholder {
-    color: #d4d4d4;
-}
-
-.ide-input:focus,
-.ide-textarea:focus {
-    border-color: #528bff;
-}
-
-.ide-textarea {
-    resize: vertical;
-    min-height: 60px;
-}
-
-/* Submit button at the bottom of the form */
-.ide-container .ide-submit {
-    margin-top: 20px;
-    background-color: #801fb5;
-    color: #d70606;
-    /* black text */
-    padding: 10px 15px;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-    font-family: 'Courier New', Courier, monospace;
-    transition: background-color 0.3s ease;
-}
-
-.ide-container .ide-submit:hover {
-    background-color: #9b06eb;
-    /* Darker green on hover */
+    height: 100vh;
+    margin: 0 auto;
+  }
+  
+  .title-lowered {
+    position: absolute;
+    top: 30%; 
+    width: 100%;
+    text-align: center;
     color: #ffffff;
-    /* white text for contrast on hover */
-}
-
-.ide-container .ide-submit:focus {
-    outline: none;
-    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.5);
-    /* Green glow on focus */
-}
-
-/* Optional: Additional specific syntax styles */
-.keyword-style {
-    color: #c586c0;
-}
-
-.string-style {
-    color: #ce9178;
-}
+    transition: top 0.3s ease;
+  }
+  
+  .articles-container h1 {
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    text-align: center;
+    color: #333;
+    transition: top 0.3s ease;
+  }
+  
+  .pdf-gallery {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .pdf-viewer {
+    position: relative;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  
+  iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+  
+  .fullscreen-button, .go-back-button {
+    position: absolute;
+    bottom: 10px;
+    padding: 8px 16px;
+    font-size: 16px;
+    color: white;
+    background-color: black; /* Both buttons are black */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .fullscreen-button:hover, .go-back-button:hover {
+    background-color: #333;
+  }
+  
+  .fullscreen-button {
+    right: 10px;
+  }
+  
+  .go-back-button {
+    right: 10px;
+  }
+  
