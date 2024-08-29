@@ -40,6 +40,7 @@ const Articles = () => {
       <div className="pdf-gallery">
         <div className="pdf-viewer" id="pdfWrapper1">
           <iframe
+            title="Instant Gratification Article"
             src="Instantgratification.pdf#zoom=36"
             frameBorder="0"
             allow="fullscreen"
@@ -53,6 +54,7 @@ const Articles = () => {
         </div>
         <div className="pdf-viewer" id="pdfWrapper2">
           <iframe
+            title="Algorithm Bias Article"
             src="articlealgobias.pdf#zoom=36"
             frameBorder="0"
             allow="fullscreen"
