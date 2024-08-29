@@ -36,7 +36,7 @@ const Articles = () => {
 
   return (
     <div className="articles-container">
-      <h1 className={isFullscreen ? "title-lowered" : ""}>Featured Articles</h1>
+      <h1 className={isFullscreen ? "title-lowered" : ""}>FEATURED ARTICLES</h1>
       <div className="pdf-gallery">
         <div className="pdf-viewer" id="pdfWrapper1">
           <iframe

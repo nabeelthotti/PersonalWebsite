@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Home from './Home';
 import About from './About';
-import Experience from './Experience';
+import Projects from './Projects';
 import Articles from './Articles';  
 import Game from './Chess/src/components/game';
 import Resume from './Resume';
@@ -35,9 +35,9 @@ function App() {
         <ul>
           
           <li><Link to="/about">About</Link></li>
-          <li><Link to="/experience">Experience</Link></li>
-          <li><Link to="/resume">Resume</Link></li>
+          <li><Link to="/projects">Projects</Link></li>
           <li><Link to="/articles">Articles</Link></li>
+          <li><Link to="/resume">Resume</Link></li>
           <li><Link to="/contact">Contact</Link></li>
           <li><Link to="/chess">Play Chess</Link></li>
           
@@ -78,7 +78,7 @@ function App() {
             <Switch>
               <Route path="/" exact component={Home} />
               <Route path="/about" component={About} />
-              <Route path="/experience" component={Experience} />
+              <Route path="/projects" component={Projects} />
               <Route path="/articles" component={Articles} />
               <Route path="/resume" component={Resume} />
               <Route path="/contact" component={Contact} />

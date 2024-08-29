@@ -12,7 +12,8 @@
   top: 20%; /* Lowered position when in fullscreen */
   width: 100%;
   text-align: center;
-  color: #333;
+  color: white; /* Changed color to white */
+  font-size: calc(10px + 2vmin); /* Dynamic font-size based on viewport size */
   transition: top 0.3s ease;
 }
 
@@ -21,7 +22,8 @@
   top: 10px;
   width: 100%;
   text-align: center;
-  color: #333;
+  color: white; /* Changed color to white */
+  font-size: calc(10px + 2vmin); /* Dynamic font-size based on viewport size */
   transition: top 0.3s ease; /* Smooth transition for title movement */
 }
 
