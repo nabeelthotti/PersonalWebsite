@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const projectsData = [
   { name: "Rekognize", imgSrc: "Project1.png", path: "/rekognize" },
-  { name: "2 Player Chess", imgSrc: "Project2.png", path: "/chess" },
+  { name: "2 Player Chess", imgSrc: "Project2.png", path: "/chessgame" },
   { name: "Find My Parcel", imgSrc: "Project3.png", path: "/findmyparcel" },
   { name: "Daily Commit Bot", imgSrc: "Project4.png", path: "/dailycommit" },
   { name: "ShopVista", imgSrc: "Project5.png", path: "/shopvista" },
@@ -17,7 +17,7 @@ const projectsData = [
 const Projects = () => {
   return (
     <div className="experience-container">
-      <h1>PROJECTS</h1>
+      <h1>   </h1>
       <div className="grid-container">
         {projectsData.map((project, index) => (
           <div key={index} className="grid-item">

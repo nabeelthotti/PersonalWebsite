@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Contact.css'; // Linking to your stylesheet
+import './Contact.css'; 
 
 const Contact = () => {
     const [formData, setFormData] = useState({
@@ -20,12 +20,9 @@ const Contact = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // You would handle your form submission here (e.g., send to an API)
         console.log('User Submitted:', formData);
-        // Clear the form
         setFormData({ firstName: '', lastName: '', email: '', phoneNumber: '', message: '' });
     };
-    // eslint-disable-next-line
     return (
         <div className="ide-container">
             <div className="ide-header">MyIDE - ContactForm.js</div>

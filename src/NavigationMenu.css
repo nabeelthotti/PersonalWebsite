@@ -1,27 +1,60 @@
-.dropdown {
-    position: relative;
-    display: inline-block;
-  }
-  
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-  }
-  
-  .dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-  }
-  
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
-  
-  .dropdown-content a:hover {background-color: #f1f1f1}
-  
+/* Common styles for all menus */
+.nav-menu {
+  list-style-type: none;
+  margin: 0;
+  padding: 15px;
+  overflow: hidden;
+  background-color: #333;
+}
+
+.nav-menu li {
+  float: right;
+}
+
+.nav-menu li a {
+  display: block;
+  color: white;
+  text-align: left;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.nav-menu li a:hover {
+  background-color: #111;
+}
+
+/* Specific styles for dropdown on non-home pages */
+.dropdown .nav-menu {
+  float: none;
+  background: none;
+}
+
+.dropdown .nav-menu li {
+  display: block;
+  float: none;
+}
+
+.dropdown .nav-menu li a {
+  padding: 12px;
+  color: black;
+  background-color: #f9f9f9;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.menu-toggle {
+  display: block;
+  padding: 10px 20px;
+  background-color: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.menu-toggle:hover {
+  background-color: #555;
+}

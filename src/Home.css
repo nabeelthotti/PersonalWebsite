@@ -2,36 +2,37 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 100%;
-    padding: 50px; /* Existing padding */
+    height: 105%;
+    padding: 0px; 
 }
 
 .image-section {
     flex: 1;
-    padding-right: 20px; /* Existing right padding */
+    padding-right: 10px; 
     display: flex;
     justify-content: center;
-    align-items: center;
-    margin-right: 20px; /* Keeps a space between the image and text */
+    align-items: flex-start; 
+    margin-right: 0px; 
 }
 
 .image-section img {
-    max-width: 70%;
-    max-height: 70%;
-    border: 3px solid #000000; /* Border to create a frame around the image */
-    padding: 10px; /* Space between the border and the actual image */
+    max-width: 55%; 
+    max-height: 5%; 
+    border: 10px solid #000000; 
+    padding: 0px; 
     box-sizing: border-box;
     object-fit: contain;
-    border-radius: 10px; /* Makes the image corners rounded */
+    border-radius: 10%; 
 }
+
 
 .text-section {
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding-left: 0px; /* Reduced padding to move text more to the left */
-    margin-left: -120px; /* Shifts everything slightly to the left */
+    padding-left: 1px; 
+    margin-left: -290px; 
 }
 
 
@@ -39,7 +40,7 @@
 
     .image-section,
     .text-section {
-        padding: 25px;
+        padding: 45px;
     }
 
     .text-section {
@@ -47,3 +48,40 @@
         text-align: center;
     }
 }
+.home-menu {
+    width: 100%;
+    background-color: #454242;
+    height: 60px;
+    position: fixed; 
+    top: 0;
+    left: 0;
+    z-index: 1000; 
+    overflow: hidden; 
+  }
+  
+  .home-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 24px;
+    height: 10%;
+    display: flex;
+    justify-content: flex-end; 
+    align-items: center; 
+  }
+  
+  .home-menu ul li {
+    display: inline;
+  }
+  
+  .home-menu ul li a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    padding: 8px 15px; 
+    display: block;
+    line-height: 14px; 
+  }
+  
+  .home-menu ul li a:hover {
+    background-color: #645f5f;
+  }
+  

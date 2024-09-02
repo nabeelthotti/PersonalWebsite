@@ -150,12 +150,13 @@ body {
 
 .HomeButton {
   position: absolute;
-  top: 22px;
+  top: 12px;
   left: 22px;
   border: none;
   background: transparent;
   padding: 0;
   cursor: pointer;
+  z-index: 2000;
 }
 
 .HomeButton img {
@@ -231,4 +232,40 @@ body {
 
 .light {
   background-color: #f0d9b5;
+}
+.home-menu {
+  width: 100%;
+  background-color: #454242;
+  height: 60px;
+  position: fixed; 
+  top: 0;
+  left: 0;
+  z-index: 1000; /* Ensures the menu stays on top of other content */
+  overflow: hidden; /* Keeps everything contained within the 30px height */
+}
+
+.home-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 24px;
+  height: 10%;
+  display: flex;
+  justify-content: flex-end; 
+  align-items: center; 
+}
+
+.home-menu ul li {
+  display: inline;
+}
+
+.home-menu ul li a {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  padding: 8px 15px; /* Adjusted to vertically center text within 30px height */
+  display: block;
+  line-height: 14px; /* Ensures text is centered if the padding or height changes */
+}
+
+.home-menu ul li a:hover {
+  background-color: #645f5f;
 }

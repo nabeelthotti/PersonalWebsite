@@ -3,17 +3,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Full viewport height */
+  height: 100vh; 
   margin: 0 auto;
 }
 
 .title-lowered {
   position: absolute;
-  top: 20%; /* Lowered position when in fullscreen */
+  top: 20%; 
   width: 100%;
   text-align: center;
-  color: white; /* Changed color to white */
-  font-size: calc(10px + 2vmin); /* Dynamic font-size based on viewport size */
+  color: white; 
+  font-size: calc(10px + 2vmin); 
   transition: top 0.3s ease;
 }
 
@@ -22,9 +22,9 @@
   top: 30px;
   width: 100%;
   text-align: center;
-  color: white; /* Changed color to white */
-  font-size: calc(10px + 2vmin); /* Dynamic font-size based on viewport size */
-  transition: top 0.3s ease; /* Smooth transition for title movement */
+  color: white; 
+  font-size: calc(10px + 2vmin); 
+  transition: top 0.3s ease; 
 }
 
 .pdf-gallery {
@@ -57,14 +57,14 @@ iframe {
   padding: 8px 16px;
   font-size: 16px;
   color: white;
-  background-color: black; /* Buttons are black */
+  background-color: black; 
   border: none;
   border-radius: 4px;
   cursor: pointer;
 }
 
 .fullscreen-button:hover, .go-back-button:hover {
-  background-color: #333; /* Darken on hover */
+  background-color: #333; 
 }
 
 .fullscreen-button {
@@ -73,4 +73,41 @@ iframe {
 
 .go-back-button {
   right: 10px;
+}
+
+.home-menu {
+  width: 100%;
+  background-color: #454242;
+  height: 60px;
+  position: fixed; 
+  top: 0;
+  left: 0;
+  z-index: 1000; 
+  overflow: hidden; 
+}
+
+.home-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 24px;
+  height: 10%;
+  display: flex;
+  justify-content: flex-end; 
+  align-items: center; 
+}
+
+.home-menu ul li {
+  display: inline;
+}
+
+.home-menu ul li a {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  padding: 8px 15px;
+  display: block;
+  line-height: 14px;
+}
+
+.home-menu ul li a:hover {
+  background-color: #645f5f;
 }

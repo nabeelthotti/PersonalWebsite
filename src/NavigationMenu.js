@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const NavigationMenu = ({ isOpen }) => (
-  <div className={`Navigation ${isOpen ? 'active' : ''}`}>
+const NavigationMenu = ({ isOpen, isHome }) => (
+  <div className={`Navigation ${isOpen ? 'active' : ''} ${isHome ? 'home' : 'dropdown'}`}>
     <ul>
       <li><Link to="/about">About</Link></li>
       <li><Link to="/projects">Projects</Link></li>

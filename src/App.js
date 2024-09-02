@@ -11,6 +11,11 @@ import NavigationMenu from './NavigationMenu';
 
 //Project Pages
 import Rekognize from './ProjectPages/Rekognize/rekognize';
+import Chess from './ProjectPages/Chess/chess';
+import CommitBot from './ProjectPages/CommitBot/commit';
+import Parcel from './ProjectPages/FindMyParcel/parcel';
+import PortChat from './ProjectPages/PortChat/portchat';
+import ShopVista from './ProjectPages/ShopVista/shopvista';
 
 import './App.css';
 import homeIcon from './Images/favicon-32x32.png';
@@ -53,6 +58,11 @@ function App() {
             <Route path="/about" component={About} />
             <Route path="/projects" component={Projects} />
             <Route path="/rekognize" component={Rekognize} />
+            <Route path="/dailycommit" component={CommitBot} />
+            <Route path="/findmyparcel" component={Parcel} />
+            <Route path="/portchat" component={PortChat} />
+            <Route path="/chessgame" component={Chess} />
+            <Route path="/shopvista" component={ShopVista} />
             <Route path="/articles" component={Articles} />
             <Route path="/resume" component={Resume} />
             <Route path="/contact" component={Contact} />
