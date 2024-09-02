@@ -24,7 +24,7 @@ const Articles = () => {
         setIsFullscreen(false);
         document.querySelectorAll('iframe').forEach(iframe => {
           const src = iframe.src.split('#')[0]; // Remove zoom parameter
-          iframe.src = `${src}#zoom=36`; // Reset zoom to 36% when exiting fullscreen
+          iframe.src = `${src}#zoom=100`; // Reset zoom to 36% when exiting fullscreen
         });
       });
     } else if (document.webkitExitFullscreen) { /* Safari */

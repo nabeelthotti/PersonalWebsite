@@ -8,17 +8,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* This makes the container take the full height of the viewport */
-  width: 100vw; /* This makes the container take the full width of the viewport */
+  height: 100vh;
+  width: 100vw; 
 }
 
 .game {
-  max-width: 90%; /* Limits the game width and allows some margin around it */
-  max-height: 90%; /* Limits the game height and ensures it does not overflow the viewport */
+  max-width: 90%; 
+  max-height: 90%; 
   display: flex;
-  flex-direction: column; /* Organizes children elements vertically */
-  justify-content: center; /* Center children vertically */
-  align-items: center; /* Center children horizontally */
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center; 
 }
 
 

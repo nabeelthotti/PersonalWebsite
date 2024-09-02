@@ -3,87 +3,60 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Home from './Home';
 import About from './About';
 import Projects from './Projects';
-import Articles from './Articles';  
+import Articles from './Articles';
 import Game from './Chess/src/components/game';
 import Resume from './Resume';
 import Contact from './Contact';
+import NavigationMenu from './NavigationMenu'; 
+
+//Project Pages
+import Rekognize from './ProjectPages/Rekognize/rekognize';
+
 import './App.css';
 import homeIcon from './Images/favicon-32x32.png';
 
 function App() {
   const [showText, setShowText] = useState(true);
   const [showMenu, setShowMenu] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const timeoutId = setTimeout(() => {
-      setShowText(false);
-    }, 4000); // Adjust time as needed
-
+    const timeoutId = setTimeout(() => setShowText(false), 4000);
     return () => clearTimeout(timeoutId);
   }, []);
 
   const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
     setShowMenu(!showMenu);
   };
-
-  const renderMenu = () => {
-    if (!showMenu) return null;
-    return (
-      <div className={`Navigation ${menuOpen ? 'active' : ''}`}>
-        <ul>
-          
-          <li><Link to="/about">About</Link></li>
-          <li><Link to="/projects">Projects</Link></li>
-          <li><Link to="/articles">Articles</Link></li>
-          <li><Link to="/resume">Resume</Link></li>
-          <li><Link to="/contact">Contact</Link></li>
-          <li><Link to="/chess">Play Chess</Link></li>
-          
-        </ul>
-      </div>
-    );
-  };
-
-  const hamburgerIcon = (
-    <div className={menuOpen ? "HamburgerMenu animate" : "HamburgerMenu"} onClick={toggleMenu} style={{ display: showText ? 'none' : 'block' }}>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  );
-
-  const homeImageButton = (
-    <div style={{ display: showText ? 'none' : 'block' }}>
-      <Link to="/" className="HomeButton">
-        <img src={homeIcon} alt="Home" />
-      </Link>
-    </div>
-  );
 
   return (
     <Router>
       <div className="App">
-        {/* Conditionally rendering the animated text or the actual content */}
         {showText ? (
           <header className="App-header">
             <h1 className="animated-text">Hello World...</h1>
           </header>
         ) : (
           <>
-            {hamburgerIcon}
-            {homeImageButton}
-            {renderMenu()}
+            <div className={showMenu ? "HamburgerMenu animate" : "HamburgerMenu"} onClick={toggleMenu}>
+              <div></div>
+              <div></div>
+              <div></div>
+            </div>
+            <div style={{ display: showText ? 'none' : 'block' }}>
+              <Link to="/" className="HomeButton">
+                <img src={homeIcon} alt="Home" />
+              </Link>
+            </div>
+            <NavigationMenu isOpen={showMenu} />
             <Switch>
-              <Route path="/" exact component={Home} />
-              <Route path="/about" component={About} />
-              <Route path="/projects" component={Projects} />
-              <Route path="/articles" component={Articles} />
-              <Route path="/resume" component={Resume} />
-              <Route path="/contact" component={Contact} />
-              <Route path="/chess" component={Game} />
-
+            <Route path="/" exact component={Home} />
+            <Route path="/about" component={About} />
+            <Route path="/projects" component={Projects} />
+            <Route path="/rekognize" component={Rekognize} />
+            <Route path="/articles" component={Articles} />
+            <Route path="/resume" component={Resume} />
+            <Route path="/contact" component={Contact} />
+            <Route path="/chess" component={Game} />
             </Switch>
           </>
         )}
