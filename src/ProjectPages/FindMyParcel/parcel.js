@@ -19,19 +19,19 @@ const Parcel = () => {
     };
 
     return (
-        <div className="project-page">
+        <div className="parcel-project-page">
             <h1>Find My Parcel</h1>
-            <div className="main-content">
-                <div className="carousel-container">
-                    <button className="arrow left" onClick={prevSlide}>&#10094;</button>
+            <div className="parcel-main-content">
+                <div className="parcel-carousel-container">
+                    <button className="parcel-arrow left" onClick={prevSlide}>&#10094;</button>
                     <img src={slides[activeSlide].src} alt={slides[activeSlide].alt} />
-                    <button className="arrow right" onClick={nextSlide}>&#10095;</button>
+                    <button className="parcel-arrow right" onClick={nextSlide}>&#10095;</button>
                 </div>
-                <div className="project-description">
+                <div className="parcel-project-description">
                     <p>Find My Parcel is a robust package tracking platform developed using the AfterShip API to offer real-time updates on shipments across various global couriers. The site was constructed using a mix of JavaScript, CSS, and HTML, with JavaScript handling dynamic interactions and data handling, CSS providing the layout and design, and HTML structuring the web content. This technology stack ensures that users can effortlessly track their packages by entering a tracking number, which instantly fetches and displays the latest status and location updates. The user-friendly interface was specifically designed to streamline navigation and enhance the user experience, making ParcelTracker an effective tool for personal and business logistics management. Additionally, the platform is open for contributions, allowing developers to collaborate and contribute enhancements or new features, further evolving its capabilities and utility.</p>
                 </div>
             </div>
-            <div className="horizontal-sections">
+            <div className="parcel-horizontal-sections">
                 <div>
                     <h2>Tools</h2>
                     <ul>

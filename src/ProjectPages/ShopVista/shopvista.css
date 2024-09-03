@@ -1,4 +1,4 @@
-.project-page {
+.shopvista-project-page {
     padding: 20px;
     max-width: 1200px;
     margin: 40px auto;
@@ -12,7 +12,7 @@
     align-items: center;
 }
 
-.main-content {
+.shopvista-main-content {
     display: flex;
     width: 130%;
     justify-content: space-between;
@@ -21,62 +21,62 @@
     gap: 90px; 
 }
 
-.carousel-container {
+.shopvista-carousel-container {
     flex: 1;
     position: relative;
     max-width: 70%;
 }
 
-.project-page img {
+.shopvista-project-page img {
     width: 110%;
     height: auto;
     max-height: 450px;
     object-fit: contain;
 }
 
-.arrow {
+.shopvista-arrow {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     cursor: pointer;
-    font-size: 24px;
+    font-size: 54px;
     color: white;
     background-color: transparent;
     border: none;
 }
 
-.arrow.left {
-    left: -30px;
+.shopvista-arrow.left {
+    left: -40px;
 }
 
-.arrow.right {
-    right: -100px;
+.shopvista-arrow.right {
+    right: -110px;
 }
 
-.project-description {
+.shopvista-project-description {
     flex: 1;
     text-align: left;
-    padding: 20px;
+    padding: 30px;
     font-size: 1.2rem;
 }
 
-.horizontal-sections {
+.shopvista-horizontal-sections {
     display: flex;
     justify-content: space-around;
     width: 100%;
-    margin-top: 20px;
+;
 }
 
-.horizontal-sections div {
+.shopvista-horizontal-sections div {
     text-align: center;
 }
 
-.horizontal-sections h2 {
-    margin-bottom: 10px;
+.shopvista-horizontal-sections h2 {
+    margin-bottom: 0;
     font-size: 1.5rem; 
 }
 
-.horizontal-sections ul {
+.shopvista-horizontal-sections ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
@@ -84,15 +84,15 @@
     line-height: 1.6; 
 }
 
-.horizontal-sections li {
+.shopvista-horizontal-sections li {
     margin-bottom: 5px; 
 }
 
-.project-page a {
+.shopvista-project-page a {
     color: rgb(113, 181, 200);
     text-decoration: underline;
 }
 
-.project-page a:hover {
+.shopvista-project-page a:hover {
     color: #ff6666;
 }

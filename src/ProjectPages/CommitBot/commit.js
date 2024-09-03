@@ -18,19 +18,19 @@ const CommitBot = () => {
     };
 
     return (
-        <div className="project-page">
+        <div className="commit-project-page">
             <h1>CI/CD Bot</h1>
-            <div className="main-content">
-                <div className="carousel-container">
-                    <button className="arrow left" onClick={prevSlide}>&#10094;</button>
+            <div className="commit-main-content">
+                <div className="commit-carousel-container">
+                    <button className="commit-arrow left" onClick={prevSlide}>&#10094;</button>
                     <img src={slides[activeSlide].src} alt={slides[activeSlide].alt} />
-                    <button className="arrow right" onClick={nextSlide}>&#10095;</button>
+                    <button className="commit-arrow right" onClick={nextSlide}>&#10095;</button>
                 </div>
-                <div className="project-description">
+                <div className="commit-project-description">
                     <p>The Daily Commit Bot is an automation tool designed to enhance repository activity by performing scheduled commits to a GitHub repository from an AWS EC2 instance. It operates by appending the current date and time to a daily_commit.txt file and pushing updates to GitHub five times a day, ensuring continuous activity which is crucial for repositories involved in demonstration or CI/CD pipelines. This bot uses a bash script scheduled with Cron, a time-based job scheduler, to automate commits, simulating an active development environment essential for triggering CI/CD workflows. Such automation ensures that the repository can reliably demonstrate continuous integration tools and practices by maintaining a steady flow of changes, which is critical for catching issues early and deploying software more frequently and reliably. </p>
                 </div>
             </div>
-            <div className="horizontal-sections">
+            <div className="commit-horizontal-sections">
                 <div>
                     <h2>Tools</h2>
                     <ul>

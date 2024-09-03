@@ -71,15 +71,27 @@ body {
   box-sizing: border-box;
   cursor: pointer;
   text-align: center;
+  background-color: #000000;
 }
 
 .HamburgerMenu div {
   width: 70%;
   height: 3px;
-  background-color: white;
+  background-color: white;  
   margin: 6px auto;
   transition: all 0.3s ease-in-out;
 }
+
+.expanded-menu {
+  background-color: #000000; 
+  position: absolute;  
+  top: 51px;  
+  right: 15px; 
+  width: 200px;  
+  
+}
+
+
 
 .HamburgerMenu.animate div:nth-child(1) {
   transform: rotate(45deg) translate(5px, 5px);
@@ -218,7 +230,7 @@ body {
   grid-template-rows: repeat(8, 1fr);
   width: 400px;
   height: 400px;
-  margin: 200px auto; /* Center the board */
+  margin: 200px auto;
 }
 
 .square {
@@ -240,8 +252,8 @@ body {
   position: fixed; 
   top: 0;
   left: 0;
-  z-index: 1000; /* Ensures the menu stays on top of other content */
-  overflow: hidden; /* Keeps everything contained within the 30px height */
+  z-index: 1000; 
+  overflow: hidden; 
 }
 
 .home-menu ul {
@@ -261,9 +273,9 @@ body {
 .home-menu ul li a {
   text-decoration: none;
   color: rgb(255, 255, 255);
-  padding: 8px 15px; /* Adjusted to vertically center text within 30px height */
+  padding: 8px 15px; 
   display: block;
-  line-height: 14px; /* Ensures text is centered if the padding or height changes */
+  line-height: 14px; 
 }
 
 .home-menu ul li a:hover {

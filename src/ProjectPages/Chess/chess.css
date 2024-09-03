@@ -1,4 +1,4 @@
-.project-page {
+.chess-project-page {
     padding: 20px;
     max-width: 1200px;
     margin: 40px auto;
@@ -12,7 +12,7 @@
     align-items: center;
 }
 
-.main-content {
+.chess-main-content {
     display: flex;
     width: 100%;
     justify-content: space-between;
@@ -21,62 +21,62 @@
     gap: 50px; 
 }
 
-.carousel-container {
+.chess-carousel-container {
     flex: 1;
     position: relative;
     max-width: 70%;
 }
 
-.project-page img {
+.chess-project-page img {
     width: 100%;
     height: auto;
     max-height: 450px;
     object-fit: contain;
+    border: 1px solid #ffffff;  
 }
 
-.arrow {
+.chess-arrow {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     cursor: pointer;
-    font-size: 24px;
+    font-size: 54px;
     color: white;
     background-color: transparent;
     border: none;
 }
 
-.arrow.left {
+.chess-arrow.left {
     left: 10px;
 }
 
-.arrow.right {
-    right: 10px;
+.chess-arrow.right {
+    right: 5px;
 }
 
-.project-description {
+.chess-project-description {
     flex: 1;
     text-align: left;
-    padding: 20px;
+    padding: 40px;
     font-size: 1.2rem;
 }
 
-.horizontal-sections {
+.chess-horizontal-sections {
     display: flex;
     justify-content: space-around;
     width: 100%;
-    margin-top: 20px;
 }
 
-.horizontal-sections div {
+.chess-horizontal-sections div {
     text-align: center;
 }
 
-.horizontal-sections h2 {
+.chess-horizontal-sections h2 {
     margin-bottom: 10px;
     font-size: 1.5rem; 
 }
 
-.horizontal-sections ul {
+.chess-horizontal-sections ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
@@ -84,15 +84,15 @@
     line-height: 1.6; 
 }
 
-.horizontal-sections li {
+.chess-horizontal-sections li {
     margin-bottom: 5px; 
 }
 
-.project-page a {
+.chess-project-page a {
     color: rgb(113, 181, 200);
     text-decoration: underline;
 }
 
-.project-page a:hover {
+.chess-project-page a:hover {
     color: #ff6666;
 }

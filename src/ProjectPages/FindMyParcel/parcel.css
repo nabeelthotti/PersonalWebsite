@@ -1,4 +1,4 @@
-.project-page {
+.parcel-project-page {
     padding: 20px;
     max-width: 1200px;
     margin: 40px auto;
@@ -12,87 +12,86 @@
     align-items: center;
 }
 
-.main-content {
+.parcel-main-content {
     display: flex;
     width: 100%;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
-    gap: 50px; 
+    gap: 50px;
 }
 
-.carousel-container {
+.parcel-carousel-container {
     flex: 1;
     position: relative;
     max-width: 70%;
 }
 
-.project-page img {
+.parcel-project-page img {
     width: 100%;
     height: auto;
     max-height: 450px;
     object-fit: contain;
 }
 
-.arrow {
+.parcel-arrow {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     cursor: pointer;
-    font-size: 24px;
+    font-size: 54px;
     color: white;
     background-color: transparent;
     border: none;
 }
 
-.arrow.left {
-    left: -30px;
+.parcel-arrow.left {
+    left: -40px;
 }
 
-.arrow.right {
-    right: -30px;
+.parcel-arrow.right {
+    right: -40px;
 }
 
-.project-description {
+.parcel-project-description {
     flex: 1;
     text-align: left;
-    padding: 20px;
+    padding: 30px;
     font-size: 1.2rem;
 }
 
-.horizontal-sections {
+.parcel-horizontal-sections {
     display: flex;
     justify-content: space-around;
     width: 100%;
-    margin-top: 20px;
 }
 
-.horizontal-sections div {
+.parcel-horizontal-sections div {
     text-align: center;
 }
 
-.horizontal-sections h2 {
+.parcel-horizontal-sections h2 {
     margin-bottom: 10px;
-    font-size: 1.5rem; 
+    font-size: 1.5rem;
 }
 
-.horizontal-sections ul {
+.parcel-horizontal-sections ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
-    font-size: 1.1rem; 
-    line-height: 1.6; 
+    font-size: 1.1rem;
+    line-height: 1.6;
 }
 
-.horizontal-sections li {
-    margin-bottom: 5px; 
+.parcel-horizontal-sections li {
+    margin-bottom: 5px;
 }
 
-.project-page a {
+.parcel-project-page a {
     color: rgb(113, 181, 200);
     text-decoration: underline;
 }
 
-.project-page a:hover {
+.parcel-project-page a:hover {
     color: #ff6666;
 }

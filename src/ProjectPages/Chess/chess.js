@@ -19,19 +19,19 @@ const Chess = () => {
     };
 
     return (
-        <div className="project-page">
+        <div className="chess-project-page">
             <h1>2 Player Chess</h1>
-            <div className="main-content">
-                <div className="carousel-container">
-                    <button className="arrow left" onClick={prevSlide}>&#10094;</button>
+            <div className="chess-main-content">
+                <div className="chess-carousel-container">
+                    <button className="chess-arrow left" onClick={prevSlide}>&#10094;</button>
                     <img src={slides[activeSlide].src} alt={slides[activeSlide].alt} />
-                    <button className="arrow right" onClick={nextSlide}>&#10095;</button>
+                    <button className="chess-arrow right" onClick={nextSlide}>&#10095;</button>
                 </div>
-                <div className="project-description">
+                <div className="chess-project-description">
                     <p>This Chess game is a web-based chess application that allows players to engage in the classic game using intuitive drag-and-drop functionality. Built using HTML, CSS, and JavaScript, this interactive game perfectly simulates traditional chess with a modern twist. The game enforces all standard chess rules, including piece-specific movements and turn-based gameplay. It features a dynamic display that indicates player turns and validates the legality of moves to prevent invalid actions. The application also detects 'check' and 'checkmate' conditions, notifying players of critical game states. A reversible board feature enhances gameplay by allowing players to switch perspectives mid-game. This project combines the strategic depth of chess with the accessibility of an online interface, making it suitable for both beginners and experienced players.</p>
                 </div>
             </div>
-            <div className="horizontal-sections">
+            <div className="chess-horizontal-sections">
                 <div>
                     <h2>DSA / Methods</h2>
                     <ul>

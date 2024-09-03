@@ -19,19 +19,19 @@ const Rekognize = () => {
     };
 
     return (
-        <div className="project-page">
+        <div className="rekognize-project-page">
             <h1>Rekognize</h1>
-            <div className="main-content">
-                <div className="carousel-container">
-                    <button className="arrow left" onClick={prevSlide}>&#10094;</button>
+            <div className="rekognize-main-content">
+                <div className="rekognize-carousel-container">
+                    <button className="rekognize-arrow left" onClick={prevSlide}>&#10094;</button>
                     <img src={slides[activeSlide].src} alt={slides[activeSlide].alt} />
-                    <button className="arrow right" onClick={nextSlide}>&#10095;</button>
+                    <button className="rekognize-arrow right" onClick={nextSlide}>&#10095;</button>
                 </div>
-                <div className="project-description">
+                <div className="rekognize-project-description">
                     <p>Rekognize is an innovative web-based application that harnesses the power of Convolutional Neural Networks (CNNs) to decipher handwritten characters, from numerical digits (0-9) to a comprehensive range of alphabets (A-Z, both uppercase and lowercase). Utilizing advanced machine learning algorithms trained on the expansive MNIST and EMNIST datasets, Rekognize offers a cutting-edge solution for real-time character recognition. The platform is engineered using Flask, providing a sleek, user-friendly interface, while the underlying predictive technology is powered by TensorFlow, ensuring highly accurate and swift character predictions. Rekognize stands out as a smart tool, blending modern web technology with state-of-the-art AI to revolutionize the way we interact with handwritten text.</p>
                 </div>
             </div>
-            <div className="horizontal-sections">
+            <div className="rekognize-horizontal-sections">
                 <div>
                     <h2>Tools</h2>
                     <ul>
