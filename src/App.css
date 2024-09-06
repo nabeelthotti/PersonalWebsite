@@ -136,7 +136,7 @@ body {
 .Navigation li a {
   text-decoration: none;
   color: white;
-  font-size: 14px;
+  font-size: calc(8px + 1vmin);
   transition: color 0.3s ease;
 }
 
@@ -150,7 +150,7 @@ body {
   font-family: 'Courier New', Courier, monospace;
   padding: 0.5rem 1rem;
   border-radius: 5px;
-  font-size: 14px;
+  font-size: calc(8px + 1vmin);
   transition: color 0.3s ease;
   background-color: transparent;
 }
@@ -181,7 +181,6 @@ body {
   transition: width 0.3s ease-in-out;
 }
 
-/* Responsive styles */
 @media (max-width: 768px) {
   .App-header {
     padding: 10px;
@@ -198,7 +197,7 @@ body {
 
   .Navigation li a,
   .Navigation a {
-    font-size: 16px;
+    font-size: calc(8px + 1vmin);
   }
 }
 
@@ -228,10 +227,13 @@ body {
   display: grid;
   grid-template-columns: repeat(8, 1fr);
   grid-template-rows: repeat(8, 1fr);
-  width: 400px;
-  height: 400px;
-  margin: 200px auto;
+  width: 80vw; 
+  height: 80vw; 
+  max-width: 400px; 
+  max-height: 400px;
+  margin: 5vw auto; 
 }
+
 
 .square {
   width: 50px;
