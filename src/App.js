@@ -24,7 +24,7 @@ function App() {
   const [showMenu, setShowMenu] = useState(false);
 
   useEffect(() => {
-    const timeoutId = setTimeout(() => setShowText(false), 4000);
+    const timeoutId = setTimeout(() => setShowText(false), 4000); 
     return () => clearTimeout(timeoutId);
   }, []);
 
@@ -35,46 +35,51 @@ function App() {
   return (
     <Router>
       <div className="App">
-        {/* Always show logo, but adjust visibility of link based on path */}
-        <div style={{ display: showText ? 'none' : 'block' }}>
-          <Link to="/" className="HomeButton">
-            <img src={homeIcon} alt="Home" />
-          </Link>
-        </div>
+        
+        {showText ? (
+          <header className="App-header">
+            <h1 className="animated-text">Hello World...</h1>
+          </header>
+        ) : (
+          <>
+            <div style={{ display: 'block' }}>
+              <Link to="/" className="HomeButton">
+                <img src={homeIcon} alt="Home" />
+              </Link>
+            </div>
 
-        <Switch>
-          {/* Route for Home page */}
-          <Route path="/" exact>
-            <Home />
-          </Route>
-          
-          {/* Route for all other pages */}
-          <Route render={() => (
-            <>
-              <div className={showMenu ? "HamburgerMenu animate" : "HamburgerMenu"} onClick={toggleMenu}>
-                <div></div>
-                <div></div>
-                <div></div>
-              </div>
-              <NavigationMenu isOpen={showMenu} toggleMenu={toggleMenu} />
-              <Switch>
-                <Route path="/home" component={Home} />
-                <Route path="/about" component={About} />
-                <Route path="/projects" component={Projects} />
-                <Route path="/rekognize" component={Rekognize} />
-                <Route path="/dailycommit" component={CommitBot} />
-                <Route path="/findmyparcel" component={Parcel} />
-                <Route path="/portchat" component={PortChat} />
-                <Route path="/chessgame" component={Chess} />
-                <Route path="/shopvista" component={ShopVista} />
-                <Route path="/articles" component={Articles} />
-                <Route path="/resume" component={Resume} />
-                <Route path="/contact" component={Contact} />
-                <Route path="/chess" component={Game} />
-              </Switch>
-            </>
-          )} />
-        </Switch>
+            <Switch>
+              <Route path="/" exact>
+                <Home />
+              </Route>
+              <Route render={() => (
+                <>
+                  <div className={showMenu ? "HamburgerMenu animate" : "HamburgerMenu"} onClick={toggleMenu}>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                  </div>
+                  <NavigationMenu isOpen={showMenu} toggleMenu={toggleMenu} />
+                  <Switch>
+                    <Route path="/home" component={Home} />
+                    <Route path="/about" component={About} />
+                    <Route path="/projects" component={Projects} />
+                    <Route path="/rekognize" component={Rekognize} />
+                    <Route path="/dailycommit" component={CommitBot} />
+                    <Route path="/findmyparcel" component={Parcel} />
+                    <Route path="/portchat" component={PortChat} />
+                    <Route path="/chessgame" component={Chess} />
+                    <Route path="/shopvista" component={ShopVista} />
+                    <Route path="/articles" component={Articles} />
+                    <Route path="/resume" component={Resume} />
+                    <Route path="/contact" component={Contact} />
+                    <Route path="/chess" component={Game} />
+                  </Switch>
+                </>
+              )} />
+            </Switch>
+          </>
+        )}
       </div>
     </Router>
   );
