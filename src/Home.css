@@ -1,56 +1,53 @@
 .home-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  padding: 120px 10px; /* Reduced padding, adjust as needed */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 105%;
+    padding: 0px; 
 }
 
-
-.image-section,
-.text-section {
-    flex: 1 1 50%; /* Takes up to 50% of the container */
+.image-section {
+    flex: 1;
+    padding-right: 10px; 
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-items: center; /* Center align items for better visual alignment */
+    align-items: flex-start; 
+    margin-right: 0px; 
 }
 
 .image-section img {
-    width: auto; /* Adjust width to be auto, it will scale with the aspect ratio */
-    max-width: 26%; /* Maximum width of image is 100% of its container */
-    height: auto;
-    border: 10px solid #000000;
-    object-fit: cover; /* Change to 'cover' to ensure the image covers the area without distortion */
-    border-radius: 10%;
+    max-width: 55%; 
+    max-height: 5%; 
+    border: 10px solid #000000; 
+    padding: 0px; 
+    box-sizing: border-box;
+    object-fit: contain;
+    border-radius: 10%; 
 }
-
-
 
 
 .text-section {
-  padding: 20px; /* Add some padding inside the text section for better readability */
-  margin: 0; /* Reset any unwanted margins */
-  text-align: left; /* Ensure text is aligned left by default */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 1px; 
+    margin-left: -290px; 
 }
 
 
+@media (max-width: 480px) {
 
+    .image-section,
+    .text-section {
+        padding: 45px;
+    }
 
-@media (max-width: 768px) { /* Increased from 480px for better tablet support */
-  .image-section,
-  .text-section {
-      flex-basis: 100%; /* Each section takes full width of the container */
-      padding: 40px; /* Increased padding for better spacing */
-      margin-right: 0;
-  }
-
-  .text-section {
-      text-align: center; /* Center the text for small screens */
-  }
+    .text-section {
+        padding-left: 0;
+        text-align: center;
+    }
 }
-
-
 .home-menu {
     width: 100%;
     background-color: #454242;
