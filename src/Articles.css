@@ -1,5 +1,5 @@
 .articles-container {
-  padding: 20px;
+  padding: 0px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -7,15 +7,6 @@
   margin: 0 auto;
 }
 
-.title-lowered {
-  position: absolute;
-  top: 20%; 
-  width: 100%;
-  text-align: center;
-  color: white; 
-  font-size: calc(10px + 2vmin); 
-  transition: top 0.3s ease;
-}
 
 .articles-container h1 {
   position: absolute;
@@ -31,13 +22,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 160px;
+  gap: 100px;
 }
 
 .pdf-viewer {
   position: relative;
-  width: 600px;
-  height: 800px;
+  width: 500px;
+  height: 640px;
   border: 1px solid #ddd;
   border-radius: 8px;
   overflow: hidden;

@@ -77,13 +77,13 @@ body {
 .HamburgerMenu div {
   width: 70%;
   height: 3px;
-  background-color: white;  
+  background-color: rgb(255, 255, 255);  
   margin: 6px auto;
   transition: all 0.3s ease-in-out;
 }
 
 .expanded-menu {
-  background-color: #000000; 
+  background-color: #cb3232; 
   position: absolute;  
   top: 51px;  
   right: 15px; 
