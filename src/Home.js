@@ -24,8 +24,10 @@ const Home = () => {
       <div className="text-section">
         <h1>Welcome to my personal website.</h1>
       
-        Discover the symphony of innovation and purpose, where each project composes a note in my professional odyssey.
-        
+        Discover the symphony of innovation and purpose,
+        <p>
+        where each project composes a note in my professional odyssey.
+        </p>
       </div>
     </div>
   );
