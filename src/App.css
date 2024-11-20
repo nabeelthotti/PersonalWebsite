@@ -20,6 +20,7 @@
 
 body {
   font-family: 'Courier New', Courier, monospace;
+  margin: 0; /* Added to prevent unwanted spacing */
 }
 
 .animated-text {
@@ -30,25 +31,44 @@ body {
   animation:
     typing 3s steps(23, end),
     blink-caret 0.75s step-end infinite;
+  -webkit-animation: /* Added for iOS compatibility */
+    typing 3s steps(23, end),
+    blink-caret 0.75s step-end infinite;
 }
 
 @keyframes typing {
   from {
     width: 0;
   }
+  to {
+    width: 14ch;
+  }
+}
 
+@-webkit-keyframes typing { /* Added for iOS compatibility */
+  from {
+    width: 0;
+  }
   to {
     width: 14ch;
   }
 }
 
 @keyframes blink-caret {
-
   0%,
   100% {
     border-color: transparent;
   }
+  50% {
+    border-color: rgba(255, 255, 255, 0.75);
+  }
+}
 
+@-webkit-keyframes blink-caret { /* Added for iOS compatibility */
+  0%,
+  100% {
+    border-color: transparent;
+  }
   50% {
     border-color: rgba(255, 255, 255, 0.75);
   }
@@ -72,6 +92,7 @@ body {
   cursor: pointer;
   text-align: center;
   background-color: #000000;
+  -webkit-tap-highlight-color: transparent; /* Added for iOS */
 }
 
 .HamburgerMenu div {
@@ -80,6 +101,7 @@ body {
   background-color: rgb(255, 255, 255);  
   margin: 6px auto;
   transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out; /* Added for iOS */
 }
 
 .expanded-menu {
@@ -88,13 +110,11 @@ body {
   top: 51px;  
   right: 15px; 
   width: 200px;  
-  
 }
-
-
 
 .HamburgerMenu.animate div:nth-child(1) {
   transform: rotate(45deg) translate(5px, 5px);
+  -webkit-transform: rotate(45deg) translate(5px, 5px); /* Added for iOS */
 }
 
 .HamburgerMenu.animate div:nth-child(2) {
@@ -103,6 +123,7 @@ body {
 
 .HamburgerMenu.animate div:nth-child(3) {
   transform: rotate(-45deg) translate(7px, -6px);
+  -webkit-transform: rotate(-45deg) translate(7px, -6px); /* Added for iOS */
 }
 
 .Navigation {
@@ -138,6 +159,7 @@ body {
   color: white;
   font-size: calc(8px + 1vmin);
   transition: color 0.3s ease;
+  -webkit-transition: color 0.3s ease; /* Added for iOS */
 }
 
 .Navigation li a:hover {
@@ -152,7 +174,9 @@ body {
   border-radius: 5px;
   font-size: calc(8px + 1vmin);
   transition: color 0.3s ease;
+  -webkit-transition: color 0.3s ease; /* Added for iOS */
   background-color: transparent;
+  -webkit-tap-highlight-color: transparent; /* Added for iOS */
 }
 
 .Navigation a:hover {
@@ -169,6 +193,7 @@ body {
   padding: 0;
   cursor: pointer;
   z-index: 2000;
+  -webkit-tap-highlight-color: transparent; /* Added for iOS */
 }
 
 .HomeButton img {
@@ -179,8 +204,72 @@ body {
 .HamburgerMenu div.extended {
   width: 120%;
   transition: width 0.3s ease-in-out;
+  -webkit-transition: width 0.3s ease-in-out; /* Added for iOS */
 }
 
+.chessboard {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  width: 80vw; 
+  height: 80vw; 
+  max-width: 400px; 
+  max-height: 400px;
+  margin: 5vw auto; 
+}
+
+.square {
+  width: 50px;
+  height: 50px;
+}
+
+.dark {
+  background-color: #b58863;
+}
+
+.light {
+  background-color: #f0d9b5;
+}
+
+.home-menu {
+  width: 100%;
+  background-color: #454242;
+  height: 60px;
+  position: fixed; 
+  top: 0;
+  left: 0;
+  z-index: 1000; 
+  overflow: hidden; 
+}
+
+.home-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 24px;
+  height: 10%;
+  display: flex;
+  justify-content: flex-end; 
+  align-items: center; 
+}
+
+.home-menu ul li {
+  display: inline;
+}
+
+.home-menu ul li a {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  padding: 8px 15px; 
+  display: block;
+  line-height: 14px; 
+  -webkit-tap-highlight-color: transparent; /* Added for iOS */
+}
+
+.home-menu ul li a:hover {
+  background-color: #645f5f;
+}
+
+/* Media Queries - keeping the original ones */
 @media (max-width: 768px) {
   .App-header {
     padding: 10px;
@@ -220,66 +309,4 @@ body {
     top: 10px;
     left: 10px;
   }
-}
-
-
-.chessboard {
-  display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  grid-template-rows: repeat(8, 1fr);
-  width: 80vw; 
-  height: 80vw; 
-  max-width: 400px; 
-  max-height: 400px;
-  margin: 5vw auto; 
-}
-
-
-.square {
-  width: 50px;
-  height: 50px;
-}
-
-.dark {
-  background-color: #b58863;
-}
-
-.light {
-  background-color: #f0d9b5;
-}
-.home-menu {
-  width: 100%;
-  background-color: #454242;
-  height: 60px;
-  position: fixed; 
-  top: 0;
-  left: 0;
-  z-index: 1000; 
-  overflow: hidden; 
-}
-
-.home-menu ul {
-  list-style: none;
-  padding: 0;
-  margin: 24px;
-  height: 10%;
-  display: flex;
-  justify-content: flex-end; 
-  align-items: center; 
-}
-
-.home-menu ul li {
-  display: inline;
-}
-
-.home-menu ul li a {
-  text-decoration: none;
-  color: rgb(255, 255, 255);
-  padding: 8px 15px; 
-  display: block;
-  line-height: 14px; 
-}
-
-.home-menu ul li a:hover {
-  background-color: #645f5f;
 }

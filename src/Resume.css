@@ -1,15 +1,81 @@
 .resume-container {
     text-align: center;
+    padding: 80px 20px 20px; /* Account for fixed header */
+    max-width: 1200px; /* Limit width on large screens */
+    margin: 0 auto;
+    min-height: 100vh;
+    min-height: -webkit-fill-available; /* iOS height fix */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .resume-image {
     width: 100%;
     height: auto;
-
+    max-width: 900px; /* Prevent too large images */
+    object-fit: contain;
+    border-radius: 8px; /* Optional: rounded corners */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Optional: subtle shadow */
+    margin: 0 auto;
 }
 
 .download-button-container {
-    margin-top: 20px;
+    margin-top: 30px;
+    margin-bottom: 20px;
     display: flex;
     justify-content: center;
+    width: 100%;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+
+/* Add styles for the download button if you have one */
+.download-button {
+    padding: 12px 24px;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent; /* Remove tap highlight on iOS */
+    transition: transform 0.2s ease;
+    -webkit-transition: transform 0.2s ease;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .resume-container {
+        padding: 60px 15px 15px;
+    }
+
+    .resume-image {
+        max-width: 100%;
+    }
+
+    .download-button-container {
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .resume-container {
+        padding: 50px 10px 10px;
+    }
+
+    .download-button-container {
+        margin-top: 15px;
+    }
+}
+
+/* iOS-specific fixes */
+@supports (-webkit-touch-callout: none) {
+    .resume-container {
+        min-height: -webkit-fill-available;
+    }
+}
+
+/* Landscape orientation */
+@media (orientation: landscape) and (max-height: 500px) {
+    .resume-container {
+        padding: 70px 20px 20px;
+    }
 }

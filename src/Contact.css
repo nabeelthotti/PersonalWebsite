@@ -1,6 +1,5 @@
 .ide-container {
     background-color: #282c34;
- 
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
@@ -10,8 +9,11 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%); /* iOS compatibility */
     width: calc(100% - 40px);
     box-sizing: border-box;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    z-index: 1; /* Ensure proper stacking */
 }
 
 .ide-header {
@@ -19,7 +21,8 @@
     padding: 10px 15px;
     border-radius: 3px;
     font-family: 'Courier New', Courier, monospace;
-    font-size: 1em;
+    font-size: clamp(0.875em, 1em, 1.2em); /* Responsive font size */
+    -webkit-font-smoothing: antialiased; /* Better text rendering on iOS */
 }
 
 .ide-code-editor {
@@ -27,21 +30,26 @@
     flex-direction: column;
     gap: 10px;
     font-family: 'Courier New', Courier, monospace;
+    width: 100%;
 }
 
 .ide-line {
     display: flex;
     align-items: center;
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+    gap: 5px; /* Space between wrapped items */
 }
 
 .ide-code {
     margin-right: 5px;
     color: #c5a5c5;
+    word-break: break-word; /* Prevent overflow on small screens */
 }
 
 .ide-comment {
     margin-right: 5px;
     color: #6a9955;
+    word-break: break-word;
 }
 
 .ide-input,
@@ -50,42 +58,58 @@
     border: none;
     color: #9cdcfe;
     border-bottom: 1px solid #484d58;
-    padding: 4px 8px;
+    padding: 8px; /* Increased for better touch targets */
     font-family: 'Courier New', Courier, monospace;
-    font-size: 1em;
+    font-size: 16px; /* Prevent iOS zoom on focus */
     outline: none;
+    width: 100%;
+    border-radius: 0; /* Remove iOS default border radius */
+    -webkit-appearance: none; /* Remove iOS default styles */
+    appearance: none;
 }
 
 .ide-input::placeholder,
 .ide-textarea::placeholder {
     color: #d4d4d4;
+    opacity: 0.7; /* Better visibility */
 }
 
 .ide-input:focus,
 .ide-textarea:focus {
     border-color: #528bff;
+    outline: none;
 }
 
 .ide-textarea {
     resize: vertical;
     min-height: 60px;
+    max-height: 200px; /* Prevent excessive stretching */
 }
 
 .ide-container .ide-submit {
     margin-top: 20px;
     background-color: #801fb5;
     color: #d70606;
-    padding: 10px 15px;
+    padding: 12px 20px; /* Larger touch target */
     border: none;
     border-radius: 3px;
     cursor: pointer;
     font-family: 'Courier New', Courier, monospace;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
+    -webkit-transition: all 0.3s ease;
+    -webkit-tap-highlight-color: transparent; /* Remove tap highlight on iOS */
+    width: auto;
+    min-width: 120px; /* Ensure minimum clickable area */
 }
 
 .ide-container .ide-submit:hover {
     background-color: #9b06eb;
     color: #ffffff;
+}
+
+.ide-container .ide-submit:active {
+    transform: scale(0.98); /* Provide touch feedback */
+    -webkit-transform: scale(0.98);
 }
 
 .ide-container .ide-submit:focus {
@@ -103,5 +127,66 @@
 
 .submission-message {
     color: #6a9955;
-    margin-top: 10px; 
+    margin-top: 10px;
+    word-break: break-word;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .ide-container {
+        padding: 15px;
+        width: calc(100% - 30px);
+        margin: 15px auto;
+    }
+
+    .ide-header {
+        font-size: 0.9em;
+    }
+
+    .ide-input,
+    .ide-textarea {
+        font-size: 16px; /* Maintain readable size on mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .ide-container {
+        padding: 10px;
+        width: calc(100% - 20px);
+        transform: translate(-50%, -45%); /* Adjust position for mobile */
+        -webkit-transform: translate(-50%, -45%);
+    }
+
+    .ide-code-editor {
+        gap: 8px;
+    }
+
+    .ide-container .ide-submit {
+        width: 100%; /* Full width on mobile */
+        padding: 15px;
+    }
+}
+
+/* iOS-specific fixes */
+@supports (-webkit-touch-callout: none) {
+    .ide-input,
+    .ide-textarea {
+        font-size: 16px !important; /* Prevent zoom on iOS */
+    }
+    
+    .ide-container {
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+/* Handle landscape orientation */
+@media (orientation: landscape) and (max-height: 500px) {
+    .ide-container {
+        position: relative;
+        transform: none;
+        -webkit-transform: none;
+        top: 0;
+        left: 0;
+        margin: 20px auto;
+    }
 }

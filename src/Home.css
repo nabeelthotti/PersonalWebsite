@@ -1,87 +1,209 @@
 .home-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 105%;
-    padding: 0px; 
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 100vh;
+  height: -webkit-fill-available;
+  padding: 60px 20px 20px;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
+.home-menu {
+  width: 100%;
+  background-color: #454242;
+  height: 60px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+/* Desktop Menu Styles */
+.desktop-menu ul {
+  /* list-style: none; */
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 15px;
+}
+
+.desktop-menu ul li {
+  display: inline;
+}
+
+.desktop-menu ul li a {
+  text-decoration: none;
+  color: white;
+  padding: 8px 15px;
+  display: block;
+  line-height: 44px;
+}
+
+.desktop-menu ul li a:hover {
+  background-color: #645f5f;
+}
+
+/* Hamburger Button Styles */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1001;
+}
+
+/* Mobile Menu Styles */
+.mobile-menu {
+  display: none;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  background-color: #454242;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.mobile-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mobile-menu ul li {
+  border-top: 1px solid #645f5f;
+}
+
+.mobile-menu ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 15px 20px;
+  display: block;
+  text-align: center;
+}
+
+.mobile-menu ul li a:hover {
+  background-color: #645f5f;
+}
+
+/* Rest of the styles */
 .image-section {
-    flex: 1;
-    padding-right: 10px; 
-    display: flex;
-    justify-content: center;
-    align-items: flex-start; 
-    margin-right: 0px; 
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
 }
 
 .image-section img {
-    max-width: 55%; 
-    max-height: 5%; 
-    border: 10px solid #000000; 
-    padding: 0px; 
-    box-sizing: border-box;
-    object-fit: contain;
-    border-radius: 10%; 
+  width: 55%;
+  height: auto;
+  border: 10px solid #000000;
+  padding: 0px;
+  box-sizing: border-box;
+  object-fit: contain;
+  border-radius: 10%;
+  max-width: 500px;
 }
-
 
 .text-section {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-left: 1px; 
-    margin-left: -290px; 
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10px;
 }
 
-
-@media (max-width: 480px) {
-
-    .image-section,
-    .text-section {
-        padding: 45px;
-    }
-
-    .text-section {
-        padding-left: 0;
-        text-align: center;
-    }
-}
-.home-menu {
-    width: 100%;
-    background-color: #454242;
-    height: 60px;
-    position: fixed; 
-    top: 0;
-    left: 0;
-    z-index: 1000; 
-    overflow: hidden; 
+/* Media Queries */
+@media screen and (max-width: 768px) {
+  .desktop-menu {
+    display: none;
   }
-  
-  .home-menu ul {
-    list-style: none;
-    padding: 0;
-    margin: 24px;
-    height: 10%;
-    display: flex;
-    justify-content: flex-end; 
-    align-items: center; 
-  }
-  
-  .home-menu ul li {
-    display: inline;
-  }
-  
-  .home-menu ul li a {
-    text-decoration: none;
-    color: rgb(255, 255, 255);
-    padding: 8px 15px; 
+
+  .hamburger {
     display: block;
-    line-height: 14px; 
   }
-  
-  .home-menu ul li a:hover {
-    background-color: #645f5f;
+
+  .mobile-menu {
+    display: block;
   }
-  
+
+  .home-container {
+    padding-top: 80px;
+  }
+
+  .image-section {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .image-section img {
+    width: 70%;
+    max-width: 400px;
+  }
+
+  .text-section {
+    width: 100%;
+    padding: 20px;
+    text-align: center;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .home-container {
+    padding-top: 60px;
+  }
+
+  .image-section {
+    padding: 5px;
+  }
+
+  .image-section img {
+    width: 85%;
+    border-width: 5px;
+  }
+
+  .text-section {
+    padding: 15px;
+  }
+}
+
+/* iOS-specific fixes */
+@supports (-webkit-touch-callout: none) {
+  .home-container {
+    min-height: -webkit-fill-available;
+  }
+}
+
+/* Landscape orientation */
+@media (orientation: landscape) and (max-height: 500px) {
+  .home-container {
+    flex-direction: row;
+    padding: 70px 20px 20px;
+  }
+
+  .image-section img {
+    width: 40%;
+  }
+
+  .text-section {
+    padding: 10px;
+  }
+
+  .mobile-menu {
+    max-height: calc(100vh - 60px);
+    overflow-y: auto;
+  }
+}
