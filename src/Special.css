@@ -389,3 +389,54 @@
     opacity: 1;
   }
 }
+
+
+/* Add these to your existing CSS */
+.password-form {
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 40px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  width: 90%;
+  position: relative;
+}
+
+.password-form label {
+  display: block;
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #ca415a;
+  font-weight: bold;
+}
+
+.password-form input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 2px solid #ca415a;
+  border-radius: 8px;
+  font-size: 18px;
+  outline: none;
+}
+
+.password-form input:focus {
+  border-color: #d98c98;
+  box-shadow: 0 0 5px rgba(217, 140, 152, 0.5);
+}
+
+.password-form button {
+  background-color: #ca415a;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.password-form button:hover {
+  background-color: #d98c98;
+}
