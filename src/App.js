@@ -8,7 +8,7 @@ import Game from './Chess/src/components/game';
 import Resume from './Resume';
 import Contact from './Contact';
 import NavigationMenu from './NavigationMenu';
-// import Special from './Special';
+import Special from './Special';
 
 import Rekognize from './ProjectPages/Rekognize/rekognize';
 import Chess from './ProjectPages/Chess/chess';
@@ -75,7 +75,7 @@ function App() {
                     <Route path="/resume" component={Resume} />
                     <Route path="/contact" component={Contact} />
                     <Route path="/chess" component={Game} />
-                    {/* <Route path="/special" component={Special} /> */}
+                    <Route path="/special" component={Special} />
                   </Switch>
                 </>
               )} />
