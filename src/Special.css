@@ -1,0 +1,391 @@
+/* Reset default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Container */
+.container {
+  font-family: 'Arial', sans-serif;
+  background-color: #ffb6c1; /* Light pink background */
+}
+
+/* Hide overflow when modal is open */
+.container.modal-open {
+  overflow: hidden;
+}
+
+/* Carousel styles */
+.carousel {
+  width: 55%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  float: left;
+  border-radius: 15px;
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel img {
+  width: 900px;
+  height: 900px;
+  object-fit: cover;
+  clip-path: circle(35%);
+}
+
+/* Envelope wrapper styles */
+.envelope-wrapper {
+  width: 45%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  float: right;
+}
+
+/* Clear floats */
+.container::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+/* Envelope styles */
+.wrapper {
+  height: 300px;  /* Increased from 200px */
+  width: 450px;   /* Increased from 300px */
+  background-color: #ca415a;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  z-index: 0;
+  cursor: pointer;
+  overflow: visible;
+}
+
+.lid {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  border-right: 225px solid transparent;  /* Increased from 150px */
+  border-bottom: 150px solid transparent; /* Increased from 100px */
+  border-left: 225px solid transparent;   /* Increased from 150px */
+  transform-origin: top;
+  transition: transform 0.25s linear;
+}
+
+/* Lid when closed */
+.lid.one {
+  border-top: 150px solid #ca415a;  /* Increased from 100px */
+  transform: rotateX(0deg);
+  z-index: 3;
+  transition-delay: 0.75s;
+}
+
+/* Lid when opened */
+.lid.two {
+  border-top: 150px solid #d84761;  /* Increased from 100px */
+  transform: rotateX(90deg);
+  z-index: 1;
+  transition-delay: 0.5s;
+}
+
+.envelope {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  border-top: 150px solid transparent;    /* Increased from 100px */
+  border-right: 225px solid #e2627a;      /* Increased from 150px */
+  border-bottom: 150px solid #e2627a;     /* Increased from 100px */
+  border-left: 225px solid #d46075;       /* Increased from 150px */
+  z-index: 2;
+}
+
+.letter {
+  position: absolute;
+  top: 0;
+  width: 90%;
+  height: 80%;
+  background-color: #d98c98;
+  border-radius: 20px;  /* Slightly increased from 15px */
+  z-index: 1;
+  transition: transform 0.5s, z-index 0s;
+  transition-delay: 0s, 0.5s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.letter p {
+  text-align: center;
+  font-size: 45px;  /* Increased from 30px */
+  color: #3b4049;
+}
+
+/* Adjust the hover animation for the larger size */
+.wrapper:hover .letter {
+  transform: translateY(-225px);  /* Increased from -150px */
+  transition: transform 0.5s, z-index 0s;
+  transition-delay: 0.5s, 1s;
+  z-index: 4;
+}
+/* Envelope opening styles on hover */
+.wrapper:hover .lid.one {
+  transform: rotateX(90deg);
+  transition-delay: 0s;
+}
+
+.wrapper:hover .lid.two {
+  transform: rotateX(180deg);
+  transition-delay: 0.25s;
+}
+
+.wrapper:hover .letter {
+  transform: translateY(-215px);
+  transition: transform 0.5s, z-index 0s;
+  transition-delay: 0.5s, 1s;
+  z-index: 4;
+}
+
+/* Letter going back in */
+.wrapper .letter {
+  transition: transform 0.5s, z-index 0s;
+  transition-delay: 0s, 0s;
+}
+
+/* Modal styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: ffb6c1(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background-color: #ffffff;
+  padding: 50px 70px;
+  border-radius: 20px;
+  position: relative;
+  max-width: 80%;
+  width: 600px;
+  max-height: 80%;
+  overflow-y: auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Remove the before/after line elements */
+.modal::before,
+.modal::after {
+  display: none;
+}
+
+.modal-content {
+  color: #2c1810;
+  font-size: 18px;
+  line-height: 1.8;
+  font-family: 'Times New Roman', serif;
+  text-align: left;
+  padding: 20px;
+}
+
+.letter-header {
+  margin-bottom: 40px;
+  font-size: 22px;
+  color: #333;
+}
+
+.letter-body {
+  color: #444;
+}
+
+.letter-body p {
+  margin-bottom: 30px;
+  text-indent: 30px;
+  line-height: 1.8;
+}
+
+.letter-footer {
+  margin-top: 50px;
+  text-align: right;
+  color: #333;
+}
+
+.letter-footer p {
+  font-size: 20px;
+  margin: 8px 0;
+}
+
+/* Style the scrollbar for a cleaner look */
+.modal::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.modal::-webkit-scrollbar-thumb {
+  background: #d8acb2;
+  border-radius: 4px;
+}
+
+.modal::-webkit-scrollbar-thumb:hover {
+  background: #ca8f96;
+}
+.close-button {
+  position: absolute;
+  top: -20px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #fff;
+  z-index: 1001;
+}
+
+.close-button:focus {
+  outline: none;
+}
+
+.close-button:hover {
+  color: #f4d03f;
+}
+
+/* Hide background content when modal is open */
+.container.modal-open .carousel,
+.container.modal-open .envelope-wrapper {
+  display: none;
+}
+
+/* Password Screen */
+.password-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #3b4049;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.password-form {
+  background-color: #1e1e1e;
+  padding: 40px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.password-form label {
+  font-size: 24px;
+  margin-bottom: 20px;
+  display: block;
+  color: #ffffff;
+}
+
+.password-form input {
+  font-size: 18px;
+  padding: 10px;
+  width: 100%;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 5px;
+}
+
+.password-form button {
+  font-size: 18px;
+  padding: 10px 20px;
+  cursor: pointer;
+  background: linear-gradient(45deg, #ff6b6b, #f94d6a);
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+
+.password-form button:hover {
+  background: linear-gradient(45deg, #f94d6a, #ff6b6b);
+}
+
+/* Message Page */
+.message-page {
+  width: 100%;
+  height: 100vh;
+  background-color: #ffb6c1; /* Pink background */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #ffffff;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.message-page .poem {
+  font-family: 'Georgia', serif;
+  font-size: 26px;
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+.message-page .poem p {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  margin: 10px 0;
+}
+
+.message-page .poem p.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.message-page strong {
+  font-size: 36px;
+}
+
+/* Continue Button */
+.gift-button {
+  font-size: 20px;
+  padding: 15px 30px;
+  background: linear-gradient(45deg, #d8acb2, #e79ea9);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  opacity: 0;
+  animation: fadeInButton 1s forwards;
+  animation-delay: 1s; /* Adjust if needed */
+  margin-top: 20px;
+}
+
+.gift-button:hover {
+  background: linear-gradient(45deg, #ffb6c1, #ffb6c1);
+}
+
+/* Fade-in animations */
+@keyframes fadeInButton {
+  to {
+    opacity: 1;
+  }
+}
