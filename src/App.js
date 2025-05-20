@@ -16,6 +16,7 @@ import CommitBot from './ProjectPages/CommitBot/commit';
 import Parcel from './ProjectPages/FindMyParcel/parcel';
 import PortChat from './ProjectPages/PortChat/portchat';
 import ShopVista from './ProjectPages/ShopVista/shopvista';
+import Voicemail from './Voicemail';
 
 import './App.css';
 import homeIcon from './Images/favicon-32x32.png';
@@ -76,6 +77,7 @@ function App() {
                     <Route path="/contact" component={Contact} />
                     <Route path="/chess" component={Game} />
                     <Route path="/special" component={Special} />
+                    <Route path="/voicemail" component={Voicemail} />
                   </Switch>
                 </>
               )} />

@@ -11,6 +11,7 @@ const NavigationMenu = ({ isOpen, toggleMenu }) => (
       <li><Link to="/resume" onClick={toggleMenu}>Resume</Link></li>
       <li><Link to="/contact" onClick={toggleMenu}>Contact</Link></li>
       <li><Link to="/chess" onClick={toggleMenu}>Play Chess</Link></li>
+      <li><Link to="/voicemail" onClick={toggleMenu}>Send Voicemail</Link></li>
     </ul>
   </div>
 );

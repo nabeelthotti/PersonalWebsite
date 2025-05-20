@@ -1,0 +1,10 @@
+# netlify.toml
+[build]
+  publish = "build"
+  command = "npm run build"
+
+[[redirects]]
+  from     = "/api/*"
+  to       = "https://vm.nabeelthotti.co/:splat"
+  status   = 200
+  force    = true

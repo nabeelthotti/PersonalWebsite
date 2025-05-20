@@ -37,7 +37,7 @@ const Special = () => {
   // New states for letter password
   const [showLetterPassword, setShowLetterPassword] = useState(false);
   const [letterPasswordInput, setLetterPasswordInput] = useState('');
-  const letterPassword = 'iloveyoudaddy'; // Set your desired password for the letter
+  const letterPassword = 'iloveyou'; 
   const secretPassword = '12345';
 
   // Poem lines
