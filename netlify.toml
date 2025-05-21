@@ -2,20 +2,18 @@
   publish = "build"
   command = "npm run build"
 
-# Proxy any "/mcp" request to your Worker, but keep the Netlify URL
+# Redirect /mcp to the Cloudflare Worker
 [[redirects]]
-  from     = "/mcp"
-  to       = "https://tech-detect-mcp.nabeel-thotti.workers.dev/"
-  status   = 200
-  force    = true
-  conditions = {Path = ["/mcp"]}
+  from = "/mcp"
+  to = "https://tech-detect-mcp.nabeel-thotti.workers.dev/"
+  status = 301
+  force = true
 
 [[redirects]]
-  from     = "/mcp/*"
-  to       = "https://tech-detect-mcp.nabeel-thotti.workers.dev/:splat"
-  status   = 200
-  force    = true
-  conditions = {Path = ["/mcp/*"]}
+  from = "/mcp/*"
+  to = "https://tech-detect-mcp.nabeel-thotti.workers.dev/:splat"
+  status = 301
+  force = true
 
 # Handle client-side routing
 [[redirects]]
