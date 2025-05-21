@@ -1,10 +1,16 @@
-# netlify.toml
 [build]
   publish = "build"
   command = "npm run build"
 
+# Proxy any “/mcp” request to your Worker, but keep the Netlify URL
 [[redirects]]
-  from     = "/api/*"
-  to       = "https://vm.nabeelthotti.co/:splat"
+  from     = "/mcp"
+  to       = "https://tech-detect-mcp.nabeel-thotti.workers.dev/"
+  status   = 200
+  force    = true
+
+[[redirects]]
+  from     = "/mcp/*"
+  to       = "https://tech-detect-mcp.nabeel-thotti.workers.dev/:splat"
   status   = 200
   force    = true
