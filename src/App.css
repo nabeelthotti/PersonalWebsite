@@ -8,16 +8,18 @@
   --border-color: rgba(255, 255, 255, 0.1);
   --card-bg: rgba(255, 255, 255, 0.05);
   --hover-color: #ddd;
+  --menu-bg: #222;
 }
 
 .light-mode {
   --bg-primary: #f5f5f5;
   --bg-secondary: rgba(245, 245, 245, 0.95);
   --text-primary: #333;
-  --text-secondary: #666;
+  --text-secondary: #555;
   --border-color: rgba(0, 0, 0, 0.1);
   --card-bg: rgba(0, 0, 0, 0.05);
   --hover-color: #444;
+  --menu-bg: #fff;
 }
 
 .App {
@@ -130,7 +132,7 @@ body {
   top: 70px;
   text-align: left;
   z-index: 1000;
-  background-color: var(--card-bg);
+  background-color: var(--menu-bg, #222);
   border-radius: 8px;
   padding: 10px 0;
   min-width: 200px;

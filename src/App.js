@@ -88,7 +88,7 @@ function App() {
             </Switch>
           </>
         )}
-        <div className="locked-footer">TM Nabeel Thotti 2025</div>
+        <div className="locked-footer">&copy; Nabeel Thotti 2025</div>
       </div>
     </Router>
   );

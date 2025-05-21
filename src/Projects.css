@@ -108,24 +108,22 @@
     padding: 4px 12px;
     border-radius: 20px;
     font-size: 0.8rem;
-    color: var(--tag-text, var(--text-primary));
+    color: var(--text-secondary) !important;
     transition: background-color 0.3s, color 0.3s;
 }
 
 .tech-tag:hover {
     background: var(--hover-color);
-    color: var(--tag-hover-text, #fff);
+    color: #fff !important;
 }
 
 :root {
   --tag-bg: rgba(255,255,255,0.12);
-  --tag-text: #fff;
-  --tag-hover-text: #000;
+  --tag-hover-text: #fff;
 }
 
 .light-mode {
   --tag-bg: rgba(0,0,0,0.10);
-  --tag-text: #333;
   --tag-hover-text: #fff;
 }
 
@@ -165,7 +163,7 @@
     }
 
     .project-image {
-        height: 160px;
+        height: 100px;
     }
 
     .project-content {
