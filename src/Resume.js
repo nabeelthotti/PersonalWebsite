@@ -1,16 +1,20 @@
 import React from 'react';
+import './Resume.css';
 
 const Resume = () => (
-  <div style={{ width: '100vw', height: '100vh', textAlign: 'center', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-    <img 
-      src="/NabeelsResume.png" 
-      alt="Resume" 
-      style={{ maxHeight: '80vh', maxWidth: '100vw', width: 'auto', height: 'auto', objectFit: 'contain' }} 
-    />
-    <div style={{ marginTop: '20px' }}>
-      <a href="/NabeelsResume.pdf" download="NabeelsResume.pdf">
-        <button>Download</button>
-      </a>
+  <div className="resume-container">
+    <div className="resume-content">
+      <img 
+        src="/NabeelsResume.png" 
+        alt="Resume" 
+        className="resume-image"
+      />
+      <div className="download-button-container">
+        <a href="/NabeelsResume.pdf" download="NabeelsResume.pdf" className="download-button">
+          <span className="download-icon">⬇️</span>
+          <span className="download-text">Download Resume</span>
+        </a>
+      </div>
     </div>
   </div>
 );

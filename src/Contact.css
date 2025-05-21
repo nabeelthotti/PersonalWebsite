@@ -190,3 +190,7 @@
         margin: 20px auto;
     }
 }
+
+.ide-container, .ide-header, .ide-code, .ide-comment, .ide-input, .ide-textarea, .submission-message {
+    color: #fff !important;
+}

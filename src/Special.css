@@ -5,19 +5,19 @@
   box-sizing: border-box;
 }
 
-/* Container */
-.container {
+/* Special Container */
+.special-container {
   font-family: 'Arial', sans-serif;
   background-color: #ffb6c1; /* Light pink background */
 }
 
 /* Hide overflow when modal is open */
-.container.modal-open {
+.special-container.modal-open {
   overflow: hidden;
 }
 
 /* Carousel styles */
-.carousel {
+.special-container .carousel {
   width: 55%;
   height: 100vh;
   display: flex;
@@ -29,7 +29,7 @@
   position: relative;
 }
 
-.carousel img {
+.special-container .carousel img {
   width: 900px;
   height: 900px;
   object-fit: cover;
@@ -37,7 +37,7 @@
 }
 
 /* Envelope wrapper styles */
-.envelope-wrapper {
+.special-container .envelope-wrapper {
   width: 45%;
   height: 100vh;
   display: flex;
@@ -47,7 +47,7 @@
 }
 
 /* Clear floats */
-.container::after {
+.special-container::after {
   content: '';
   display: table;
   clear: both;
@@ -268,8 +268,8 @@
 }
 
 /* Hide background content when modal is open */
-.container.modal-open .carousel,
-.container.modal-open .envelope-wrapper {
+.special-container.modal-open .carousel,
+.special-container.modal-open .envelope-wrapper {
   display: none;
 }
 

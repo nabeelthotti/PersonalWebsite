@@ -1,28 +1,46 @@
 .resume-container {
     text-align: center;
-    padding: 80px 20px 20px; /* Account for fixed header */
-    max-width: 1200px; /* Limit width on large screens */
+    padding: 160px 20px 20px;
+    max-width: 1200px;
     margin: 0 auto;
     min-height: 100vh;
-    min-height: -webkit-fill-available; /* iOS height fix */
+    min-height: -webkit-fill-available;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: flex-start;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+.resume-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px 0;
 }
 
 .resume-image {
     width: 100%;
     height: auto;
-    max-width: 900px; /* Prevent too large images */
+    max-width: 700px;
     object-fit: contain;
-    border-radius: 8px; /* Optional: rounded corners */
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Optional: subtle shadow */
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
     margin: 0 auto;
 }
 
+.resume-image:hover {
+    transform: scale(1.01);
+}
+
 .download-button-container {
-    margin-top: 30px;
-    margin-bottom: 20px;
+    margin: 20px 0;
     display: flex;
     justify-content: center;
     width: 100%;
@@ -30,39 +48,60 @@
     box-sizing: border-box;
 }
 
-/* Add styles for the download button if you have one */
 .download-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
     padding: 12px 24px;
     font-size: 16px;
-    border-radius: 6px;
+    font-family: 'Courier New', Courier, monospace;
+    color: var(--text-primary);
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
     cursor: pointer;
-    -webkit-tap-highlight-color: transparent; /* Remove tap highlight on iOS */
-    transition: transform 0.2s ease;
-    -webkit-transition: transform 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.download-button:hover {
+    transform: translateY(-2px);
+    background-color: var(--hover-color);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.download-icon {
+    font-size: 20px;
+}
+
+.download-text {
+    font-weight: 500;
 }
 
 /* Media Queries */
 @media (max-width: 768px) {
     .resume-container {
-        padding: 60px 15px 15px;
+        padding: 120px 15px 15px;
+    }
+
+    .resume-content {
+        max-width: 100%;
     }
 
     .resume-image {
         max-width: 100%;
-    }
-
-    .download-button-container {
-        margin-top: 20px;
+        padding: 0 10px;
     }
 }
 
 @media (max-width: 480px) {
     .resume-container {
-        padding: 50px 10px 10px;
+        padding: 90px 10px 10px;
     }
 
-    .download-button-container {
-        margin-top: 15px;
+    .resume-image {
+        padding: 0 5px;
     }
 }
 

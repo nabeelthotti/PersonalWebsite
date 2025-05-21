@@ -4,7 +4,7 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #060606;
+    background-color: var(--bg-primary);
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     -webkit-box-shadow: 0 0 10px rgba(0,0,0,0.1); /* For iOS compatibility */
     padding: 20px; /* Add padding for smaller screens */
@@ -17,21 +17,22 @@
     justify-content: center;
     text-align: center;
     padding: 20px; /* Reduced padding for mobile */
-    background-color: #454242;
+    background-color: var(--card-bg);
     border-radius: 30px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     -webkit-box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* For iOS compatibility */
-    color: #ffffff;
+    color: var(--text-primary);
     width: 90%; /* Changed from 100% to allow for margins */
     max-width: 800px;
     margin: 0 auto; /* Center container */
+    appearance: none;
     -webkit-appearance: none; /* Remove default iOS styling */
 }
 
 .about-container h1 {
     font-size: 2.5em;
     margin-bottom: 20px;
-    color: #ffffff;
+    color: var(--text-primary);
     font-family: 'Courier New', Courier, monospace;
     font-weight: normal;
     word-wrap: break-word; /* Prevent text overflow */
@@ -51,6 +52,7 @@
     line-height: 1.5;
     margin-bottom: 20px;
     word-wrap: break-word; /* Prevent text overflow */
+    color: var(--text-secondary);
 }
 
 .social-links {

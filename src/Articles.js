@@ -1,56 +1,64 @@
 import React, { useState } from 'react';
 import './Articles.css';
 
-const Articles = () => {
-  const [isFullscreen, setIsFullscreen] = useState(false);
+const articlesData = [
+  {
+    id: 1,
+    title: 'Instant Gratification: The Modern Dilemma',
+    description: 'A deep dive into how instant gratification is shaping our society, technology, and personal habits.',
+    pdf: 'Instantgratification.pdf',
+  },
+  {
+    id: 2,
+    title: 'Algorithmic Bias: The Hidden Danger',
+    description: 'Exploring the risks and realities of bias in algorithms and what it means for fairness in the digital age.',
+    pdf: 'articlealgobias.pdf',
+  },
+];
 
-  const toggleFullscreen = (pdfWrapperId) => {
-    const pdfWrapper = document.getElementById(pdfWrapperId);
-    if (!document.fullscreenElement) {
-      if (pdfWrapper.requestFullscreen) {
-        pdfWrapper.requestFullscreen().then(() => setIsFullscreen(true));
-      } else if (pdfWrapper.webkitRequestFullscreen) {
-        pdfWrapper.webkitRequestFullscreen().then(() => setIsFullscreen(true));
-      } else if (pdfWrapper.msRequestFullscreen) {
-        pdfWrapper.msRequestFullscreen().then(() => setIsFullscreen(true));
-      }
-    } else {
-      if (document.exitFullscreen) {
-        document.exitFullscreen().then(() => setIsFullscreen(false));
-      } else if (document.webkitExitFullscreen) {
-        document.webkitExitFullscreen().then(() => setIsFullscreen(false));
-      } else if (document.msExitFullscreen) {
-        document.msExitFullscreen().then(() => setIsFullscreen(false));
-      }
-    }
+const Articles = () => {
+  const [openArticle, setOpenArticle] = useState(null);
+
+  const handleOpen = (article) => {
+    setOpenArticle(article);
+  };
+
+  const handleClose = () => {
+    setOpenArticle(null);
   };
 
   return (
     <div className="articles-container">
-      <div className="pdf-gallery">
-        <div className="pdf-viewer" id="pdfWrapper1">
-          <iframe
-            title="Instant Gratification Article"
-            src="Instantgratification.pdf#toolbar=0&view=FitH"
-            frameBorder="0"
-            allowFullScreen
-          ></iframe>
-          <button className="fullscreen-button" onClick={() => toggleFullscreen('pdfWrapper1')}>
-            {isFullscreen ? 'Exit Fullscreen' : 'Fullscreen'}
-          </button>
-        </div>
-        <div className="pdf-viewer" id="pdfWrapper2">
-          <iframe
-            title="Algorithm Bias Article"
-            src="articlealgobias.pdf#toolbar=0&view=FitH"
-            frameBorder="0"
-            allowFullScreen
-          ></iframe>
-          <button className="fullscreen-button" onClick={() => toggleFullscreen('pdfWrapper2')}>
-            {isFullscreen ? 'Exit Fullscreen' : 'Fullscreen'}
-          </button>
-        </div>
+      <h1 className="articles-title">Articles & Essays</h1>
+      <p className="articles-subtitle">A collection of my thoughts, essays, and explorations</p>
+      <div className="articles-grid">
+        {articlesData.map((article) => (
+          <div className="article-card" key={article.id}>
+            <div className="article-content">
+              <h2>{article.title}</h2>
+              <div className="article-description">{article.description}</div>
+              <button className="read-button" onClick={() => handleOpen(article)}>
+                Read
+              </button>
+            </div>
+          </div>
+        ))}
       </div>
+      {openArticle && (
+        <div className="article-modal" onClick={handleClose}>
+          <div className="modal-content" onClick={e => e.stopPropagation()}>
+            <button className="close-modal" onClick={handleClose}>&times;</button>
+            <h2>{openArticle.title}</h2>
+            <iframe
+              src={openArticle.pdf}
+              title={openArticle.title}
+              frameBorder="0"
+              width="100%"
+              height="500px"
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 };

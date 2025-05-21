@@ -132,7 +132,7 @@ const Special = () => {
   }, [currentLineIndex, showMessage, poemLines.length]);
 
   return (
-    <div className={`container ${isModalOpen ? 'modal-open' : ''}`}>
+    <div className={`special-container${isModalOpen ? ' modal-open' : ''}`}>
       {isLocked ? (
         <div className="password-screen">
           <form onSubmit={handlePasswordSubmit} className="password-form">

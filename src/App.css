@@ -1,26 +1,49 @@
+/* Theme Variables */
+:root {
+  /* Dark theme (default) */
+  --bg-primary: #000;
+  --bg-secondary: rgba(0, 0, 0, 0.95);
+  --text-primary: #fff;
+  --text-secondary: #aaa;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --hover-color: #ddd;
+}
+
+.light-mode {
+  --bg-primary: #f5f5f5;
+  --bg-secondary: rgba(245, 245, 245, 0.95);
+  --text-primary: #333;
+  --text-secondary: #666;
+  --border-color: rgba(0, 0, 0, 0.1);
+  --card-bg: rgba(0, 0, 0, 0.05);
+  --hover-color: #444;
+}
+
 .App {
   text-align: center;
-  background-color: #000;
-  color: #fff;
-  min-height: 100%;
-  height: 100vh;
-  overflow: hidden;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  /* height: 100vh; */
+  /* overflow: hidden; */
+  padding-bottom: 60px;
 }
 
 .App-header {
-  background-color: #000000;
+  background-color: var(--bg-primary);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: var(--text-primary);
 }
 
 body {
   font-family: 'Courier New', Courier, monospace;
-  margin: 0; /* Added to prevent unwanted spacing */
+  margin: 0;
 }
 
 .animated-text {
@@ -31,47 +54,29 @@ body {
   animation:
     typing 3s steps(23, end),
     blink-caret 0.75s step-end infinite;
-  -webkit-animation: /* Added for iOS compatibility */
+  -webkit-animation:
     typing 3s steps(23, end),
     blink-caret 0.75s step-end infinite;
 }
 
 @keyframes typing {
-  from {
-    width: 0;
-  }
-  to {
-    width: 14ch;
-  }
+  from { width: 0; }
+  to { width: 14ch; }
 }
 
-@-webkit-keyframes typing { /* Added for iOS compatibility */
-  from {
-    width: 0;
-  }
-  to {
-    width: 14ch;
-  }
+@-webkit-keyframes typing {
+  from { width: 0; }
+  to { width: 14ch; }
 }
 
 @keyframes blink-caret {
-  0%,
-  100% {
-    border-color: transparent;
-  }
-  50% {
-    border-color: rgba(255, 255, 255, 0.75);
-  }
+  0%, 100% { border-color: transparent; }
+  50% { border-color: rgba(255, 255, 255, 0.75); }
 }
 
-@-webkit-keyframes blink-caret { /* Added for iOS compatibility */
-  0%,
-  100% {
-    border-color: transparent;
-  }
-  50% {
-    border-color: rgba(255, 255, 255, 0.75);
-  }
+@-webkit-keyframes blink-caret {
+  0%, 100% { border-color: transparent; }
+  50% { border-color: rgba(255, 255, 255, 0.75); }
 }
 
 .hidden-header {
@@ -81,40 +86,32 @@ body {
 .HamburgerMenu {
   width: 36px;
   height: 36px;
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  display: block;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
   cursor: pointer;
   text-align: center;
-  background-color: #000000;
-  -webkit-tap-highlight-color: transparent; /* Added for iOS */
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  z-index: 1001;
+  padding: 8px;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .HamburgerMenu div {
-  width: 70%;
-  height: 3px;
-  background-color: rgb(255, 255, 255);  
-  margin: 6px auto;
+  width: 24px;
+  height: 2px;
+  background-color: var(--text-primary);
+  margin: 3px 0;
   transition: all 0.3s ease-in-out;
-  -webkit-transition: all 0.3s ease-in-out; /* Added for iOS */
-}
-
-.expanded-menu {
-  background-color: #cb3232; 
-  position: absolute;  
-  top: 51px;  
-  right: 15px; 
-  width: 200px;  
+  -webkit-transition: all 0.3s ease-in-out;
 }
 
 .HamburgerMenu.animate div:nth-child(1) {
   transform: rotate(45deg) translate(5px, 5px);
-  -webkit-transform: rotate(45deg) translate(5px, 5px); /* Added for iOS */
+  -webkit-transform: rotate(45deg) translate(5px, 5px);
 }
 
 .HamburgerMenu.animate div:nth-child(2) {
@@ -123,16 +120,22 @@ body {
 
 .HamburgerMenu.animate div:nth-child(3) {
   transform: rotate(-45deg) translate(7px, -6px);
-  -webkit-transform: rotate(-45deg) translate(7px, -6px); /* Added for iOS */
+  -webkit-transform: rotate(-45deg) translate(7px, -6px);
 }
 
 .Navigation {
   display: none;
-  position: absolute;
+  position: fixed;
   right: 10px;
   top: 70px;
   text-align: left;
   z-index: 1000;
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  padding: 10px 0;
+  min-width: 200px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--border-color);
 }
 
 .Navigation.active {
@@ -146,8 +149,8 @@ body {
 }
 
 .Navigation li {
-  padding: 10px 20px;
-  border-bottom: 1px solid #555;
+  padding: 12px 20px;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .Navigation li:last-child {
@@ -156,27 +159,29 @@ body {
 
 .Navigation li a {
   text-decoration: none;
-  color: white;
-  font-size: calc(8px + 1vmin);
+  color: var(--text-primary);
+  font-size: 16px;
   transition: color 0.3s ease;
-  -webkit-transition: color 0.3s ease; /* Added for iOS */
+  -webkit-transition: color 0.3s ease;
+  display: block;
+  padding: 4px 0;
 }
 
 .Navigation li a:hover {
-  color: #ddd;
+  color: var(--hover-color);
 }
 
 .Navigation a {
   text-decoration: underline;
-  color: white;
+  color: var(--text-primary);
   font-family: 'Courier New', Courier, monospace;
   padding: 0.5rem 1rem;
   border-radius: 5px;
   font-size: calc(8px + 1vmin);
   transition: color 0.3s ease;
-  -webkit-transition: color 0.3s ease; /* Added for iOS */
+  -webkit-transition: color 0.3s ease;
   background-color: transparent;
-  -webkit-tap-highlight-color: transparent; /* Added for iOS */
+  -webkit-tap-highlight-color: transparent;
 }
 
 .Navigation a:hover {
@@ -184,129 +189,129 @@ body {
   cursor: pointer;
 }
 
-.HomeButton {
-  position: absolute;
-  top: 12px;
-  left: 22px;
-  border: none;
-  background: transparent;
-  padding: 0;
-  cursor: pointer;
-  z-index: 2000;
-  -webkit-tap-highlight-color: transparent; /* Added for iOS */
-}
-
-.HomeButton img {
-  width: 34px;
-  height: 34px;
-}
-
-.HamburgerMenu div.extended {
-  width: 120%;
-  transition: width 0.3s ease-in-out;
-  -webkit-transition: width 0.3s ease-in-out; /* Added for iOS */
-}
-
-.chessboard {
-  display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  grid-template-rows: repeat(8, 1fr);
-  width: 80vw; 
-  height: 80vw; 
-  max-width: 400px; 
-  max-height: 400px;
-  margin: 5vw auto; 
-}
-
-.square {
-  width: 50px;
-  height: 50px;
-}
-
-.dark {
-  background-color: #b58863;
-}
-
-.light {
-  background-color: #f0d9b5;
-}
-
-.home-menu {
-  width: 100%;
-  background-color: #454242;
-  height: 60px;
-  position: fixed; 
-  top: 0;
-  left: 0;
-  z-index: 1000; 
-  overflow: hidden; 
-}
-
-.home-menu ul {
-  list-style: none;
-  padding: 0;
-  margin: 24px;
-  height: 10%;
-  display: flex;
-  justify-content: flex-end; 
-  align-items: center; 
-}
-
-.home-menu ul li {
-  display: inline;
-}
-
-.home-menu ul li a {
-  text-decoration: none;
-  color: rgb(255, 255, 255);
-  padding: 8px 15px; 
-  display: block;
-  line-height: 14px; 
-  -webkit-tap-highlight-color: transparent; /* Added for iOS */
-}
-
-.home-menu ul li a:hover {
-  background-color: #645f5f;
-}
-
-/* Media Queries - keeping the original ones */
+/* Media Queries */
 @media (max-width: 768px) {
-  .App-header {
-    padding: 10px;
-  }
-
-  .HamburgerMenu {
-    top: 10px;
-    right: 10px;
-  }
-
   .Navigation {
-    top: 45px;
+    top: 60px;
+    right: 10px;
+    width: calc(100% - 20px);
+    max-width: 300px;
   }
 
-  .Navigation li a,
-  .Navigation a {
-    font-size: calc(8px + 1vmin);
+  .Navigation li {
+    padding: 15px 20px;
   }
 }
 
 @media (max-width: 480px) {
-  .App-header {
-    font-size: calc(9px + 2vmin);
-  }
-
   .Navigation {
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
-    top: 30px;
+    top: 60px;
+    width: calc(100% - 20px);
   }
 
   .Navigation li {
-    padding: 15px;
+    padding: 12px 20px;
   }
+}
 
-  .HomeButton {
-    top: 10px;
-    left: 10px;
+.header-logo img {
+  width: 48px;
+  height: 48px;
+  transition: transform 0.3s ease;
+}
+
+.header-logo:hover img {
+  transform: scale(1.1);
+}
+
+/* Media Queries */
+@media (max-width: 1024px) {
+  .header-logo img {
+    width: 42px;
+    height: 42px;
   }
+}
+
+@media (max-width: 768px) {
+  .header-logo img {
+    width: 34px;
+    height: 34px;
+  }
+}
+
+.global-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: 80px;
+  background: var(--bg-secondary);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.projects-container, .articles-container {
+  padding-top: 120px;
+  padding-bottom: 60px;
+}
+
+@media (max-width: 768px) {
+  .projects-container, .articles-container {
+    padding-top: 100px;
+    padding-bottom: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .projects-container, .articles-container {
+    padding-top: 100px;
+    padding-bottom: 60px;
+  }
+}
+
+.locked-footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 44px;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  border-top: 1px solid var(--border-color);
+}
+
+/* Header Controls */
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.theme-toggle:hover {
+  background-color: var(--card-bg);
 }
