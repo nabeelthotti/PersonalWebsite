@@ -2,21 +2,25 @@
   publish = "build"
   command = "npm run build"
 
-# Redirect /mcp to the Cloudflare Worker
-[[redirects]]
-  from = "/mcp"
-  to = "https://tech-detect-mcp.nabeel-thotti.workers.dev/"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "/mcp/*"
-  to = "https://tech-detect-mcp.nabeel-thotti.workers.dev/:splat"
-  status = 301
-  force = true
-
-# Handle client-side routing
+# Handle client-side routing first
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
+  conditions = {Path = ["/mcp", "/mcp/*"]}
+  force = false
+
+# Proxy /mcp to the Cloudflare Worker while keeping the original URL
+[[redirects]]
+  from = "/mcp"
+  to = "https://tech-detect-mcp.nabeel-thotti.workers.dev/"
+  status = 200
+  force = true
+  proxy = true
+
+[[redirects]]
+  from = "/mcp/*"
+  to = "https://tech-detect-mcp.nabeel-thotti.workers.dev/:splat"
+  status = 200
+  force = true
+  proxy = true
