@@ -18,9 +18,9 @@ export function getGalleryProgressForIndex(index, count) {
   return clamp((clamp(selected, 0, total - 1) + arrival) / (total - 1 + arrival), 0, 1);
 }
 
-export function getGalleryScrollScreens(count, compact = false) {
+export function getGalleryScrollScreens(count, compact = false, mobile = false) {
   const total = itemCount(count);
-  return clamp(1.65 + total * (compact ? .56 : .59), 2.8, 8.8);
+  return mobile ? clamp(1.65 + total * .34, 2.8, 6.5) : clamp(1.65 + total * (compact ? .56 : .59), 2.8, 8.8);
 }
 
 export function getGallerySelectorScrollLeft({ scrollLeft = 0, viewportWidth = 0, itemLeft = 0, itemWidth = 0, scrollWidth = 0, padding = 14 } = {}) {

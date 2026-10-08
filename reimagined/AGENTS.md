@@ -10,6 +10,8 @@ Build app UI in `src/`. Keep `.openai/hosting.json`, `worker/index.js`, `scripts
 
 ## Nabeel's design preferences
 
+- Latest mobile direction: phones must retain desktop-style full-screen pinned chapters, layered work cards, outbound Beel motion, and fixed essay pages before Personal. Do not replace motion with a long static layout based on screen size. Shorten the phone project scroll distance; keep a Still view option and respect reduced-motion preferences. This supersedes earlier mobile static essays and horizontal work rail.
+
 - Mobile: preserve the finger/letter entrance, anchoring the nail to the actual l after resize/font loading. Phone hand rises from the bottom; landscape keeps a horizontal composition. Keep the simultaneous wrist sway/page opening. Provide 44px touch controls, a local drag/pinch globe, horizontal work swiping, photo swipes and arrows, readable full-height mobile essays, and no page-wide horizontal overflow. Browser Back should restore the open homepage; a return-to-entrance touch gesture must begin at the top, not fire during ordinary upward reading.
 
 - Native text highlighting uses yellow with dark text everywhere. Desktop has a small cream/oxblood illustrated arrow cursor and a red pointing-hand cursor over links/buttons; preserve I-beam for text and grab/drawing cursors for interactive surfaces. Beel summary: “Go to outreach platform. Releasing soon.”

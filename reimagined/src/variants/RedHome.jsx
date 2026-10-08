@@ -39,11 +39,11 @@ function useChapterMotion(rootRef,siteVisible) {
     let frame = 0;
     const render = () => {
       frame = 0;
-      const simple = media.matches || innerWidth < 760 || innerHeight < 560;
+      const simple = media.matches;
       root.dataset.motion = simple ? 'still' : 'scroll';
       for (const track of tracks) {
         const rect = track.getBoundingClientRect();
-        const p = clamp(-rect.top / Math.max(1, rect.height - innerHeight));
+        const p = clamp(-rect.top / Math.max(1, rect.height - track.querySelector('.chapter-stage').clientHeight));
         track.style.setProperty('--progress', simple ? 0 : p);
         const panels = [...track.querySelectorAll('[data-panel]')];
         const position = p * Math.max(0, panels.length - 1);

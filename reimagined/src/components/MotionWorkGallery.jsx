@@ -6,7 +6,6 @@ import { getGalleryFrame, getQuietGalleryFrame, getGalleryScrollScreens } from '
 import './motion-work.css';
 
 const matches = (query) => typeof window !== 'undefined' && window.matchMedia(query).matches;
-const ROOMY = '(min-width: 801px) and (min-height: 640px)';
 const kindLabel = (project) => ({ product: 'Product', gtm: 'Go-to-market', brand: 'Brand & web', engineering: 'Engineering' })[project.kind] || project.category || 'Project';
 
 function ProjectMeta({ project }) {
@@ -15,10 +14,9 @@ function ProjectMeta({ project }) {
 
 export default function MotionWorkGallery({ href, compact = false, items = projects, archiveHref, archiveLabel = 'View all projects', showHeading = true, quiet = false, layered = !quiet, nextSectionId }) {
   const headingId = useId();
-  const [wide, setWide] = useState(() => matches(ROOMY));
   const [reduced, setReduced] = useState(() => matches('(prefers-reduced-motion: reduce)'));
   const [motionChoice, setMotionChoice] = useState(null);
-  const animated = wide && items.length > 1 && (motionChoice ?? !reduced);
+  const animated = items.length > 1 && (motionChoice ?? !reduced);
   const [activeIndex, setActiveIndex] = useState(0);
   const [shuffling, setShuffling] = useState(false);
   const cancelShuffleRef = useRef(null);
@@ -35,14 +33,11 @@ export default function MotionWorkGallery({ href, compact = false, items = proje
   const archive = archiveHref === undefined ? href('/work') : archiveHref;
 
   useEffect(() => {
-    const roomy = window.matchMedia(ROOMY);
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const update = () => { setWide(roomy.matches); setReduced(reduced.matches); };
+    const update = () => setReduced(reduced.matches);
     update();
-    roomy.addEventListener('change', update);
     reduced.addEventListener('change', update);
     return () => {
-      roomy.removeEventListener('change', update);
       reduced.removeEventListener('change', update);
       if (toggleFrameRef.current) cancelAnimationFrame(toggleFrameRef.current);
     };
@@ -173,10 +168,10 @@ export default function MotionWorkGallery({ href, compact = false, items = proje
     <section ref={sectionRef} className={`motion-work motion-work--red${animated ? ' motion-work--animated' : ''}${compact ? ' motion-work--compact' : ''}`} aria-labelledby={showHeading ? headingId : undefined} aria-label={showHeading ? undefined : 'Project collection'}>
       <div className={`motion-work-heading${showHeading ? '' : ' motion-work-heading--tools'}`}>
         {showHeading && <div><h2 id={headingId}>{quiet ? 'Some things I’ve built.' : 'Things I’ve worked on.'}</h2><p>Products, go-to-market work, and engineering experiments.</p></div>}
-        <div className="motion-work-heading-actions">{archive && <a draggable={false} className="motion-work-archive" href={archive}>{archiveLabel}<ArrowRight size={20} aria-hidden="true" /></a>}{wide && items.length > 1 && <button ref={toggleRef} type="button" className="motion-work-toggle" onClick={toggleMotion}>{animated ? 'Still view' : 'Motion view'}</button>}</div>
+        <div className="motion-work-heading-actions">{archive && <a draggable={false} className="motion-work-archive" href={archive}>{archiveLabel}<ArrowRight size={20} aria-hidden="true" /></a>}{items.length > 1 && <button ref={toggleRef} type="button" className="motion-work-toggle" onClick={toggleMotion}>{animated ? 'Still view' : 'Motion view'}</button>}</div>
       </div>
 
-      <div ref={trackRef} className="motion-work-track" style={{ '--mw-scroll-screens': getGalleryScrollScreens(items.length, compact) }}>
+      <div ref={trackRef} className="motion-work-track" style={{ '--mw-scroll-screens': getGalleryScrollScreens(items.length, compact), '--mw-mobile-scroll-screens': getGalleryScrollScreens(items.length, compact, true) }}>
         <div className="motion-work-stage" ref={stageRef}>
           <div className="motion-work-stage-top"><span>{String(selectedIndex + 1).padStart(2, '0')} / {String(items.length).padStart(2, '0')}<span className="motion-work-stage-label">A collection of work</span></span><div className="motion-work-stage-actions"><button type="button" className="motion-work-skip" onClick={skipCollection} disabled={shuffling} aria-label={shuffling ? 'Shuffling through projects' : 'Shuffle through projects and continue to Writing'} title="Shuffle through projects and continue"><ArrowRight size={24} aria-hidden="true" /></button></div></div>
           <div className="motion-work-type" ref={backdropRef} aria-hidden="true"><span>WORK WORK</span><span>IN PROGRESS</span><span>WORK WORK</span></div>

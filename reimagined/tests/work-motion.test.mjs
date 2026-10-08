@@ -126,3 +126,23 @@ test('All twelve selectors can be revealed within the horizontal strip without o
     }
   }
 });
+
+
+test('Phone galleries reach every project within a shorter bounded scroll track', () => {
+  const count = 12;
+  const screens = getGalleryScrollScreens(count, false, true);
+  assert.ok(screens > 1 && screens < getGalleryScrollScreens(count) * .75);
+  assert.ok(getGalleryScrollScreens(100, false, true) <= 6.5);
+  for (const [width, height] of [[320, 568], [390, 844], [844, 390]]) {
+    const travel = (screens - 1) * height;
+    const seen = new Set();
+    for (let offset = 0; offset <= travel; offset += 8) {
+      const frame = getGalleryFrame(offset / travel, count, width, height);
+      assertFiniteFrame(frame);
+      seen.add(frame.activeIndex);
+      assert.ok(frame.cards[frame.activeIndex].visible);
+    }
+    assert.equal(seen.size, count, 'Every project remains reachable by native phone scroll');
+    assert.equal(getGalleryFrame(1, count, width, height).activeIndex, count - 1);
+  }
+});
