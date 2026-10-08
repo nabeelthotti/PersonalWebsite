@@ -1,0 +1,31 @@
+.theme-red {
+  --hero-red: #cf251e;
+  --hero-paper: #fff8e8;
+  --hero-yellow: #f9d63b;
+  --hero-ink: #20221e;
+}
+.personal-hero { position: relative; isolation: isolate; overflow: clip; }
+.theme-red.is-home .site-header { min-height: 90px; padding: 28px 5vw; color: var(--hero-paper); background: var(--hero-red); }
+.theme-red.is-home .site-nav { font-size: 20px; gap: 40px; }
+.site-nav a { display: inline-flex; align-items: center; gap: 8px; }
+.hero-room.is-home .site-header::before { content: ''; position: absolute; inset: 0 auto 0 0; width: 38.5%; background: var(--hero-paper); z-index: -1; }
+.hero-room.is-home .identity { color: var(--hero-ink); }
+.hero-version-nav { display: flex; align-items: center; justify-content: center; gap: 32px; padding: 26px 5vw; background: var(--hero-paper); color: var(--hero-ink); border-bottom: 1px solid #d2ccbb; }
+.hero-version-nav > span { margin-right: auto; font-size: 17px; }
+.hero-version-nav a { display: inline-flex; align-items: center; gap: 10px; font-size: 17px; text-decoration: none; padding-block: 8px; border-bottom: 1px solid transparent; }
+.hero-version-nav a > span { font-size: 13px; opacity: .65; }
+.hero-version-nav a[aria-current] { color: var(--hero-red); border-bottom-color: currentColor; }
+.hero-version-nav a:hover { border-bottom-color: currentColor; }
+@media(max-width:1000px) {
+  .theme-red.is-home .site-nav.is-open { color: var(--hero-ink); background: var(--hero-paper); font-size: 20px; gap: 0; }
+  .theme-red.is-home .site-nav.is-open a { padding: 12px; }
+}
+@media(max-width:700px) {
+  .theme-red.is-home .site-header { padding: 24px; min-height: 81px; }
+  .theme-red.is-home .site-header .wordmark { font-size: 25px; }
+  .hero-room.is-home .site-header { background: var(--hero-paper); color: var(--hero-ink); }
+  .hero-room.is-home .site-header::before { display: none; }
+  .hero-version-nav { gap: 12px 20px; padding: 20px 24px; justify-content: flex-start; flex-wrap: wrap; }
+  .hero-version-nav > span { width: 100%; font-size: 15px; }
+  .hero-version-nav a { font-size: 14px; gap: 6px; }
+}

@@ -1,0 +1,12 @@
+node_modules/
+dist/
+dist-red/
+dist-workbench/
+.DS_Store
+*.log
+
+# Local preview captures and environment secrets
+qa/
+.env
+.env.*
+!.env.example

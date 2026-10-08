@@ -1,0 +1,207 @@
+.personal-work-page .work-page-intro { padding-bottom: 64px; }
+.personal-work-page .page-heading { max-width: 1120px; }
+.personal-index-intro { display: flex; justify-content: space-between; align-items: flex-end; gap: 50px; margin-bottom: 48px; }
+.personal-index-intro .work-index-heading { max-width: 530px; margin: 0; }
+.personal-index-intro > p { max-width: 390px; font-size: 20px; line-height: 1.5; margin: 0; color: var(--muted); }
+.personal-work-page .project-row { padding-block: 56px; }
+.personal-work-page .project-row-image { padding: 0; background: #e9e2cf; }
+.personal-work-page .project-row-image img { transition: none; }
+.personal-work-page .project-category { display: flex; gap: 17px; flex-wrap: wrap; }
+.personal-case-page .page-intro { max-width: 1170px; }
+.personal-case-page .page-heading { font-size: clamp(47px, 6.5vw, 96px); max-width: 1100px; }
+.personal-case-status { margin: 25px 0 0; font-size: 17px; color: var(--muted); }
+.personal-gallery-placeholder .gallery-stage { padding: 0; background: transparent; }
+.personal-gallery-placeholder .gallery-stage > :first-child { width: 100%; }
+.personal-gallery-placeholder .gallery-stage figcaption { margin-top: 18px; max-width: 780px; line-height: 1.45; }
+.personal-case-context dl { margin: 0 0 40px; }
+.personal-case-context dt { color: var(--muted); font-size: 14px; margin-top: 22px; }
+.personal-case-context dd { margin: 7px 0 0; font-size: 20px; line-height: 1.35; }
+.personal-case-note { font-size: 15px; line-height: 1.5; color: var(--muted); margin-top: 28px; }
+.personal-case-page .project-story { grid-template-columns: minmax(0, 1.8fr) minmax(200px, 1fr); }
+.personal-case-page .prose h2 { font-family: 'Archivo Variable', sans-serif; font-size: 35px; font-weight: 700; letter-spacing: -.04em; }
+.personal-case-page .prose section { margin-bottom: 55px; }
+.personal-page-jumps { display: flex; gap: 28px; margin: 45px 0 80px; font-size: 18px; }
+.personal-page-jumps a { text-decoration-thickness: 1px; text-underline-offset: 6px; }
+.personal-section-title { font-family: 'Archivo Variable', sans-serif; font-weight: 750; font-size: clamp(34px, 4.2vw, 61px); letter-spacing: -.05em; line-height: 1.02; margin: 0 0 35px; }
+.personal-section-intro { display: flex; justify-content: space-between; align-items: flex-end; gap: 45px; margin-bottom: 45px; }
+.personal-section-intro .personal-section-title { margin: 0; max-width: 690px; }
+.personal-section-intro > p { font-size: 20px; line-height: 1.45; max-width: 410px; margin: 0; }
+.personal-writing-page .article-row { padding-block: 37px 45px; }
+.personal-writing-page .article-row h2 { font-size: clamp(34px, 4.1vw, 61px); max-width: 920px; }
+.personal-videos { margin-top: 100px; scroll-margin-top: 30px; }
+.personal-video-row { display: grid; grid-template-columns: minmax(220px, 1fr) minmax(0, 1.25fr); gap: 6vw; align-items: center; padding: 40px 0; border-top: 1px solid var(--line); }
+.personal-video-thumbnail { aspect-ratio: 16 / 9; background: #e9e2cf; color: #626353; display: flex; align-items: flex-end; padding: 20px; font-size: 16px; }
+.personal-video-type { margin: 0 0 15px; font-size: 15px; color: var(--muted); }
+.personal-video-row h3 { font-family: 'Archivo Variable', sans-serif; font-size: clamp(28px, 3.2vw, 45px); font-weight: 700; letter-spacing: -.04em; line-height: 1.06; margin: 0 0 18px; }
+.personal-video-row > div > p:not(.personal-video-type) { font-size: 19px; line-height: 1.4; max-width: 480px; }
+.personal-video-row .personal-link-placeholder { margin-top: 25px; font-size: 15px !important; color: var(--muted); }
+.personal-about-page { padding-top: 72px; }
+.personal-about-intro { display: grid; grid-template-columns: 1.35fr 1fr; align-items: center; gap: 7vw; }
+.personal-about-intro .page-heading { font-size: clamp(76px, 10vw, 148px); margin-bottom: 35px; }
+.personal-location { font-size: 18px; color: var(--muted); margin: 0 0 36px; }
+.personal-photo-placeholder { margin: 0; min-width: 0; }
+.personal-photo-placeholder > div { background: #e9e2cf; color: #626353; aspect-ratio: 4 / 3; display: flex; align-items: flex-end; padding: 20px; font-size: 16px; }
+.personal-photo-placeholder figcaption { font-size: 17px; line-height: 1.4; margin-top: 15px; }
+.personal-portrait-placeholder > div { aspect-ratio: 4 / 5; }
+.personal-about-story { display: grid; grid-template-columns: 1fr 1.4fr; gap: 7vw; margin-top: 115px; padding-top: 38px; border-top: 1px solid var(--line); }
+.personal-about-story > h2 { font-family: 'Archivo Variable', sans-serif; font-size: 42px; line-height: 1.06; font-weight: 700; letter-spacing: -.04em; margin: 0; }
+.personal-about-story .prose { font-size: 22px; line-height: 1.6; }
+.personal-about-story .prose p:last-of-type { margin-bottom: 30px; }
+.personal-current { display: grid; grid-template-columns: 1fr 1.4fr; gap: 7vw; margin: 90px -5vw 0; padding: 65px 5vw; background: #eee8d8; }
+.personal-current > h2 { font-family: 'Archivo Variable', sans-serif; font-size: clamp(34px, 3.8vw, 52px); line-height: 1.03; letter-spacing: -.045em; font-weight: 740; margin: 0; }
+.personal-current article + article { margin-top: 42px; }
+.personal-current h3 { font-size: 29px; letter-spacing: -.035em; line-height: 1.1; margin: 0 0 15px; }
+.personal-current p { max-width: 620px; font-size: 21px; line-height: 1.5; margin: 0 0 23px; }
+.personal-outside { margin-top: 100px; }
+.personal-interest-list { margin-top: 54px; }
+.personal-interest-list article { display: grid; grid-template-columns: 1fr 1.35fr; gap: 7vw; padding: 25px 0; border-top: 1px solid var(--line); }
+.personal-interest-list h3 { font-size: 29px; line-height: 1.1; letter-spacing: -.03em; margin: 0; }
+.personal-interest-list p { font-size: 21px; line-height: 1.45; margin: 0; max-width: 650px; }
+.personal-photo-strip { display: grid; grid-template-columns: 1.1fr 1fr .9fr; gap: 23px; margin-top: 45px; align-items: start; }
+.personal-photo-strip .personal-photo-placeholder:nth-child(2) { padding-top: 48px; }
+.personal-photo-strip .personal-photo-placeholder:nth-child(3) > div { aspect-ratio: 3 / 4; }
+.personal-photo-strip figcaption { font-size: 15px; }
+.personal-experience { margin-top: 100px; }
+.personal-experience > h2 { font-family: 'Archivo Variable', sans-serif; font-size: 43px; letter-spacing: -.04em; font-weight: 720; }
+.personal-contact-page .page-heading { font-size: clamp(73px, 11vw, 155px); }
+.personal-contact-page .page-intro { max-width: 1040px; }
+.personal-contact-page .page-lead { max-width: 770px; }
+.personal-contact-body { display: grid; grid-template-columns: 1.25fr 1fr; gap: 7vw; padding: 60px 0 70px; border-top: 1px solid var(--line); align-items: start; }
+.personal-linkedin-link { display: flex; justify-content: space-between; align-items: flex-end; gap: 15px; text-decoration: none; font-family: 'Archivo Variable', sans-serif; font-size: clamp(40px, 5.2vw, 78px); font-weight: 720; letter-spacing: -.045em; line-height: 1.03; color: var(--accent); padding-bottom: 18px; border-bottom: 2px solid currentColor; }
+.personal-linkedin-link > svg { width: 60px; height: 60px; flex: 0 0 auto; }
+.personal-linkedin-link:hover { color: var(--ink); }
+.personal-contact-note { padding-top: 2px; }
+.personal-contact-note p { font-size: 22px; line-height: 1.5; margin: 0 0 28px; }
+.personal-contact-bottom { border-top: 1px solid var(--line); padding-top: 28px; display: flex; flex-wrap: wrap; align-items: center; gap: 25px 40px; font-size: 18px; }
+.personal-contact-bottom p { margin: 0; color: var(--muted); }
+.personal-process-page .page-intro { max-width: 1200px; margin-bottom: 100px; }
+.personal-process-page .page-heading { font-size: clamp(54px, 7.4vw, 105px); }
+.personal-process-page .page-lead { max-width: 840px; }
+.personal-workflow-layout { display: grid; grid-template-columns: 1fr 1.2fr; gap: 7vw; align-items: start; }
+.personal-workflow-steps { list-style: none; padding: 0; margin: 0; }
+.personal-workflow-steps li { margin: 0; padding: 0; }
+.personal-workflow-steps button { width: 100%; display: flex; align-items: center; gap: 18px; padding: 19px 15px 19px 0; background: transparent; color: var(--ink); border: 0; border-bottom: 1px solid var(--line); text-align: left; font-size: 23px; line-height: 1.15; }
+.personal-step-number { font-size: 16px; width: 24px; flex-shrink: 0; color: var(--muted); }
+.personal-workflow-steps button > span:nth-child(2) { flex: 1; }
+.personal-workflow-steps button > svg { opacity: 0; }
+.personal-workflow-steps button.is-active { color: var(--accent); border-bottom: 2px solid var(--accent); font-weight: 700; }
+.personal-workflow-steps button.is-active > svg { opacity: 1; }
+.personal-workflow-steps button:hover { color: var(--accent); }
+.personal-workflow-steps button small { display: block; font-size: 13px; line-height: 1.2; font-weight: 500; margin-top: 7px; }
+.personal-flow-connector { display: block; margin: 10px 0 4px 41px; color: var(--muted); }
+.personal-workflow-detail { padding: 35px 34px; background: #eee8d8; position: sticky; top: 28px; min-height: 485px; }
+.personal-process-owner { font-size: 15px; margin: 0 0 28px; color: var(--muted); }
+.personal-workflow-detail h3 { font-family: 'Archivo Variable', sans-serif; font-size: clamp(29px, 3vw, 43px); letter-spacing: -.04em; font-weight: 730; line-height: 1.06; margin: 0 0 26px; }
+.personal-process-description { font-size: 20px; line-height: 1.5; margin: 0 0 29px; }
+.personal-workflow-detail dl { margin: 0 0 30px; }
+.personal-workflow-detail dt { font-size: 14px; color: var(--muted); margin-bottom: 8px; }
+.personal-workflow-detail dd { margin: 0; font-size: 19px; line-height: 1.4; }
+.personal-process-check { font-size: 21px; font-weight: 650; line-height: 1.3; margin: 0 0 35px; padding-left: 17px; border-left: 3px solid var(--accent); }
+.personal-process-check.is-human-gate { font-size: 30px; letter-spacing: -.025em; }
+.personal-process-navigation { display: flex; justify-content: space-between; align-items: center; gap: 18px; border-top: 1px solid var(--line); padding-top: 23px; font-size: 14px; }
+.personal-process-navigation .text-link { font-size: 16px; color: inherit; background: transparent; border: 0; border-bottom: 1px solid currentColor; padding: 0 0 4px; }
+.personal-process-outro { margin-top: 100px; max-width: 890px; }
+.personal-process-outro h2 { font-family: 'Archivo Variable', sans-serif; font-weight: 740; font-size: clamp(37px, 5vw, 67px); line-height: 1.03; letter-spacing: -.05em; margin: 0 0 30px; }
+.personal-process-outro > p { font-size: 24px; line-height: 1.4; margin-bottom: 29px; max-width: 690px; }
+@media (max-width: 1000px) {
+  .personal-section-intro, .personal-index-intro { align-items: flex-start; }
+  .personal-section-intro > p, .personal-index-intro > p { max-width: 330px; font-size: 18px; }
+  .personal-about-intro { gap: 5vw; }
+  .personal-about-story, .personal-current { gap: 5vw; }
+  .personal-workflow-layout { grid-template-columns: .95fr 1.2fr; gap: 4vw; }
+  .personal-workflow-detail { padding: 27px 24px; }
+  .personal-workflow-steps button { font-size: 20px; gap: 12px; }
+  .personal-process-description { font-size: 18px; }
+  .personal-contact-body { gap: 5vw; }
+  .personal-contact-note p { font-size: 20px; }
+}
+@media (max-width: 700px) {
+  .personal-work-page .work-page-intro { padding-bottom: 42px; }
+  .personal-index-intro, .personal-section-intro { flex-direction: column; gap: 22px; margin-bottom: 32px; }
+  .personal-index-intro > p, .personal-section-intro > p { max-width: 100%; font-size: 19px; }
+  .personal-work-page .project-row { padding-block: 30px 38px; }
+  .personal-work-page .project-row-image { padding: 0; }
+  .personal-case-page .page-heading { font-size: clamp(39px, 10vw, 62px); }
+  .personal-case-page .project-story { grid-template-columns: 1fr; gap: 20px; }
+  .personal-case-page .prose h2 { font-size: 31px; }
+  .personal-case-page .prose section { margin-bottom: 36px; }
+  .personal-case-context dl { margin-bottom: 32px; }
+  .personal-case-context dt { margin-top: 17px; }
+  .personal-case-status { margin-top: 21px; font-size: 16px; }
+  .personal-page-jumps { margin: 35px 0 54px; }
+  .personal-section-title { font-size: 38px; }
+  .personal-videos { margin-top: 65px; }
+  .personal-video-row { grid-template-columns: 1fr; gap: 26px; padding-block: 30px 35px; }
+  .personal-video-row h3 { font-size: 31px; }
+  .personal-video-type { margin-bottom: 12px; }
+  .personal-video-thumbnail { padding: 16px; }
+  .personal-about-intro { grid-template-columns: 1fr; gap: 42px; }
+  .personal-about-intro .page-heading { font-size: 90px; margin-bottom: 27px; }
+  .personal-location { font-size: 16px; margin-bottom: 28px; }
+  .personal-portrait-placeholder { width: 88%; margin-left: auto; }
+  .personal-about-story { grid-template-columns: 1fr; gap: 30px; margin-top: 64px; padding-top: 30px; }
+  .personal-about-story > h2 { font-size: 35px; }
+  .personal-about-story .prose { font-size: 20px; }
+  .personal-current { grid-template-columns: 1fr; margin: 65px -24px 0; padding: 43px 24px; gap: 38px; }
+  .personal-current > h2 { font-size: 37px; }
+  .personal-current p { font-size: 20px; }
+  .personal-current h3 { font-size: 27px; }
+  .personal-current article + article { margin-top: 37px; }
+  .personal-outside { margin-top: 63px; }
+  .personal-interest-list { margin-top: 35px; }
+  .personal-interest-list article { grid-template-columns: 1fr; gap: 16px; padding-block: 23px; }
+  .personal-interest-list h3 { font-size: 26px; }
+  .personal-interest-list p { font-size: 20px; }
+  .personal-photo-strip { grid-template-columns: 1fr 1fr; gap: 22px 16px; margin-top: 32px; }
+  .personal-photo-strip .personal-photo-placeholder:nth-child(2) { padding-top: 28px; }
+  .personal-photo-strip .personal-photo-placeholder:nth-child(3) { grid-column: 1 / -1; width: 70%; }
+  .personal-photo-strip .personal-photo-placeholder:nth-child(3) > div { aspect-ratio: 4 / 3; }
+  .personal-photo-placeholder > div { padding: 14px; font-size: 13px; }
+  .personal-photo-strip figcaption { font-size: 14px; }
+  .personal-experience { margin-top: 65px; }
+  .personal-experience > h2 { font-size: 36px; }
+  .personal-contact-page .page-heading { font-size: 85px; }
+  .personal-contact-body { grid-template-columns: 1fr; gap: 38px; padding-block: 34px 43px; }
+  .personal-linkedin-link { font-size: 49px; }
+  .personal-linkedin-link > svg { width: 49px; height: 49px; }
+  .personal-contact-note p { font-size: 21px; }
+  .personal-contact-bottom { align-items: flex-start; flex-direction: column; gap: 21px; }
+  .personal-process-page .page-intro { margin-bottom: 64px; }
+  .personal-process-page .page-heading { font-size: clamp(43px, 10.5vw, 68px); }
+  .personal-workflow-layout { grid-template-columns: 1fr; gap: 30px; }
+  .personal-workflow-steps button { font-size: 20px; padding-block: 14px; }
+  .personal-flow-connector { margin-block: 6px 1px; width: 16px; height: 16px; }
+  .personal-workflow-detail { position: static; min-height: 0; padding: 27px 24px; }
+  .personal-workflow-detail h3 { font-size: 33px; }
+  .personal-process-description { font-size: 19px; }
+  .personal-process-navigation { flex-wrap: wrap; gap: 15px; }
+  .personal-process-outro { margin-top: 64px; }
+  .personal-process-outro h2 { font-size: 39px; }
+  .personal-process-outro > p { font-size: 21px; }
+}
+
+.personal-toolkit{margin-top:90px;border-top:1px solid var(--line);padding-top:40px}.personal-toolkit h2{font-family:'Archivo Variable',sans-serif;font-size:clamp(35px,4vw,58px);letter-spacing:-.04em;margin:0 0 38px}.personal-toolkit dl{display:grid;grid-template-columns:1fr 1fr;gap:38px 7vw;margin:0}.personal-toolkit dt{font-size:24px;font-weight:650;margin-bottom:12px}.personal-toolkit dd{font-size:20px;line-height:1.5;margin:0;max-width:40ch}@media(max-width:700px){.personal-toolkit dl{grid-template-columns:1fr}.personal-toolkit{margin-top:65px}}
+.personal-videos:focus,.work-index:focus,#my-story:focus{outline:none}
+
+.personal-interest-slideshows{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6vw;margin-top:55px;--oxblood:#781b1e}
+.personal-interest-slideshows h3{font-size:29px;line-height:1.1;letter-spacing:-.03em;margin:0 0 16px}
+.personal-interest-slideshows article>p{font-size:21px;line-height:1.45;margin:0 0 35px;min-height:3em}
+.personal-interest-slideshows .life-photo{width:100%;max-width:486px;margin:0 auto;transform:rotate(-2deg)}
+.personal-interest-slideshows article:nth-child(2) .life-photo{transform:rotate(2deg)}
+.personal-interest-slideshows .life-photo>div,.personal-interest-slideshows .life-photo>img{aspect-ratio:1/1.05}
+@media(max-width:759px){.personal-interest-slideshows{grid-template-columns:1fr;gap:60px}.personal-interest-slideshows .life-photo{max-width:460px;margin-inline:auto}.personal-interest-slideshows article>p{min-height:0}.personal-interest-slideshows .life-photo>div,.personal-interest-slideshows .life-photo>img{aspect-ratio:1.15}}
+
+.experience-resume-layout{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(280px,.85fr);gap:7vw;align-items:start}
+.experience-resume-layout .experience-row{grid-template-columns:1fr;gap:12px;padding:28px 0 34px}
+.experience-resume-layout .experience-period{margin:0}
+.experience-resume{position:sticky;top:32px}
+.experience-resume-open{display:block;text-decoration:none}
+.experience-resume-open>span{display:flex;align-items:center;justify-content:space-between;font-size:29px;font-weight:650;letter-spacing:-.03em;margin-bottom:22px}
+.experience-resume-open img{display:block;width:100%;height:auto;background:white;border:1px solid var(--line);box-shadow:0 12px 32px #321c1c12;transition:transform .25s}
+.experience-resume-open:hover img{transform:translateY(-4px)}
+.experience-resume-download{display:flex;align-items:center;justify-content:space-between;margin-top:22px;padding-bottom:8px;border-bottom:1px solid currentColor;font-size:17px;text-decoration:none}
+@media(max-width:759px){.experience-resume-layout{grid-template-columns:1fr;gap:45px}.experience-resume{position:static;max-width:460px;width:100%}}
+@media(prefers-reduced-motion:reduce){.experience-resume-open img{transition:none}.experience-resume-open:hover img{transform:none}}
+
+.personal-life-page{margin-top:0}.personal-life-page .personal-section-intro{align-items:flex-start}.personal-life-page .page-heading{max-width:750px;margin:0}.work-resume{scroll-margin-top:35px}.work-resume .personal-experience{margin-top:0}
+@media(max-width:759px){.personal-life-page .personal-section-intro{display:block}.personal-life-page .personal-section-intro>p{margin-top:30px}}

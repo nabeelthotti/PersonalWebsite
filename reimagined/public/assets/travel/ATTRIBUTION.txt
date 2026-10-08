@@ -1,0 +1,18 @@
+Travel globe geographic data
+
+World outlines: Natural Earth v4.1.0, redistributed by world-atlas 2.0.2 (countries-110m.json).
+Natural Earth geographic data is public domain; world-atlas code/distribution uses ISC.
+https://www.naturalearthdata.com/about/terms-of-use/
+https://github.com/topojson/world-atlas
+
+United Kingdom constituent-country boundaries: geoBoundaries gbOpen GBR ADM1,
+GBR-ADM1-14339913, boundary year 2021; source Eurostat / European Commission.
+License: Creative Commons Attribution 4.0 International.
+https://creativecommons.org/licenses/by/4.0/
+https://www.geoboundaries.org/api/current/gbOpen/GBR/ADM1/
+https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/GBR/ADM1/geoBoundaries-GBR-ADM1_simplified.geojson
+
+Modifications: removed Antarctica and the aggregate United Kingdom geometry,
+inserted the four constituent UK country boundaries, normalized UK polygon winding
+for spherical rendering, rounded coordinates to four decimal places, and reduced properties.
+The source geometry is bundled locally so the globe needs no map API key or external runtime service.

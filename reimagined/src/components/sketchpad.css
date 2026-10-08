@@ -1,0 +1,44 @@
+.sketchpad { --drawing-ink: #173ca0; --drawing-paper: #fff; color: var(--ink, #173ca0); width: 100%; }
+.sketchpad--red { --drawing-ink: #f4d155; --drawing-paper: #cf251e; }
+.sketchpad-toolbar { display: flex; align-items: center; flex-wrap: wrap; gap: 18px 24px; margin-bottom: 17px; }
+.sketchpad-tools, .sketchpad-history { display: flex; align-items: center; gap: 5px; }
+.sketchpad button { appearance: none; display: inline-flex; align-items: center; justify-content: center; gap: 8px; border: 1px solid transparent; border-radius: 2px; background: transparent; color: inherit; font: inherit; font-size: 16px; line-height: 1.2; padding: 10px 12px; min-height: 42px; cursor: pointer; }
+.sketchpad button[aria-pressed='true'] { background: var(--ink, #173ca0); color: var(--surface, #eef5ee); }
+.sketchpad button:not([aria-pressed='true']):hover:not(:disabled) { border-color: currentColor; }
+.sketchpad button:disabled { opacity: .35; cursor: not-allowed; }
+.sketchpad button:focus-visible, .sketchpad input:focus-visible { outline: 2px solid var(--accent, #173ca0); outline-offset: 4px; }
+.sketchpad-size { display: flex; align-items: center; gap: 10px; font-size: 15px; }
+.sketchpad-size input { width: clamp(75px, 10vw, 135px); accent-color: var(--ink, #173ca0); cursor: pointer; }
+.sketchpad-size output { font-variant-numeric: tabular-nums; width: 22px; font-size: 13px; opacity: .7; }
+.sketchpad-history { margin-left: auto; }
+.sketchpad-paper { position: relative; background: var(--drawing-paper); color: var(--drawing-ink); border: 1px solid color-mix(in srgb, var(--ink, #173ca0) 20%, transparent); }
+.sketchpad-paper canvas { display: block; width: 100%; height: auto; aspect-ratio: 1000 / 640; touch-action: none; cursor: crosshair; }
+.sketchpad-paper--eraser canvas { cursor: cell; }
+.sketchpad-paper canvas:focus-visible { outline: 3px solid var(--accent, #173ca0); outline-offset: 5px; }
+.sketchpad-prompt { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; pointer-events: none; text-align: center; font-family: 'Caveat Variable', 'Caveat', cursive; font-size: clamp(27px, 4.2vw, 57px); line-height: 1.15; transform: rotate(-3deg); padding: 25px; opacity: .8; }
+.sketchpad-prompt small { display: block; font-family: inherit; font-size: .43em; margin-top: 32px; }
+.sketchpad-footer { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 20px; }
+.sketchpad-footer > p { margin: 0; font-family: 'Caveat Variable', 'Caveat', cursive; font-size: 28px; line-height: 1.2; }
+.sketchpad .sketchpad-download { border-bottom: 1px solid currentColor; padding: 10px 0; border-radius: 0; }
+.sketchpad .sketchpad-download:hover { border-color: transparent transparent currentColor; opacity: .7; }
+.sketchpad-format { font-size: 11px; letter-spacing: .04em; opacity: .65; padding-left: 2px; }
+.sketchpad-help { font-size: 13px; line-height: 1.5; color: var(--muted, #6c7978); max-width: 590px; margin: 25px 0 0; }
+.sketchpad-announcement { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+@media (max-width: 680px) {
+  .sketchpad-toolbar { gap: 10px; margin-bottom: 12px; justify-content: space-between; }
+  .sketchpad button { font-size: 14px; padding: 8px 9px; gap: 5px; }
+  .sketchpad-tools { gap: 3px; }
+  .sketchpad-size { margin-left: auto; gap: 6px; font-size: 13px; }
+  .sketchpad-size input { width: 75px; }
+  .sketchpad-size output { width: 15px; }
+  .sketchpad-history { width: 100%; margin: 0; justify-content: flex-end; }
+  .sketchpad-history button { min-height: 35px; padding-top: 5px; padding-bottom: 5px; }
+  .sketchpad-prompt { font-size: clamp(28px, 7vw, 44px); }
+  .sketchpad-prompt small { margin-top: 20px; font-size: .5em; }
+  .sketchpad-footer { flex-wrap: wrap; gap: 12px; margin-top: 19px; }
+  .sketchpad-footer > p { font-size: 25px; }
+  .sketchpad .sketchpad-download { font-size: 14px; }
+  .sketchpad-help { margin-top: 19px; font-size: 12px; }
+}
+
+.sketchpad-prompt>span,.sketchpad-prompt>small{pointer-events:auto}

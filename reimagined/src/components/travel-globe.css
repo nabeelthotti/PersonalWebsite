@@ -1,0 +1,41 @@
+/* An interactive atlas inside the first life scene: blue ocean, seafoam land, coral memory. */
+.life-travel[data-active="true"]{pointer-events:auto}
+.travel-map{position:relative;min-width:0;width:100%;max-width:none;justify-self:center;color:#234b60}
+.travel-map svg{display:block;width:100%;overflow:visible;cursor:grab;touch-action:none}
+.travel-map svg:active{cursor:grabbing}
+.travel-map svg:focus,.travel-map svg *:focus{outline:none}
+.travel-map svg:focus-visible .travel-globe-edge{stroke:#ee704c;stroke-width:3}
+.travel-globe-surface{position:relative}
+.travel-globe-base{width:111.111111%;margin-left:-5.555556%;transition:opacity .2s}
+.travel-globe-surface.has-photo .travel-globe-base{opacity:.3;pointer-events:none}
+.travel-photo-overlay{position:absolute;inset:0;display:grid;place-items:center;z-index:2}
+.travel-ocean{fill:#173f59}
+.travel-graticule{fill:none;stroke:#81b8c4;stroke-opacity:.18;stroke-width:.7;pointer-events:none}
+.travel-country{fill:none;stroke:#7cabb6;stroke-width:.65;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+.travel-country.is-visited{fill:#9bd1b9;stroke:#173f59;stroke-width:.8;cursor:pointer}
+.travel-country.is-visited:hover,.travel-country.is-visited:focus,.travel-country.is-selected{fill:#ee704c;outline:none;stroke:#fff9ef;stroke-width:1.1}
+.travel-globe-edge{fill:none;stroke:#173f59;stroke-width:1;pointer-events:none}
+.travel-hover{text-align:center;font-size:14px;min-height:22px;margin-top:8px}
+.travel-map-status{position:absolute;top:40%;left:25%;right:25%;text-align:center;display:grid;gap:20px;font-size:17px;color:#fff9ef}
+.travel-map-status button{border:1px solid currentColor;background:#173f59;color:inherit;padding:10px}
+.travel-photo-overlay .travel-photo{position:relative;width:100%;max-width:none;margin:0;transform:rotate(-3deg);box-shadow:0 20px 55px #173f5933}
+.travel-photo-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:12px;background:#c2d7dd;color:#173f59;padding:18px}
+.travel-photo-placeholder span{font-family:'Caveat Variable',cursive;font-size:clamp(29px,3.5vw,48px);line-height:1.1}
+.travel-photo-placeholder small{font-size:12px}
+.travel-photo figcaption{color:#173f59}
+.travel-photo-close{position:absolute;right:-13px;top:-13px;width:40px;height:40px;border:0;border-radius:50%;background:#173f59;color:#fff9ef;font-size:29px;display:grid;place-items:center;line-height:1;cursor:pointer}
+@media(max-width:759px),(max-height:559px){.life-travel{pointer-events:auto}.travel-map{width:90%;max-width:460px;align-self:center}.travel-hover{font-size:13px}}
+@media(prefers-reduced-motion:reduce){.life-travel{pointer-events:auto}}
+
+@media(prefers-reduced-motion:reduce){.travel-globe-base{transition:none}}
+.life-moment.life-travel{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+
+
+/* Keep all three life images centered on the same stage baseline. */
+.travel-hover{position:absolute;top:100%;left:0;right:0}
+.travel-map:has(.has-photo) .travel-hover{visibility:hidden}
+
+.travel-photo-close{width:44px;height:44px}
+.globe-touch-hint{display:none}
+@media(hover:none),(pointer:coarse){.globe-desktop-hint{display:none}.globe-touch-hint{display:inline}}
+@media(max-width:759px),(max-height:559px){.travel-map{margin-bottom:36px}.travel-photo-close{right:-8px;top:-8px}}

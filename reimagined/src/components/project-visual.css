@@ -1,0 +1,16 @@
+.project-visual{aspect-ratio:1.75;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;padding:5%;background:#e9e2cf;color:#20221e;text-align:left;font-family:'Archivo Variable',sans-serif;position:relative;container-type:inline-size}
+.pv-placeholder{font-family:'Source Sans 3 Variable',sans-serif;font-size:clamp(10px,2.5cqw,18px);line-height:1.2;align-self:flex-start;border-bottom:1px solid currentColor;padding-bottom:5px}
+.pv-title{font-size:clamp(19px,8cqw,62px);font-weight:740;letter-spacing:-.055em;line-height:.98;max-width:16ch;display:block;margin:6% 0 3%}
+.pv-composition{display:flex;gap:6%;align-items:flex-end;font-family:'Source Sans 3 Variable',sans-serif;font-size:clamp(10px,3cqw,22px)}
+.pv-composition span{border-top:1px solid currentColor;padding-top:8px;flex:1}
+.pv-note{font-family:'Source Sans 3 Variable',sans-serif;font-size:clamp(9px,2.1cqw,15px);margin-top:5%;opacity:.85}
+.project-visual--beel{background:#781b1e;color:#fff9ef}
+.pv-beel{display:block;font-size:clamp(62px,36cqw,270px);letter-spacing:-.085em;font-weight:850;line-height:.75;margin:6% 0 4%}
+.pv-channels{font-size:clamp(12px,3.1cqw,22px);letter-spacing:-.02em}
+.project-visual--syft-gtm{background:#b9d2fb;color:#123379}
+.project-visual--sales-market-outreach{background:#eee8d8;color:#20221e}
+.project-visual--positioning-outreach{background:#eee7dd;color:#781b1e}
+.project-visual--security-rep-routing{background:#d3d4c6;color:#383c30}
+.project-visual--cafe-rebrand{background:#e8b08d;color:#732e21}
+.project-visual-image{display:block;width:100%;aspect-ratio:1.75;object-fit:cover;object-position:top}
+.motion-work-static-image,.project-row-image{text-decoration:none}
