@@ -1,26 +1,14 @@
+# Deploy the redesigned site, not the legacy Create React App at the repo root.
 [build]
-  publish = "build"
+  base = "reimagined"
   command = "npm run build"
+  publish = "dist/client"
 
-# Handle client-side routing first
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-  conditions = {Path = ["/mcp", "/mcp/*"]}
-  force = false
+[build.environment]
+  NODE_VERSION = "22"
 
-# Proxy /mcp to the Cloudflare Worker while keeping the original URL
-[[redirects]]
-  from = "/mcp"
-  to = "https://tech-detect-mcp.nabeel-thotti.workers.dev/"
-  status = 200
-  force = true
-  proxy = true
-
-[[redirects]]
-  from = "/mcp/*"
-  to = "https://tech-detect-mcp.nabeel-thotti.workers.dev/:splat"
-  status = 200
-  force = true
-  proxy = true
+# SPA routing and the existing /mcp proxy are in reimagined/public/_redirects.
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
