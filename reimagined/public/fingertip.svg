@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>Red fingertip with a cream nail</title>
+  <path d="M69 68 15 42C5 37 1 29 4 19 7 8 17 4 27 9c12 7 25 19 42 32Z" fill="#d72d25" stroke="#231410" stroke-width="3.5" stroke-linejoin="round"/>
+  <path d="M10 34c8 9 16 9 23 14l32 16v-9L33 39c-8-2-16-3-23-5Z" fill="#a51b1b"/>
+  <path d="M10 18c3-7 9-9 15-5l10 8c4 3 4 7 0 11s-8 5-12 2l-11-7c-4-2-4-6-2-9Z" fill="#fff9ef" stroke="#231410" stroke-width="3" stroke-linejoin="round"/>
+  <path d="m40 33-3 9m9-5-2 8" fill="none" stroke="#231410" stroke-width="2.5" stroke-linecap="round"/>
+</svg>
