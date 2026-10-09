@@ -295,7 +295,7 @@ export default function PokeSystem({ open, onClose, returnFocusRef, href, reduce
         </section>
       </div>
 
-      <footer className="ps-footer"><p>A fictional example of connecting engineering with customer context. Everything stays in this playground.</p><a href={href('/work/syft-gtm')} onClick={close}>The work behind the idea <ArrowUpRight size={19} aria-hidden="true" /></a></footer>
+      <footer className="ps-footer"><p>A fictional example of connecting engineering with customer context. Everything stays in this playground.</p><a href={href('/work')} onClick={close}>The work behind the idea <ArrowUpRight size={19} aria-hidden="true" /></a></footer>
       <p className="ps-status" role="status" aria-live="polite" aria-atomic="true">{status}</p>
     </div>
     <span ref={dragWireRef} className="ps-drag-wire" hidden={!dragging} aria-hidden="true" />

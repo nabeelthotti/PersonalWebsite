@@ -7,8 +7,18 @@
 [build.environment]
   NODE_VERSION = "22"
 
-# SPA routing and the existing /mcp proxy are in reimagined/public/_redirects.
+# The build emits pre-rendered pages and routing rules, retaining the /mcp proxy.
 [[headers]]
   for = "/assets/*"
   [headers.values]
     X-Content-Type-Options = "nosniff"
+
+[[headers]]
+  for = "/robots.txt"
+  [headers.values]
+    Content-Type = "text/plain; charset=utf-8"
+
+[[headers]]
+  for = "/sitemap.xml"
+  [headers.values]
+    Content-Type = "application/xml; charset=utf-8"

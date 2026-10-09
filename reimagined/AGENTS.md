@@ -10,6 +10,26 @@ Build app UI in `src/`. Keep `.openai/hosting.json`, `worker/index.js`, `scripts
 
 ## Nabeel's design preferences
 
+- Home/interiors album now uses all nine photos supplied in Downloads/Home on October 8. Keep the shared homepage/About slideshow and My sanctuary captions. This supersedes the earlier seven-photo limit; do not truncate the list.
+
+- Travel photos: Nabeel confirmed IMG_8567.heic (barber chair) is Saudi Arabia and chai 1.jpeg is the United States. All 11 supplied still photos are assigned.
+
+- Photo carousels must render all supplied images as real img elements in the pre-rendered HTML, hiding inactive slides. Preserve the existing appearance and interactions; do not add an album page.
+
+- Travel photos supplied in Downloads/Website: map using embedded GPS or the user's confirmation. Optimize web copies and strip EXIF/GPS; keep originals intact. Shared globe and About slideshow use the same images. Show only supplied photos in the About slideshow once any are available; countries without photos retain globe placeholders.
+
+- Project collection: remove Syft GTM, Market research & outreach, Founder outreach & investor mapping, Rep routing & LinkedIn outreach, and A London café, online. Keep Beel, Personal Website, and the six earlier engineering projects on both the homepage and simple site. Personal Website follows Beel and uses an actual homepage screenshot.
+
+- Simple site: combine About and Personal at `/about`, with Away from the screen (interior/travel slideshows) after current work and before the closing contact link. Navigation is About → Work → Notes → Contact. `/personal` redirects to `/about`. The animated homepage's Life chapter stays separate and unchanged.
+
+- Latest selection preference: disable highlighting of all page copy and labels, and retain the illustrated arrow over text instead of an I-beam. Keep form/search fields editable and their entered text selectable. Keep existing link/button and drag-surface cursors. This supersedes the earlier all-text-selectable preference.
+
+- Approved About bio is the five paragraphs in `profile.about` (October 8, 2026). Preserve the wording and generous paragraph spacing. Do not add customer anecdotes, investor figures, or market-map counts to the bio; Nabeel explicitly rejected them as confidential. The supplied 40260DB3-E436-41DE-B366-C5DAE0BD0826.PNG replaces the earlier portrait, converted to the web asset `public/assets/photos/nabeel-thotti-portrait.jpg`. Shift the About portrait 1 cm left on desktop; preserve mobile alignment.
+
+- Search visibility: preserve build-time pre-rendering, canonical metadata, sitemap/image entries, and real Netlify 404s. All regular pages must have readable content without JavaScript; retain the animated entrance for interactive visitors. Photos must come from the shared data (never fictional portraits). Do not add an album or separate photo pages; keep image metadata and sitemap entries on About. The About portrait must not be clickable. Run `npm run build` and `npm run test:seo` after changing routes, metadata, or photo data. The user is editing biography copy separately; don't replace it with SEO filler.
+
+- WhatsApp is a confirmed Beel channel. Include it in the product copy and the outbound homepage channel animation, alongside the existing channels.
+
 - Latest mobile direction: phones must retain desktop-style full-screen pinned chapters, layered work cards, outbound Beel motion, and fixed essay pages before Personal. Do not replace motion with a long static layout based on screen size. Shorten the phone project scroll distance; keep a Still view option and respect reduced-motion preferences. This supersedes earlier mobile static essays and horizontal work rail.
 
 - Mobile: preserve the finger/letter entrance, anchoring the nail to the actual l after resize/font loading. Phone hand rises from the bottom; landscape keeps a horizontal composition. Keep the simultaneous wrist sway/page opening. Provide 44px touch controls, a local drag/pinch globe, horizontal work swiping, photo swipes and arrows, readable full-height mobile essays, and no page-wide horizontal overflow. Browser Back should restore the open homepage; a return-to-entrance touch gesture must begin at the top, not fire during ordinary upward reading.
@@ -70,7 +90,7 @@ Build app UI in `src/`. Keep `.openai/hosting.json`, `worker/index.js`, `scripts
 
 - Travel layout: keep the original three-scene sticky scroll sequence: travel first, then interiors, then hosting. All three life Polaroids share the same frame dimensions, image ratio, padding and caption height. Travel uses the interiors/Airbnb size as the reference, and the globe diameter matches their frame width. This supersedes the earlier 50%/645px sizing. Travel copy: “Find a country to open a memory.” Country photos open as Polaroids over the globe, close with X or Escape; keep left-side copy fixed. No blue pointer/scroll focus rectangle; preserve keyboard focus via the globe edge. deep blue water, seafoam visited land and coral selection are approved palette exploration beyond red/white (no pink/yellow). No dropdown, pins, rotate/zoom controls or next/previous place buttons. Drag to discover countries, wheel over globe to zoom, click filled countries for photo. Page scrolling outside the globe continues through the life scenes. Added Mexico, Dominican Republic and Bahamas.
 
-- Travel: an interactive globe with only confirmed visited countries/regions filled. Click a place to open Nabeel’s photo from there; use explicit photo placeholders until supplied. Current list is in `src/data/travel.js` (28 places including UK constituent countries and Jammu and Kashmir). Do not mark Wales or other unlisted places visited. Czechia is the Prague visit. Jammu and Kashmir is a separate photo stop, not a country count. Preserve the confirmed list when adding future trips.
+- Travel: an interactive globe with only confirmed visited countries/regions filled. Click a place to open Nabeel’s photo from there; use explicit photo placeholders until supplied. Current list is in `src/data/travel.js` (26 places including UK constituent countries and Jammu and Kashmir). England, Scotland, and Wales are confirmed visited; Northern Ireland, Denmark, and Germany are removed. Do not mark other unlisted places visited. Czechia is the Prague visit. Jammu and Kashmir is a separate photo stop, not a country count. Preserve the confirmed list when adding future trips.
 
 - Closing copy: “That’s a little bit of me. Tell me a bit about you?” Include a name/email/message contact form. Use free FormSubmit delivery to nabeelthotti02@gmail.com. Remove the preview-only notice. Email-owner activation is required once; report activation/errors honestly and keep drafts. Hosting/deployment remains for later.
 

@@ -1,3 +1,4 @@
 /mcp https://tech-detect-mcp.nabeel-thotti.workers.dev/ 200!
 /mcp/* https://tech-detect-mcp.nabeel-thotti.workers.dev/:splat 200!
-/* /index.html 200
+# Page rewrites, legacy 301 redirects, and the real 404 fallback are generated
+# by scripts/prerender.mjs. Do not restore the catch-all homepage 200 rewrite.

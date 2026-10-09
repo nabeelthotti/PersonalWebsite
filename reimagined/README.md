@@ -69,6 +69,34 @@ The drawing pad supports pen, eraser, undo, touch input, keyboard drawing, and P
 - `src/lib/navigation.js`: canonical paths and legacy aliases.
 - `public/assets/`: published images and other assets.
 
+## Search, AI answers, and images (October 8, 2026)
+
+The build now pre-renders the actual React pages into HTML. Every indexable route gets its own title, description, canonical URL, social metadata, and JSON-LD. The same data drives browser navigation metadata. `/about` identifies Nabeel with `ProfilePage`/`Person`; essays identify their author and original publication date. The biography remains in `src/data.js` so copy edits flow into the rendered site without maintaining a second SEO-only bio.
+
+`scripts/prerender.mjs` generates `robots.txt`, a page/image sitemap, permanent redirects for retired paths, and a true Netlify 404 fallback. The MCP proxy is preserved. Unknown URLs no longer receive a successful homepage response on Netlify. The Sites worker is retained unchanged and is not the production host for this domain.
+
+Live audit before this change: `/`, `/about`, `/robots.txt`, `/sitemap.xml`, and a nonexistent URL all returned the same empty React shell with HTTP 200. There was no canonical or structured data. These are confirmed technical weaknesses, not proof of Google's specific exclusion reason; only the site's Search Console can report that.
+
+### Adding real photos
+
+1. Put public JPG, PNG, WebP, or AVIF photos in `public/assets/photos/`. Use descriptive filenames such as `nabeel-thotti-japan.jpg`. Optimize file sizes; keep a good-resolution original suitable for the displayed size.
+2. Set `profile.portrait` in `src/data.js` to `{ src: '/assets/photos/nabeel-thotti-portrait.jpg', alt: 'Nabeel Thotti in San Francisco', width: 1200, height: 1500 }`, using the actual dimensions and an accurate description. The portrait appears on About and supplies the Person image and homepage/About sharing image.
+3. In `src/data/travel.js`, set a place's `photo`, `caption`, and optional `alt`, `width`, and `height`. Describe the actual image; if Nabeel isn't in the frame, don't claim he is.
+4. In `src/data/interiors.js`, fill `src`, `alt`, `caption`, and optionally `title`, `width`, and `height`. Don't claim Nabeel took a photo unless confirmed.
+5. Rebuild. Real photos receive image markup on About and image sitemap entries without separate album or photo pages. The portrait is not clickable; travel and interior photos remain in the existing galleries. Missing configured local files fail the build; null placeholders are excluded from indexing/image schema.
+
+### Deployment and owner setup
+
+- Run `npm run build` and `npm test` before deploying. `npm run test:seo` checks generated HTML, metadata, content, sitemaps, redirects, and future photo configuration.
+- Deploy through the existing Netlify build. Check that `/robots.txt` is text, `/sitemap.xml` is XML, `/about` includes the biography in View Source, and a random nonexistent URL returns HTTP 404. Run the Google Rich Results Test against `/about` and an essay after deployment.
+- Verify `nabeelthotti.com` as a Domain property in Google Search Console using its exact DNS TXT verification value. Do not invent a verification token. Submit `https://nabeelthotti.com/sitemap.xml`, inspect `/` and `/about`, and request indexing once. Check Google's selected canonical, rendered HTML, exclusion reasons, security issues, and manual actions.
+- Use the same official website link on Nabeel's existing LinkedIn, GitHub, X, and YouTube profiles. Ask for an accurate linked author/team bio on Syft if appropriate; this is an owner/editor action, not something the site code can supply.
+- After adding photos, inspect their landing pages and track Search Console's Image search performance for the name query. Discovery, indexing, appearance in AI answers, and ranking first are not guaranteed. Monitor Web impressions for `Nabeel Thotti` as well as Image impressions over the following weeks.
+
+Research sources: [Google JavaScript SEO](https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics), [Google image guidance](https://developers.google.com/search/docs/appearance/google-images), [ProfilePage markup](https://developers.google.com/search/docs/appearance/structured-data/profile-page), [AI features](https://developers.google.com/search/docs/appearance/ai-features), [sitemaps](https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap), [requesting a recrawl](https://developers.google.com/search/docs/crawling-indexing/ask-google-to-recrawl), [OpenAI search crawlers](https://developers.openai.com/api/docs/bots), and [Netlify redirect/404 behavior](https://docs.netlify.com/manage/routing/redirects/redirect-options/).
+
+Google says no special AI file or schema is required for AI Overviews/AI Mode. We prioritize crawlable original content and accurate identity rather than adding synthetic FAQs, keyword stuffing, or a supposed ranking boost from `llms.txt`. The wildcard robots policy permits public search crawlers, including Googlebot, Googlebot-Image, Bingbot, and OAI-SearchBot. Training-bot policy has not been changed separately.
+
 See [CONTENT_CHECKLIST.md](./CONTENT_CHECKLIST.md) for the remaining images, links, and confirmations. Client names, private customer data, and unconfirmed performance metrics are excluded. Visual placeholders represent content slots, not screenshots or evidence of results. Beel remains labeled as in development.
 
 GitHub has been verified. LinkedIn uses the URL from the original portfolio. The supplied X and YouTube handle paths still need checking; blocked public fetches do not establish that those links are broken.
@@ -112,7 +140,7 @@ The bundled map is `public/assets/travel/world.json` (279 KB, lazy-loaded when n
 
 ## Interior photo gallery
 
-The homepage life sequence is Travel → Interiors; the Airbnb scene has been removed. Interiors uses the shared Polaroid with previous/next arrows and keyboard Left/Right navigation. Seven labeled photo placeholders are configured in `src/data/interiors.js`. Replace each `src: null` with an image URL (for example `/assets/interiors/living-room.jpg`) and edit its `alt` and `caption`. Remove unused entries if fewer than seven photos are supplied. No upload/admin interface is included.
+The homepage life sequence is Travel → Interiors; the Airbnb scene has been removed. Interiors uses the shared Polaroid with previous/next arrows and keyboard Left/Right navigation. Nine supplied home photos are configured in `src/data/interiors.js`, shared with About and the image sitemap. Add or remove entries in that array and edit their `alt` and `caption` as needed. There is no fixed photo limit. No upload/admin interface is included.
 
 
 ## Letter entrance

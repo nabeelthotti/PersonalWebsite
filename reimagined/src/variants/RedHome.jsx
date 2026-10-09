@@ -1,5 +1,5 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react';
-import { ArrowUpRight, ChatCircle, ChatText, PhoneCall, Voicemail, EnvelopeSimple, LinkedinLogo, XLogo, InstagramLogo, FacebookLogo } from '@phosphor-icons/react';
+import { ArrowUpRight, ChatCircle, ChatText, PhoneCall, Voicemail, EnvelopeSimple, LinkedinLogo, XLogo, InstagramLogo, FacebookLogo, WhatsappLogo } from '@phosphor-icons/react';
 import MotionWorkGallery from '../components/MotionWorkGallery.jsx';
 import TravelGlobe from '../components/TravelGlobe.jsx';
 import InteriorGallery from '../components/InteriorGallery.jsx';
@@ -21,8 +21,9 @@ const outboundChannels = [
   {name:'Voicemail',Icon:Voicemail,x:0,y:-30,tilt:0},
   {name:'Email',Icon:EnvelopeSimple,x:36,y:-16,tilt:10},
   {name:'LinkedIn',Icon:LinkedinLogo,x:-36,y:16,tilt:-7},
-  {name:'X',Icon:XLogo,x:-15,y:27,tilt:5},
-  {name:'Instagram',Icon:InstagramLogo,x:15,y:27,tilt:-6},
+  {name:'X',Icon:XLogo,x:-20,y:27,tilt:5},
+  {name:'WhatsApp',Icon:WhatsappLogo,x:0,y:30,tilt:0},
+  {name:'Instagram',Icon:InstagramLogo,x:20,y:27,tilt:-6},
   {name:'Facebook',Icon:FacebookLogo,x:36,y:16,tilt:9},
 ];
 const clamp = n => Math.max(0, Math.min(1, n));
@@ -166,7 +167,7 @@ export default function RedHome({ href }) {
     <section className="scroll-beel" id="beel" data-chapter data-track aria-labelledby="beel-title">
       <div className="chapter-stage beel-stage">
         <span className="chapter-label">What I am currently working on</span>
-        <div className="beel-outbound" role="img" aria-label="Beel sends outreach through iMessage, SMS, calls, voicemail, email, LinkedIn, X, Instagram and Facebook.">{outboundChannels.map(({name,Icon,x,y,tilt},i)=><div className="beel-channel" key={name} aria-hidden="true" style={{'--x':`${x}vw`,'--y':`${y}vh`,'--mobile-y':`${44+y*(y<0?.75:1.1)}%`,'--tilt':`${tilt}deg`,'--delay':(i%4)*.035}}><Icon weight={name==='Instagram'?'bold':'fill'} /><span>{name}</span></div>)}</div>
+        <div className="beel-outbound" role="img" aria-label="Beel sends outreach through iMessage, SMS, calls, voicemail, email, LinkedIn, X, WhatsApp, Instagram and Facebook.">{outboundChannels.map(({name,Icon,x,y,tilt},i)=><div className="beel-channel" key={name} aria-hidden="true" style={{'--x':`${x}vw`,'--y':`${y}vh`,'--mobile-y':`${44+y*(y<0?.75:1.1)}%`,'--tilt':`${tilt}deg`,'--delay':(i%4)*.035}}><Icon weight={name==='Instagram'?'bold':'fill'} /><span>{name}</span></div>)}</div>
         <h2 id="beel-title">beel.</h2>
         <div className="beel-bottom"><p>All in one outbound sequencer</p><a draggable={false} className="scroll-link" href={href('/work/beel')}>Meet Beel <ArrowUpRight size={20}/></a></div>
       </div>
@@ -189,7 +190,7 @@ export default function RedHome({ href }) {
     <section className="scroll-life" id="life" data-chapter data-track aria-labelledby="home-life-title">
       <div className="chapter-stage life-stage"><h2 className="life-section-heading" id="home-life-title">Away from the screen.</h2>
         <div className="life-moment life-travel" data-panel style={{'--reveal':1}}><TravelGlobe /></div>
-        <div className="life-moment life-interiors" data-panel style={{'--reveal':0}}><div className="life-copy"><span>Interiors</span><h2>A different<br />kind of building.</h2><p>I help clients decorate their houses in my free time.</p></div><InteriorGallery /></div>
+        <div className="life-moment life-interiors" data-panel style={{'--reveal':0}}><div className="life-copy"><h2>A different<br />kind of building.</h2><p>This is my home.</p></div><InteriorGallery /></div>
       </div>
     </section>
 

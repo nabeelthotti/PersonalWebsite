@@ -3,17 +3,21 @@ import { ArrowUpRight, ArrowRight, List, X } from '@phosphor-icons/react';
 import RedHome from './variants/RedHome.jsx';
 import ChessGame from './components/ChessGame.jsx';
 import Sketchpad from './components/Sketchpad.jsx';
-import { WorkPage, ProjectPage, WritingPage, ArticlePage, AboutPage, PersonalPage, ContactPage, ResumePage, HowIWorkPage, NotFoundPage } from './components/ContentPages.jsx';
+import { WorkPage, ProjectPage, WritingPage, ArticlePage, AboutPage, ContactPage, ResumePage, HowIWorkPage, NotFoundPage } from './components/ContentPages.jsx';
 import { resolveLocation } from './lib/navigation.js';
-import { projects, articles, profile } from './data.js';
+import { profile } from './data.js';
+import { updatePageMetadata } from './lib/seo.js';
+import './components/photo-pages.css';
 import './variants/red.css';
 
 const entryKey = () => `${Date.now().toString(36)}-${Math.random().toString(36).slice(2)}`;
-export function App() {
-  const [navigation, setNavigation] = useState(() => ({ pathname: window.location.pathname, hash: window.location.hash, type: 'initial', position: history.state?.portfolioScroll }));
+export function App({ initialPath = '/' }) {
+  const [navigation, setNavigation] = useState(() => typeof window === 'undefined'
+    ? { pathname: initialPath, hash: '', type: 'initial' }
+    : { pathname: window.location.pathname, hash: window.location.hash, type: 'initial', position: history.state?.portfolioScroll });
   const { pathname } = navigation;
   const scrollPositions = useRef(new Map());
-  const currentEntry = useRef(history.state?.portfolioEntry || entryKey());
+  const currentEntry = useRef(typeof history === 'undefined' ? 'prerender' : history.state?.portfolioEntry || entryKey());
   const [menuOpen, setMenuOpen] = useState(false);
   useEffect(() => {
     if (!menuOpen) return;
@@ -71,10 +75,7 @@ export function App() {
   }, []);
   useEffect(() => {
     setMenuOpen(false);
-    const project = projects.find(p => route === `/work/${p.slug}`);
-    const article = articles.find(a => route === `/writing/${a.slug}`);
-    const labels = { '/': 'GTM engineer, builder, curious person', '/work': 'Selected work', '/writing': 'Writing', '/how-i-work': 'How I work', '/about': 'About', '/personal': 'Personal', '/contact': 'Say hello', '/chess': 'A little chess', '/draw': 'Draw something', '/resume': 'Résumé' };
-    document.title = `${project?.title || article?.title || labels[route] || 'Page not found'} — Nabeel Thotti`;
+    updatePageMetadata(route);
     document.documentElement.style.backgroundColor = '#cf251e';
     document.getElementById('main')?.focus({ preventScroll: true });
     const frame = requestAnimationFrame(() => {
@@ -103,7 +104,6 @@ export function App() {
   else if (/^\/writing\/[^/]+$/.test(route)) page = <ArticlePage href={href} slug={route.split('/')[2]} />;
   else if (route === '/how-i-work') page = <HowIWorkPage href={href} />;
   else if (route === '/about') page = <AboutPage href={href} />;
-  else if (route === '/personal') page = <PersonalPage />;
   else if (route === '/contact') page = <ContactPage href={href} />;
   else if (route === '/resume') page = <ResumePage href={href} />;
   else if (route === '/chess') page = <section className="content-page play-page"><a draggable={false} className="text-link page-back" href={href('/')}>Back to the good stuff</a><h1 className="page-heading">A little chess.</h1><ChessGame /></section>;
@@ -124,7 +124,7 @@ export function App() {
     {!home && <header className="site-header">
       <div className="identity"><a draggable={false} className="wordmark" href={href('/')}>Nabeel Thotti</a></div>
       <button className="menu-toggle" aria-label={menuOpen ? 'Close navigation' : 'Open navigation'} aria-expanded={menuOpen} aria-controls="primary-nav" onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? <X size={25} /> : <List size={25} />}</button>
-      <nav id="primary-nav" className={`site-nav ${menuOpen ? 'is-open' : ''}`} aria-label="Main navigation">{(home ? [['Story','#my-story'],['Work','#work'],['Life','#life']] : [['About','/about'],['Work','/work'],['Notes','/writing'],['Personal','/personal'],['Contact','/contact']]).map(([label,path])=><a draggable={false} key={path} href={path.startsWith('#') ? path : href(path)} aria-current={route.startsWith(path) ? 'page' : undefined}>{label}{path === '/contact' && <ArrowUpRight size={18} />}</a>)}</nav>
+      <nav id="primary-nav" className={`site-nav ${menuOpen ? 'is-open' : ''}`} aria-label="Main navigation">{(home ? [['Story','#my-story'],['Work','#work'],['Life','#life']] : [['About','/about'],['Work','/work'],['Notes','/writing'],['Contact','/contact']]).map(([label,path])=><a draggable={false} key={path} href={path.startsWith('#') ? path : href(path)} aria-current={route.startsWith(path) ? 'page' : undefined}>{label}{path === '/contact' && <ArrowUpRight size={18} />}</a>)}</nav>
     </header>}
     <main id="main" tabIndex={-1}>{page}</main>
     <footer className="site-footer">

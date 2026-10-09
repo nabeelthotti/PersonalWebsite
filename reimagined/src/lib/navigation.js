@@ -1,3 +1,5 @@
+export const routeAliases = { '/home': '/', '/personal': '/about', '/projects': '/work', '/articles': '/writing', '/rekognize': '/work/rekognize', '/portchat': '/work/portchat', '/shopvista': '/work/shopvista', '/findmyparcel': '/work/find-my-parcel', '/dailycommit': '/work/daily-commit', '/chessgame': '/work/chess' };
+
 export function resolveLocation(pathname) {
   const parts = pathname.split('/').filter(Boolean);
   // Retired edition paths remain useful bookmarks, all resolving to the red site.
@@ -6,8 +8,7 @@ export function resolveLocation(pathname) {
   const hero = explicitHero ? parts.shift() : 'poke';
   const base = explicitHero ? `/${hero}` : '';
   let route = '/' + parts.join('/');
-  const aliases = { '/home': '/', '/projects': '/work', '/articles': '/writing', '/rekognize': '/work/rekognize', '/portchat': '/work/portchat', '/shopvista': '/work/shopvista', '/findmyparcel': '/work/find-my-parcel', '/dailycommit': '/work/daily-commit', '/chessgame': '/work/chess' };
-  route = aliases[route] || route;
+  route = routeAliases[route] || route;
   const href = (path = '/') => path === '/' ? (base || '/') : base + path;
   return { variant: 'red', hero, base, route, href, canonicalPath: href(route) };
 }

@@ -178,7 +178,7 @@ export default function TravelGlobe() {
       </div>
       {place && <div className="travel-photo-overlay" role="dialog" aria-label={`Photo from ${place.name}`}>
         <figure className="life-photo travel-photo" key={selected}>
-          {place.photo&&!photoError?<img src={place.photo} alt={`Nabeel in ${place.name}`} onError={()=>setPhotoError(true)}/>:<div className="travel-photo-placeholder" role="img" aria-label={`Nabeel in ${place.name}. Photo to add.`}><span>Me in {place.name}</span><small>Photo to add</small></div>}
+          {place.photo&&!photoError?<img src={place.photo} style={{objectPosition:place.objectPosition}} alt={place.alt || `Nabeel Thotti in ${place.name}`} width={place.width} height={place.height} onError={()=>setPhotoError(true)}/>:<div className="travel-photo-placeholder" role="img" aria-label={`Nabeel in ${place.name}. Photo to add.`}><span>Me in {place.name}</span><small>Photo to add</small></div>}
           <figcaption>{place.caption || place.name}</figcaption>
           <button ref={closeButton} className="travel-photo-close" aria-label="Close travel photo" onClick={closePhoto}>×</button>
         </figure>

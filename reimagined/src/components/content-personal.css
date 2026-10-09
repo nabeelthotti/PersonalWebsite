@@ -43,9 +43,13 @@
 .personal-photo-placeholder > div { background: #e9e2cf; color: #626353; aspect-ratio: 4 / 3; display: flex; align-items: flex-end; padding: 20px; font-size: 16px; }
 .personal-photo-placeholder figcaption { font-size: 17px; line-height: 1.4; margin-top: 15px; }
 .personal-portrait-placeholder > div { aspect-ratio: 4 / 5; }
+@media (min-width: 761px) {
+  .personal-about-intro .profile-portrait { transform: translateX(-1cm); }
+}
 .personal-about-story { display: grid; grid-template-columns: 1fr 1.4fr; gap: 7vw; margin-top: 115px; padding-top: 38px; border-top: 1px solid var(--line); }
 .personal-about-story > h2 { font-family: 'Archivo Variable', sans-serif; font-size: 42px; line-height: 1.06; font-weight: 700; letter-spacing: -.04em; margin: 0; }
-.personal-about-story .prose { font-size: 22px; line-height: 1.6; }
+.personal-about-story .prose { max-width: 62ch; font-size: 22px; line-height: 1.65; }
+.personal-about-story .prose p { margin: 0 0 1.65em; }
 .personal-about-story .prose p:last-of-type { margin-bottom: 30px; }
 .personal-current { display: grid; grid-template-columns: 1fr 1.4fr; gap: 7vw; margin: 90px -5vw 0; padding: 65px 5vw; background: #eee8d8; }
 .personal-current > h2 { font-family: 'Archivo Variable', sans-serif; font-size: clamp(34px, 3.8vw, 52px); line-height: 1.03; letter-spacing: -.045em; font-weight: 740; margin: 0; }
@@ -203,5 +207,5 @@
 @media(max-width:759px){.experience-resume-layout{grid-template-columns:1fr;gap:45px}.experience-resume{position:static;max-width:460px;width:100%}}
 @media(prefers-reduced-motion:reduce){.experience-resume-open img{transition:none}.experience-resume-open:hover img{transform:none}}
 
-.personal-life-page{margin-top:0}.personal-life-page .personal-section-intro{align-items:flex-start}.personal-life-page .page-heading{max-width:750px;margin:0}.work-resume{scroll-margin-top:35px}.work-resume .personal-experience{margin-top:0}
-@media(max-width:759px){.personal-life-page .personal-section-intro{display:block}.personal-life-page .personal-section-intro>p{margin-top:30px}}
+.personal-life-section{scroll-margin-top:35px}.personal-life-section .personal-section-intro{align-items:flex-start;flex-wrap:wrap}.personal-life-section .personal-section-title{max-width:750px;margin:0}.work-resume{scroll-margin-top:35px}.work-resume .personal-experience{margin-top:0}
+@media(max-width:759px){.personal-life-section .personal-section-intro{display:block}.personal-life-section .personal-section-intro>p{margin-top:30px}}

@@ -24,7 +24,7 @@ function measureLetter(camera) {
 }
 
 export default function useFingerStory(cameraRef) {
-  const [phase,setPhase]=useState(() => history.state?.portfolioScroll?.y > 2 || /^#(my-story|beel|work|writing|life|contact)$/.test(location.hash) ? 'open' : 'closed');
+  const [phase,setPhase]=useState(() => typeof window !== 'undefined' && (history.state?.portfolioScroll?.y > 2 || /^#(my-story|beel|work|writing|life|contact)$/.test(location.hash)) ? 'open' : 'closed');
   const [siteVisible,setSiteVisible]=useState(phase === 'open');
   const [journey,setJourney]=useState(null);
   const page=useRef(null),surface=useRef(null),heading=useRef(null),details=useRef(null),busy=useRef(false);

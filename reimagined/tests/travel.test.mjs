@@ -5,23 +5,27 @@ import { geoArea, geoContains, geoOrthographic, geoPath } from 'd3-geo';
 import { travelPlaces, travelByShape, normalizeRotation, shortestLongitude } from '../src/data/travel.js';
 const map=JSON.parse(fs.readFileSync(new URL('../public/assets/travel/world.json',import.meta.url)));
 
-test('all 28 confirmed places are unique and have geography or a separate region',()=>{
-  assert.equal(travelPlaces.length,28);
-  assert.equal(new Set(travelPlaces.map(p=>p.id)).size,28);
+test('all 26 confirmed places are unique and have geography or a separate region',()=>{
+  assert.equal(travelPlaces.length,26);
+  assert.equal(new Set(travelPlaces.map(p=>p.id)).size,26);
   for(const place of travelPlaces){
     if(place.shape)assert.ok(map.features.some(f=>f.id===place.shape),`Missing geography for ${place.name}`);
     else assert.equal(place.id,'jammu-kashmir');
-    assert.equal(place.photo,null);
+    if (place.photo) {
+      assert.ok(fs.existsSync(new URL(`../public${place.photo}`, import.meta.url)), `Missing photo for ${place.name}`);
+      assert.ok(place.width > 0 && place.height > 0);
+      assert.ok(place.alt && place.caption);
+    }
   }
 });
-test('UK destinations are separate; Wales and unvisited countries remain unfilled',()=>{
-  for(const iso of ['GB-ENG','GB-SCT','GB-NIR']){
+test('UK destinations are separate; Northern Ireland and Denmark remain unfilled',()=>{
+  for(const iso of ['GB-ENG','GB-SCT','GB-WLS']){
     assert.ok(travelByShape.has(iso));
     const feature=map.features.find(f=>f.id===iso);
     assert.ok(geoArea(feature)<Math.PI*2,'Boundary must cover the place, not the rest of the globe');
     assert.ok(geoContains(feature,travelByShape.get(iso).center));
   }
-  for(const iso of ['826','GB-WLS','156','643','620'])assert.equal(travelByShape.has(iso),false);
+  for(const iso of ['826','GB-NIR','208','276','156','643','620'])assert.equal(travelByShape.has(iso),false);
   assert.equal(map.features.some(f=>f.id==='826'),false);
 });
 test('every visited shape renders when turned toward its destination',()=>{

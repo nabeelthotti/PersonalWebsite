@@ -18,16 +18,15 @@
 
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
-/* Allow native text selection across content and control labels. Drag surfaces
-   retain their own pointer handlers; invisible scene layers remain inert. */
-/* Selection applies to every text-bearing element, including metadata and controls. */
-.site,.site *:not(svg):not(svg *):not(canvas):not(img){-webkit-user-select:text;user-select:text}
+/* Keep page copy non-selectable; editable fields retain native editing. */
+body,body *{-webkit-user-select:none!important;user-select:none!important}
+.site :is(input,textarea,[contenteditable="true"]){-webkit-user-select:text!important;user-select:text!important}
 .site a{-webkit-user-drag:none}
 
-/* Native custom cursors keep selection and dragging responsive, without a trailing overlay. */
+/* Keep the illustrated arrow over copy instead of switching to an I-beam. */
 @media(hover:hover) and (pointer:fine){
  .site{cursor:url('/assets/cursors/arrow.svg') 4 3,auto}
- .site :is(h1,h2,h3,h4,h5,h6,p,label,blockquote,figcaption,dt,dd,time,code,pre,input,textarea,[contenteditable="true"]){cursor:text}
+ .site :is(input,textarea,[contenteditable="true"]){cursor:inherit}
  .site a,.site a *,.site button:not(:disabled),.site button:not(:disabled) *{cursor:url('/assets/cursors/hand.svg') 12 3,pointer}
  .site button:disabled,.site button:disabled *{cursor:not-allowed}
  .site .travel-map svg,.site .travel-map svg *{cursor:grab}

@@ -65,7 +65,7 @@
 .life-moment{position:absolute;inset:0 8vw;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:center;gap:8vw;opacity:var(--reveal);pointer-events:none;transform:translateY(var(--offset,0px))}
 .life-copy>span{display:block;font-size:16px;margin-bottom:27px}.life-copy h2{font-size:clamp(40px,5.5vw,85px)}.life-copy p{font-size:21px;margin-top:27px;max-width:27ch;color:var(--ink)}
 .life-photo{background:#fffdf9;padding:13px 13px 0;transform:rotate(calc(4deg + var(--turn,0deg)));border:1px solid #781b1e26;box-shadow:0 15px 30px #321c1c0a}
-.life-photo>img{display:block;width:100%;aspect-ratio:1/1.05;object-fit:cover}.life-photo>div{aspect-ratio:1/1.05;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#e6e0d5;color:#625d56;gap:12px;padding:25px;text-align:center}.life-photo span{font-size:21px;max-width:14ch}.life-photo small{font-size:13px}.life-photo figcaption{height:70px;line-height:30px;font-family:'Caveat Variable',cursive;font-size:25px;text-align:center;padding:18px 0 22px;color:var(--oxblood)}
+.life-photo>img{display:block;width:100%;height:auto;aspect-ratio:1/1.05;object-fit:cover}.life-photo>div{aspect-ratio:1/1.05;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#e6e0d5;color:#625d56;gap:12px;padding:25px;text-align:center}.life-photo span{font-size:21px;max-width:14ch}.life-photo small{font-size:13px}.life-photo figcaption{height:70px;line-height:30px;font-family:'Caveat Variable',cursive;font-size:25px;text-align:center;padding:18px 0 22px;color:var(--oxblood)}
 .scroll-goodbye{min-height:95svh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:90px 8vw 45px;background:var(--scarlet)}
 .scroll-goodbye>p{font-size:18px;margin-bottom:40px}.scroll-goodbye h2{font-size:clamp(60px,9vw,140px)}
 .goodbye-link{font-size:28px;display:flex;align-items:center;gap:25px;text-decoration:none;border-bottom:1px solid currentColor;margin-top:45px;padding-bottom:8px}.goodbye-notes{display:flex;flex-wrap:wrap;justify-content:center;gap:25px;font-size:16px;margin-top:100px}.goodbye-notes a{text-decoration:none}.goodbye-notes a:hover{text-decoration:underline}
@@ -99,6 +99,7 @@ html{scroll-behavior:auto}.scroll-hello{height:auto;min-height:0}.hello-stage{po
 @media(max-width:759px){.scroll-goodbye{padding:65px 7vw 35px}.goodbye-conversation{grid-template-columns:1fr;gap:50px}.scroll-goodbye h2{font-size:clamp(54px,12vw,80px)}.scroll-goodbye h2>span{font-size:36px;margin-top:30px}.goodbye-intro>p{margin-bottom:30px}.scroll-goodbye .goodbye-notes{margin-top:45px;gap:17px 23px}}
 
 .life-interiors[data-active="true"]{pointer-events:auto}
+.life-photo>img[hidden]{display:none}
 .interior-gallery:focus-visible{outline:2px solid var(--oxblood);outline-offset:8px}
 .life-photo.interior-gallery figcaption{display:grid;grid-template-columns:40px minmax(0,1fr) 40px;align-items:center;gap:6px;padding:8px 0;line-height:1.15}
 .interior-gallery button{display:grid;place-items:center;width:40px;height:44px;padding:0;background:none;border:0;color:var(--oxblood)}

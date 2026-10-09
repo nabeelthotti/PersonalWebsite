@@ -36,7 +36,7 @@ export function WorkPage({ href }) {
     <section className="work-page personal-work-page">
       <div className="content-page work-page-intro"><div className="page-intro">
         <h1 className="page-heading">From code<br />to conversations.</h1>
-        <p className="page-lead">GTM systems, client work, and the engineering projects that came before. A collection of things I’ve helped make work.</p>
+        <p className="page-lead">Beel, this website, and the engineering projects that came before. A collection of things I’ve helped make work.</p>
       </div>
       <a draggable={false} className="text-link" href="#work-resume" data-scroll="smooth">Resume <ArrowDown size={18} aria-hidden="true" /></a>
       </div>
@@ -103,7 +103,7 @@ export function ProjectPage({ href, slug }) {
       <section className={`project-gallery${!images.length ? ' personal-gallery-placeholder' : ''}`} aria-label={`${project.title} visual`}>
         <figure className="gallery-stage">
           {images.length ? <img src={images[activeImage]} alt={`${project.title}, original project screenshot ${activeImage + 1} of ${images.length}`} /> : <ProjectVisual project={project} />}
-          <figcaption>{images.length ? `From the original ${project.title} project.` : (project.presentation?.caption || 'Screenshot placeholder. A project visual will be added here.')}</figcaption>
+          <figcaption>{images.length ? `From the ${project.title} project.` : (project.presentation?.caption || 'Screenshot placeholder. A project visual will be added here.')}</figcaption>
         </figure>
         {images.length > 1 && <>
           <div className="gallery-controls">
@@ -161,7 +161,7 @@ export function ArticlePage({ href, slug }) {
         <header className="page-intro">
           <ArticleMeta article={article} />
           <h1 className="page-heading">{article.title}</h1>
-          <p className="article-byline">By {profile.name}</p>
+          <p className="article-byline">By <a href={href('/about')} rel="author">{profile.name}</a></p>
           <div className="article-tools"><a draggable={false} className="text-link" href={article.pdf} target="_blank" rel="noreferrer">Open the original PDF<ArrowRight size={17} aria-hidden="true" /></a><a draggable={false} className="text-link" href={article.pdf} download><DownloadSimple size={17} aria-hidden="true" /> Download PDF</a></div>
         </header>
         {headings?.length > 2 && <details className="article-contents"><summary>In this essay</summary><nav aria-label="Essay contents"><ul>{headings.map((heading) => <li key={heading.index}><a draggable={false} href={`#section-${heading.index}`}>{heading.text}</a></li>)}</ul></nav></details>}
@@ -180,23 +180,30 @@ function PhotoPlaceholder({ label, className = '' }) {
   return <figure className={`personal-photo-placeholder ${className}`}><div role="img" aria-label={`${label} photo placeholder`}><span>Photo to add</span></div><figcaption>{label}</figcaption></figure>;
 }
 
+function Portrait() {
+  const photo = profile.portrait;
+  if (!photo?.src) return <PhotoPlaceholder label="A portrait of Nabeel" className="personal-portrait-placeholder" />;
+  return <figure className="personal-portrait-placeholder profile-portrait"><img src={photo.src} alt={photo.alt || 'Portrait of Nabeel Thotti'} width={photo.width} height={photo.height} fetchPriority="high" /></figure>;
+}
+
 export function AboutPage({ href }) {
   return (
     <section className="content-page about-page personal-about-page">
       <div className="personal-about-intro">
-        <div><p className="personal-location">{profile.location}. From Los Angeles.</p><h1 className="page-heading">Hi, I’m<br />Nabeel.</h1><p className="page-lead">An engineer who found his way into the customer conversation.</p></div>
-        <PhotoPlaceholder label="A portrait of Nabeel" className="personal-portrait-placeholder" />
+        <div><p className="personal-location">From Los Angeles, living in San Francisco.</p><h1 className="page-heading">Hi, I’m<br />Nabeel.</h1><p className="page-lead">An engineer who found his way into the customer conversation.</p></div>
+        <Portrait />
       </div>
       <section className="personal-about-story" aria-labelledby="my-story-heading"><h2 id="my-story-heading">How I got here.</h2><div className="prose">{profile.about.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}<a draggable={false} className="text-link" href={href('/how-i-work')}>How I approach the work<ArrowRight size={18} aria-hidden="true" /></a></div></section>
-      <section className="personal-current" aria-labelledby="current-heading"><h2 id="current-heading">What I’m putting<br />my energy into.</h2><div><article><h3>GTM at Syft Data</h3><p>Customer-facing GTM work, built on a software engineering background. I build target lists, signal-based outreach, CRM connections, and reporting, and run Syft’s own GTM the same way.</p></article><article><h3>Building Beel</h3><p>My own sequencer, currently in development. A project I’m building alongside the work that keeps giving me ideas.</p><a draggable={false} className="text-link" href={href('/work/beel')}>Follow the project<ArrowRight size={18} aria-hidden="true" /></a></article></div></section>
+      <section className="personal-current" aria-labelledby="current-heading"><h2 id="current-heading">What I’m putting<br />my energy into.</h2><div><article><h3>GTM at Syft Data</h3><p>I help companies figure out who might need their product, how to start a useful conversation with them, and whether those conversations actually turn into customers.</p></article><article><h3>Building Beel</h3><p>My own sequencer, a project I’m building alongside the work that keeps giving me ideas.</p><a draggable={false} className="text-link" href={href('/work/beel')}>Follow the project<ArrowRight size={18} aria-hidden="true" /></a></article></div></section>
+      <PersonalSection href={href} />
       <div className="about-outro"><p>Tell me a little about you?</p><a draggable={false} className="text-link" href={href('/contact')}>Say hello<ArrowRight size={18} aria-hidden="true" /></a></div>
     </section>
   );
 }
 
-export function PersonalPage() {
+function PersonalSection({ href }) {
   return (
-    <section className="content-page personal-outside personal-life-page" aria-labelledby="outside-heading"><div className="personal-section-intro"><h1 className="page-heading" id="outside-heading">Away from the screen.</h1><p>There’s more to a person than the things they ship.</p></div><div className="personal-interest-slideshows">{profile.interests.map(interest=><article key={interest.title}><h3>{interest.title}</h3><p>{interest.description}</p>{interest.title==='Travel'?<TravelGallery/>:<InteriorGallery/>}</article>)}</div></section>
+    <section id="personal" className="personal-outside personal-life-section" aria-labelledby="outside-heading"><div className="personal-section-intro"><h2 className="personal-section-title" id="outside-heading">Away from the screen.</h2></div><div className="personal-interest-slideshows">{profile.interests.map(interest=><article key={interest.title}><h3>{interest.title}</h3><p>{interest.description}</p>{interest.title==='Travel'?<TravelGallery/>:<InteriorGallery/>}</article>)}</div></section>
   );
 }
 
