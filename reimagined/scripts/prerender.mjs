@@ -51,8 +51,13 @@ const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://w
 await writeFile(path.join(client, 'sitemap.xml'), sitemap);
 await writeFile(path.join(client, 'robots.txt'), `User-agent: *\nAllow: /\nDisallow: /mcp\n\nSitemap: ${SITE_URL}/sitemap.xml\n`);
 
-const redirects = [await readFile(path.join(root, 'public/_redirects'), 'utf8')];
-redirects.push('https://www.nabeelthotti.com/* https://nabeelthotti.com/:splat 301!');
+// Consolidate domain aliases before asset, proxy, and page rules. A canonical
+// tag alone leaves alternate hosts available as duplicate pages.
+const redirects = [];
+for (const host of ['nabeelthotti.co', 'www.nabeelthotti.co', 'www.nabeelthotti.com']) {
+  for (const protocol of ['http', 'https']) redirects.push(`${protocol}://${host}/* ${SITE_URL}/:splat 301!`);
+}
+redirects.push(await readFile(path.join(root, 'public/_redirects'), 'utf8'));
 for (const [from, to] of Object.entries(routeAliases)) redirects.push(`${from} ${to} 301`);
 for (const prefix of ['red', 'workbench', 'door', 'poke', 'room']) {
   redirects.push(`/${prefix} / 301`, `/${prefix}/* /:splat 301`);

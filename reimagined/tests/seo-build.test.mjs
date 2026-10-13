@@ -85,6 +85,21 @@ test('unknown routes cannot become indexable successful homepages on Netlify', a
   assert.equal(seo.getMetadata('/work/not-real').known, false);
 });
 
+test('homepage title is just the name and domain aliases redirect before page rewrites', async () => {
+  const html = await read('index.html');
+  assert.match(html, /<title>Nabeel Thotti<\/title>/);
+  assert.equal(seo.getMetadata('/').title, 'Nabeel Thotti');
+  assert.match(html, /property="og:title" content="Nabeel Thotti"/);
+  const rules = await read('_redirects');
+  for (const host of ['nabeelthotti.co', 'www.nabeelthotti.co', 'www.nabeelthotti.com']) {
+    for (const protocol of ['http', 'https']) {
+      const rule = `${protocol}://${host}/* https://nabeelthotti.com/:splat 301!`;
+      assert.ok(rules.includes(rule));
+      assert.ok(rules.indexOf(rule) < rules.indexOf('/about /about/index.html 200'));
+    }
+  }
+});
+
 test('search crawlers can access public pages and the real sitemap', async () => {
   const robots = await read('robots.txt');
   assert.match(robots, /^User-agent: \*\nAllow: \/\n/);

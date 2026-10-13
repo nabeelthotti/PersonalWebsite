@@ -8,7 +8,7 @@ const personId = `${SITE_URL}/#person`;
 const websiteId = `${SITE_URL}/#website`;
 const identity = `${profile.name} is a ${profile.title}, with a software engineering background, and is building Beel, an all-in-one outbound sequencer.`;
 const pages = {
-  '/': ['Nabeel Thotti — GTM Engineer at Syft Data', identity, 'WebPage'],
+  '/': ['Nabeel Thotti', identity, 'WebPage'],
   '/about': ['About Nabeel Thotti', identity, 'ProfilePage'],
   '/work': ['Work & Projects — Nabeel Thotti', 'Explore Nabeel Thotti’s GTM systems, Beel outbound sequencer, software engineering projects, career history, and résumé.', 'CollectionPage'],
   '/writing': ['Notes & Essays — Nabeel Thotti', 'Original essays by Nabeel Thotti on algorithmic bias, instant gratification, technology, and human behavior.', 'CollectionPage'],
