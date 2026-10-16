@@ -1,4 +1,4 @@
-import { profile, projects, articles } from '../data.js';
+import { profile, projects, articles, socialProfiles } from '../data.js';
 import { getPhotos } from './photos.js';
 import { resolveLocation } from './navigation.js';
 
@@ -12,7 +12,7 @@ const pages = {
   '/about': ['About Nabeel Thotti', identity, 'ProfilePage'],
   '/work': ['Work & Projects — Nabeel Thotti', 'Explore Nabeel Thotti’s GTM systems, Beel outbound sequencer, software engineering projects, career history, and résumé.', 'CollectionPage'],
   '/writing': ['Notes & Essays — Nabeel Thotti', 'Original essays by Nabeel Thotti on algorithmic bias, instant gratification, technology, and human behavior.', 'CollectionPage'],
-  '/contact': ['Contact Nabeel Thotti', 'Get in touch with Nabeel Thotti, GTM engineer at Syft Data and builder of Beel.', 'ContactPage'],
+  '/contact': ['Contact Nabeel Thotti', 'Get in touch with Nabeel Thotti and find his official LinkedIn, Instagram, X, YouTube, and GitHub profiles.', 'ContactPage'],
   '/how-i-work': ['How I Work — Nabeel Thotti', 'How Nabeel Thotti uses AI agents, human approval, CRM verification, and customer feedback in go-to-market work.', 'WebPage'],
   '/resume': ['Résumé — Nabeel Thotti', 'View or download Nabeel Thotti’s résumé and explore his engineering and GTM work.', 'WebPage'],
   '/chess': ['A Little Chess — Nabeel Thotti', 'Play two-player chess in your browser, a software project by Nabeel Thotti.', 'WebPage'],
@@ -42,7 +42,7 @@ export function getMetadata(pathname) {
     '@type': 'Person', '@id': personId, name: profile.name, url: absoluteUrl('/about'),
     jobTitle: profile.role, description: identity,
     worksFor: { '@type': 'Organization', name: profile.company, url: 'https://www.syftdata.com/' },
-    sameAs: [profile.linkedin, profile.github, profile.x, profile.youtube],
+    sameAs: socialProfiles.map(({ url }) => url),
     ...(profile.portrait?.src && { image: absoluteUrl(profile.portrait.src) }),
   };
   const page = {

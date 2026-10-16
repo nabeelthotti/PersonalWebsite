@@ -209,3 +209,17 @@
 
 .personal-life-section{scroll-margin-top:35px}.personal-life-section .personal-section-intro{align-items:flex-start;flex-wrap:wrap}.personal-life-section .personal-section-title{max-width:750px;margin:0}.work-resume{scroll-margin-top:35px}.work-resume .personal-experience{margin-top:0}
 @media(max-width:759px){.personal-life-section .personal-section-intro{display:block}.personal-life-section .personal-section-intro>p{margin-top:30px}}
+
+.personal-follow { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 7vw, 110px); padding: 56px 0 72px; border-top: 1px solid var(--line); }
+.personal-follow h2 { margin: 0 0 20px; font-family: 'Archivo Variable', sans-serif; font-size: clamp(44px, 5.2vw, 78px); font-weight: 720; letter-spacing: -.045em; line-height: 1.05; color: var(--accent); }
+.personal-follow p { margin: 0; font-size: 22px; line-height: 1.5; }
+.personal-social-list { margin: 0; padding: 0; list-style: none; min-width: 0; }
+.personal-social-list a { display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 88px; padding: 18px 0; border-bottom: 1px solid var(--line); text-decoration: none; color: var(--accent); }
+.personal-social-list li:first-child a { padding-top: 0; }
+.personal-social-list strong { display: block; font-weight: 500; font-size: clamp(27px, 3vw, 38px); line-height: 1.2; }
+.personal-social-list small { display: block; margin-top: 6px; font-size: 17px; color: var(--ink); overflow-wrap: anywhere; }
+.personal-social-list svg { flex: 0 0 auto; transition: transform 180ms ease; }
+.personal-social-list a:hover svg { transform: translate(3px, -3px); }
+.personal-social-list a:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
+@media (max-width: 700px) { .personal-follow { grid-template-columns: 1fr; padding: 36px 0 48px; } }
+@media (prefers-reduced-motion: reduce) { .personal-social-list svg { transition: none; } }

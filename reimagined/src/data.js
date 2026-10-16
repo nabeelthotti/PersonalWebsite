@@ -193,6 +193,7 @@ export const profile = {
   github: 'https://github.com/nabeelthotti',
   linkedin: 'https://www.linkedin.com/in/nabeelthotti',
   x: 'https://x.com/nabeelthotti',
+  instagram: 'https://www.instagram.com/nabeel.ht/',
   youtube: 'https://www.youtube.com/@nabeelthotti',
   socialVerification: { github: 'source-provided', linkedin: 'source-provided' },
   resume: '/assets/legacy/NabeelsResume.pdf',
@@ -234,3 +235,12 @@ export const profile = {
     },
   ],
 };
+
+// Keep visible links and identity metadata in sync using confirmed personal accounts.
+export const socialProfiles = [
+  { label: 'LinkedIn', url: profile.linkedin, handle: 'Nabeel Thotti' },
+  { label: 'Instagram', url: profile.instagram, handle: '@nabeel.ht' },
+  { label: 'X', url: profile.x, handle: '@nabeelthotti' },
+  { label: 'YouTube', url: profile.youtube, handle: '@nabeelthotti' },
+  { label: 'GitHub', url: profile.github, handle: '@nabeelthotti' },
+];

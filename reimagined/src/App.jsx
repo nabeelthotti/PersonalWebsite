@@ -5,7 +5,7 @@ import ChessGame from './components/ChessGame.jsx';
 import Sketchpad from './components/Sketchpad.jsx';
 import { WorkPage, ProjectPage, WritingPage, ArticlePage, AboutPage, ContactPage, ResumePage, HowIWorkPage, NotFoundPage } from './components/ContentPages.jsx';
 import { resolveLocation } from './lib/navigation.js';
-import { profile } from './data.js';
+import { socialProfiles } from './data.js';
 import { updatePageMetadata } from './lib/seo.js';
 import './components/photo-pages.css';
 import './variants/red.css';
@@ -129,7 +129,7 @@ export function App({ initialPath = '/' }) {
     <main id="main" tabIndex={-1}>{page}</main>
     <footer className="site-footer">
       <div><a draggable={false} className="footer-name" href={href('/')}>Nabeel Thotti</a><p>From LA to SF</p></div>
-      <div className="footer-links"><a draggable={false} href="https://github.com/nabeelthotti" target="_blank" rel="noreferrer">GitHub <ArrowUpRight /></a><a draggable={false} href="https://www.linkedin.com/in/nabeelthotti" target="_blank" rel="noreferrer">LinkedIn <ArrowUpRight /></a><a draggable={false} href={profile.x} target="_blank" rel="noreferrer">X <ArrowUpRight /></a><a draggable={false} href={profile.youtube} target="_blank" rel="noreferrer">YouTube <ArrowUpRight /></a><a draggable={false} href={href('/contact')}>Say hello</a></div>
+      <div className="footer-links">{socialProfiles.map(({ label, url }) => <a draggable={false} key={label} href={url} target="_blank" rel="me noreferrer">{label} <ArrowUpRight aria-hidden="true" /></a>)}<a draggable={false} href={href('/contact')}>Say hello</a></div>
 
     </footer>
   </div>;

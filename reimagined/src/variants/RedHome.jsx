@@ -5,7 +5,7 @@ import TravelGlobe from '../components/TravelGlobe.jsx';
 import InteriorGallery from '../components/InteriorGallery.jsx';
 import ContactForm from '../components/ContactForm.jsx';
 import useFingerStory from '../components/useFingerStory.jsx';
-import { projects, articles, profile } from '../data.js';
+import { projects, articles, profile, socialProfiles } from '../data.js';
 import './scroll-home.css';
 
 const chapters = [['Story', 'my-story'], ['Beel', 'beel'], ['Work', 'work'], ['Writing', 'writing'], ['Life', 'life'], ['Contact', 'contact']];
@@ -196,7 +196,7 @@ export default function RedHome({ href }) {
 
     <section className="scroll-goodbye" id="contact" data-chapter aria-labelledby="home-contact-title">
       <div className="goodbye-conversation"><div className="goodbye-intro"><h2 id="home-contact-title">That’s a little<br/>bit of me.<span>Tell me a bit<br/>about you?</span></h2></div><ContactForm/></div>
-      <div className="goodbye-notes"><a draggable={false} href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn</a><a draggable={false} href={profile.github} target="_blank" rel="noreferrer">GitHub</a><a draggable={false} href={profile.x} target="_blank" rel="noreferrer">X</a><a draggable={false} href={profile.youtube} target="_blank" rel="noreferrer">YouTube</a><a draggable={false} href={href('/about')}>About me</a><a draggable={false} className="scenic-shortcut" href={href('/about')}>Skip the scenic route</a></div>
+      <div className="goodbye-notes">{socialProfiles.map(({ label, url }) => <a draggable={false} key={label} href={url} target="_blank" rel="me noreferrer">{label}</a>)}<a draggable={false} href={href('/about')}>About me</a><a draggable={false} className="scenic-shortcut" href={href('/about')}>Skip the scenic route</a></div>
     </section>
 
     </div>

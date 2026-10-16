@@ -10,6 +10,8 @@ Build app UI in `src/`. Keep `.openai/hosting.json`, `worker/index.js`, `scripts
 
 ## Nabeel's design preferences
 
+- Contact page has a Follow me section with confirmed LinkedIn, Instagram (@nabeel.ht), X, YouTube, and GitHub profiles. Keep contact links, homepage/footer links, and Person sameAs metadata sourced from the shared socialProfiles list. Do not infer additional handles.
+
 - Homepage search/browser title is simply “Nabeel Thotti”, without a role suffix or em dash. Canonical domain is https://nabeelthotti.com; redirect .co, .me, and www aliases permanently to the matching .com path. Keep meaningful, distinct titles on inner pages.
 
 - Home/interiors album now uses all nine photos supplied in Downloads/Home on October 8. Keep the shared homepage/About slideshow and My sanctuary captions. This supersedes the earlier seven-photo limit; do not truncate the list.

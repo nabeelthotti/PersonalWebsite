@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { ArrowLeft, ArrowRight, ArrowDown, ArrowUpRight, DownloadSimple } from '@phosphor-icons/react';
-import { articles, profile, projects } from '../data';
+import { articles, profile, projects, socialProfiles } from '../data';
 import ProjectVisual from './ProjectVisual.jsx';
 import ContactForm from './ContactForm.jsx';
 import InteriorGallery from './InteriorGallery.jsx';
@@ -212,7 +212,17 @@ export function ContactPage({ href }) {
     <section className="content-page contact-page personal-contact-page">
       <div className="page-intro"><p className="personal-location">{profile.location}</p><h1 className="page-heading">Say hello.</h1><p className="page-lead">A thought about something here, a shared interest, or a good conversation. I’d like to hear it.</p></div>
       <ContactForm />
-      <div className="personal-contact-body"><a draggable={false} className="personal-linkedin-link" href={profile.linkedin} target="_blank" rel="noreferrer"><span>Find me on<br />LinkedIn.</span><ArrowUpRight weight="light" aria-hidden="true" /></a><div className="personal-contact-note"><p>I’m working in GTM at Syft Data and building Beel. This site is a place for the work, the ideas around it, and the rest of life.</p><p>If you found your way here through one of those things, that’s a good place to start.</p><a draggable={false} className="text-link" href={profile.github} target="_blank" rel="noreferrer">Code lives on GitHub<ArrowUpRight size={18} aria-hidden="true" /></a></div></div>
+      <section className="personal-follow" aria-labelledby="follow-heading">
+        <div><h2 id="follow-heading">Follow me.</h2><p>A few other places you’ll find me.</p></div>
+        <ul className="personal-social-list">
+          {socialProfiles.map(({ label, url, handle }) => <li key={label}>
+            <a draggable={false} href={url} target="_blank" rel="me noreferrer">
+              <span><strong>{label}</strong><small>{handle}</small></span>
+              <ArrowUpRight size={32} weight="light" aria-hidden="true" />
+            </a>
+          </li>)}
+        </ul>
+      </section>
       <div className="personal-contact-bottom"><p>Or stay a while.</p><a draggable={false} href={href('/about')}>A little more about me</a><a draggable={false} href={href('/work')}>Something I’ve made</a></div>
     </section>
   );
