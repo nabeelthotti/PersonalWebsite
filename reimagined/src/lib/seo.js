@@ -1,4 +1,4 @@
-import { profile, projects, articles, socialProfiles } from '../data.js';
+import { profileSummary, profile, projects, articles, socialProfiles } from '../data.js';
 import { getPhotos } from './photos.js';
 import { resolveLocation } from './navigation.js';
 
@@ -6,7 +6,7 @@ export const SITE_URL = 'https://nabeelthotti.com';
 export const absoluteUrl = path => new URL(path, `${SITE_URL}/`).href;
 const personId = `${SITE_URL}/#person`;
 const websiteId = `${SITE_URL}/#website`;
-const identity = `${profile.name} is a ${profile.title}, with a software engineering background, and is building Beel, an all-in-one outbound sequencer.`;
+const identity = profileSummary;
 const pages = {
   '/': ['Nabeel Thotti', identity, 'WebPage'],
   '/about': ['About Nabeel Thotti', identity, 'ProfilePage'],
@@ -49,7 +49,7 @@ export function getMetadata(pathname) {
     description, inLanguage: 'en', isPartOf: { '@id': websiteId }, about: { '@id': personId },
     ...(path === '/about' && { mainEntity: { '@id': personId } }),
   };
-  const graph = [person, { '@type': 'WebSite', '@id': websiteId, url: `${SITE_URL}/`, name: profile.name, publisher: { '@id': personId }, inLanguage: 'en' }, page];
+  const graph = [person, { '@type': 'Organization', '@id': 'https://trybeel.app/#organization', name: 'Beel', url: 'https://trybeel.app/', founder: { '@id': personId } }, { '@type': 'WebSite', '@id': websiteId, url: `${SITE_URL}/`, name: profile.name, publisher: { '@id': personId }, inLanguage: 'en' }, page];
   if (article) graph.push({
     '@type': 'Article', '@id': `${canonical}#article`, headline: article.title,
     description: article.subtitle, url: canonical, mainEntityOfPage: { '@id': page['@id'] },

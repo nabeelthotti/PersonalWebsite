@@ -230,3 +230,5 @@
 .beel-reading .article-row h3 { font-size: clamp(30px, 4vw, 50px); font-weight: 600; line-height: 1.15; letter-spacing: -.04em; margin: 14px 0 22px; max-width: 920px; }
 .beel-reading .article-row .beel-reading-source { font-size: 15px; color: var(--muted); margin: 0; }
 @media(max-width:700px) { .beel-reading { margin-top: 60px; } .beel-reading > .page-lead { font-size: 20px; } }
+
+.profile-summary{max-width:76ch;font-size:clamp(17px,1.5vw,21px);line-height:1.65;margin:32px 0 64px}

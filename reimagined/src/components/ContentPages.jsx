@@ -1,3 +1,4 @@
+import {profileSummary} from '../data';
 import React, { useEffect, useState } from 'react';
 import { ArrowLeft, ArrowRight, ArrowDown, ArrowUpRight, DownloadSimple } from '@phosphor-icons/react';
 import { articles, profile, projects, socialProfiles, beelReading } from '../data';
@@ -206,8 +207,9 @@ export function AboutPage({ href }) {
         <div><p className="personal-location">From Los Angeles, living in San Francisco.</p><h1 className="page-heading">Hi, I’m<br />Nabeel.</h1><p className="page-lead">An engineer who found his way into the customer conversation.</p></div>
         <Portrait />
       </div>
+      <p className="profile-summary">{profileSummary}</p>
       <section className="personal-about-story" aria-labelledby="my-story-heading"><h2 id="my-story-heading">How I got here.</h2><div className="prose">{profile.about.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div></section>
-      <section className="personal-current" aria-labelledby="current-heading"><h2 id="current-heading">What I’m putting<br />my energy into.</h2><div><article><h3>GTM at Syft Data</h3><p>I help companies figure out who might need their product, how to start a useful conversation with them, and whether those conversations actually turn into customers.</p></article><article><h3>Building Beel</h3><p>My own sequencer, a project I’m building alongside the work that keeps giving me ideas.</p><a draggable={false} className="text-link" href={href('/work/beel')}>Follow the project<ArrowRight size={18} aria-hidden="true" /></a></article></div></section>
+      <section className="personal-current" aria-labelledby="current-heading"><h2 id="current-heading">What I’m putting<br />my energy into.</h2><div><article><h3>GTM at Syft Data</h3><p>I help companies figure out who might need their product, how to start a useful conversation with them, and whether those conversations actually turn into customers.</p></article><article><h3>Building Beel</h3><p>My own sequencer, a project I’m building alongside the work that keeps giving me ideas. The planning playground is public; live outreach is still in development.</p><a draggable={false} className="text-link" href={href('/work/beel')}>Follow the project<ArrowRight size={18} aria-hidden="true" /></a></article></div></section>
       <PersonalSection href={href} />
       <div className="about-outro"><p>Tell me a little about you?</p><a draggable={false} className="text-link" href={href('/contact')}>Say hello<ArrowRight size={18} aria-hidden="true" /></a></div>
     </section>

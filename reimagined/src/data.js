@@ -9,17 +9,18 @@ const currentProjects = [
   {
     slug: 'beel',
     title: 'Beel',
-    summary: 'Go to outreach platform. Releasing soon.',
+    summary: 'An outbound sequencer in development for planning email, calls, and messages.',
     category: 'Personal products',
     kind: 'product',
     status: 'What I am currently working on',
     stack: [],
-    description: 'Beel is an all-in-one outreach sequencer I’m building: AI emails, phone calls, voicemails, iMessages, SMS, WhatsApp, and LinkedIn sequences, with support for Instagram, X, Facebook, and Reddit. One sequencer for every channel that matters. The product is in development.',
+    description: 'Beel is an outbound sequencer in development for people planning outreach across email, calls, and messages. Its public playground lets you arrange steps, write messages, set waits, and preview LinkedIn acceptance branches. It does not connect accounts or send outreach.',
     challenge: 'Bring the channels used to start and follow up on conversations into one outreach sequence.',
-    approach: ['Build AI email, phone-call, and voicemail steps into a shared sequence.', 'Connect iMessage, SMS, WhatsApp, and LinkedIn outreach.', 'Include support for Instagram, X, Facebook, and Reddit.'],
-    result: '',
+    approach: ['Explore the public planning canvas with editable steps, waits, and acceptance branches.', 'Plan email, calls, voicemail, iMessage, SMS, WhatsApp, LinkedIn, Instagram, X, Facebook, Reddit, Telegram, Slack, RCS, custom steps, and webhooks.', 'Confirm the launch lineup and integrations as the product develops.'],
+    result: 'The planning playground is public. Live outreach, integrations, pricing, and a release date are not yet announced.',
     images: [],
     github: '',
+    live: 'https://trybeel.app/',
     placeholder: true,
     presentation: { label: 'Product in development', caption: 'Beel preview. Product screenshots to be added.' },
   },
@@ -252,3 +253,5 @@ export const beelReading = [
   { title: 'Email vs LinkedIn vs calls: choosing your outreach mix', url: 'https://trybeel.app/blog/email-linkedin-calls-outreach/', description: 'Give each channel a different job, then bring the messages and timing together in one sequence.' },
   { title: 'A multichannel outreach sequence example you can build in Beel', url: 'https://trybeel.app/blog/multichannel-sequence-example/', description: 'An illustrative sequence with an acceptance branch, an email fallback and messages you can adapt in the builder.' },
 ];
+
+export const profileSummary = 'Nabeel Thotti is a GTM engineer with a software engineering background and the founder of Beel, an outbound sequencer in development. Originally from Los Angeles, he lives in San Francisco.';
