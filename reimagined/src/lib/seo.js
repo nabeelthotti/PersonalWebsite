@@ -9,7 +9,7 @@ const websiteId = `${SITE_URL}/#website`;
 const identity = profileSummary;
 const pages = {
   '/': ['Nabeel Thotti', identity, 'WebPage'],
-  '/about': ['About Nabeel Thotti', identity, 'ProfilePage'],
+  '/about': ['About Nabeel Thotti', 'Read Nabeel Thotti’s story, from software engineering to GTM and building Beel, alongside travel photos and life away from the screen.', 'ProfilePage'],
   '/work': ['Work & Projects — Nabeel Thotti', 'Explore Nabeel Thotti’s GTM systems, Beel outbound sequencer, software engineering projects, career history, and résumé.', 'CollectionPage'],
   '/writing': ['Notes & Essays — Nabeel Thotti', 'Essays by Nabeel Thotti on technology and human behavior, his Substack profile, and selected outreach guides from the Beel blog.', 'CollectionPage'],
   '/contact': ['Contact Nabeel Thotti', 'Get in touch with Nabeel Thotti and find his official LinkedIn, Instagram, Substack, X, YouTube, and GitHub profiles.', 'ContactPage'],

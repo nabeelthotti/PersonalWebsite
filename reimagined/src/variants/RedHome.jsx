@@ -149,7 +149,7 @@ export default function RedHome({ href }) {
     <section className="scroll-hello" id="hello" hidden={siteVisible} inert={phase!=='closed'} aria-labelledby="hello-title">
       <div className="hello-stage"><a draggable={false} className="simple-site-link scenic-shortcut" href={href('/about')}>Skip the scenic route <ArrowUpRight size={18} aria-hidden="true" /></a><div className="hello-camera" ref={camera}>
         <h1 id="hello-title">Hi, I’m<br />Nabee<span className="hello-letter">l<span className="entrance-hint" data-visible={showHint} aria-hidden="true">Click me<svg viewBox="0 0 100 75" fill="none"><path d="M88 8C43 1 8 18 17 64m-10-9 10 10 9-12" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/></svg><svg className="hint-mobile-arrow" viewBox="0 0 100 75" fill="none"><path d="M12 55Q46 56 65 15m-14 9 14-9 2 16" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/></svg></span><button className="letter-door" type="button" aria-label="Open my story" onClick={onHandClick}><span className="letter-door-label">I started with code.</span></button></span></h1>
-        <button className="hello-hand" type="button" aria-label="Open Nabeel’s website" onClick={onHandClick}><img src="/assets/heroes/poke-hand-red.png" alt="" width="1572" height="1001" fetchPriority="high" draggable="false" /></button>
+        <button className="hello-hand" type="button" aria-label="Open Nabeel’s website" onClick={onHandClick}><img src="/assets/heroes/poke-hand-red.webp" alt="" width="1572" height="1001" fetchPriority="high" draggable="false" /></button>
       </div></div>
     </section>
 
@@ -167,7 +167,7 @@ export default function RedHome({ href }) {
     <section className="scroll-beel" id="beel" data-chapter data-track aria-labelledby="beel-title">
       <div className="chapter-stage beel-stage">
         <span className="chapter-label">What I am currently working on</span>
-        <div className="beel-outbound" role="img" aria-label="Beel sends outreach through iMessage, SMS, calls, voicemail, email, LinkedIn, X, WhatsApp, Instagram and Facebook.">{outboundChannels.map(({name,Icon,x,y,tilt},i)=><div className="beel-channel" key={name} aria-hidden="true" style={{'--x':`${x}vw`,'--y':`${y}vh`,'--mobile-y':`${44+y*(y<0?.75:1.1)}%`,'--tilt':`${tilt}deg`,'--delay':(i%4)*.035}}><Icon weight={name==='Instagram'?'bold':'fill'} /><span>{name}</span></div>)}</div>
+        <div className="beel-outbound" role="img" aria-label="Illustration of Beel’s planned channels: iMessage, SMS, calls, voicemail, email, LinkedIn, X, WhatsApp, Instagram and Facebook.">{outboundChannels.map(({name,Icon,x,y,tilt},i)=><div className="beel-channel" key={name} aria-hidden="true" style={{'--x':`${x}vw`,'--y':`${y}vh`,'--mobile-y':`${44+y*(y<0?.75:1.1)}%`,'--tilt':`${tilt}deg`,'--delay':(i%4)*.035}}><Icon weight={name==='Instagram'?'bold':'fill'} /><span>{name}</span></div>)}</div>
         <h2 id="beel-title">beel.</h2>
         <div className="beel-bottom"><p>All in one outbound sequencer</p><a draggable={false} className="scroll-link" href={href('/work/beel')}>Meet Beel <ArrowUpRight size={20}/></a></div>
       </div>
