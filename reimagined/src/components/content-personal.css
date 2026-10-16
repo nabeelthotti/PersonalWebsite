@@ -223,3 +223,10 @@
 .personal-social-list a:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
 @media (max-width: 700px) { .personal-follow { grid-template-columns: 1fr; padding: 36px 0 48px; } }
 @media (prefers-reduced-motion: reduce) { .personal-social-list svg { transition: none; } }
+
+.writing-substack { margin: -18px 0 60px; }
+.beel-reading { margin-top: 80px; }
+.beel-reading > .page-lead { max-width: 760px; font-size: 22px; line-height: 1.6; }
+.beel-reading .article-row h3 { font-size: clamp(30px, 4vw, 50px); font-weight: 600; line-height: 1.15; letter-spacing: -.04em; margin: 14px 0 22px; max-width: 920px; }
+.beel-reading .article-row .beel-reading-source { font-size: 15px; color: var(--muted); margin: 0; }
+@media(max-width:700px) { .beel-reading { margin-top: 60px; } .beel-reading > .page-lead { font-size: 20px; } }

@@ -238,9 +238,17 @@ export const profile = {
 
 // Keep visible links and identity metadata in sync using confirmed personal accounts.
 export const socialProfiles = [
+  { label: 'Substack', url: 'https://substack.com/@nabeelthotti', handle: '@nabeelthotti' },
   { label: 'LinkedIn', url: profile.linkedin, handle: 'Nabeel Thotti' },
   { label: 'Instagram', url: profile.instagram, handle: '@nabeel.ht' },
   { label: 'X', url: profile.x, handle: '@nabeelthotti' },
   { label: 'YouTube', url: profile.youtube, handle: '@nabeelthotti' },
   { label: 'GitHub', url: profile.github, handle: '@nabeelthotti' },
+];
+
+// Selected Beel articles are external reading links, not duplicate local articles.
+export const beelReading = [
+  { title: 'Why multichannel outreach can work better than email alone', url: 'https://trybeel.app/blog/why-multichannel-outreach-works/', description: 'What the research supports, when another channel helps, and how to review the conversation before sending.' },
+  { title: 'Email vs LinkedIn vs calls: choosing your outreach mix', url: 'https://trybeel.app/blog/email-linkedin-calls-outreach/', description: 'Give each channel a different job, then bring the messages and timing together in one sequence.' },
+  { title: 'A multichannel outreach sequence example you can build in Beel', url: 'https://trybeel.app/blog/multichannel-sequence-example/', description: 'An illustrative sequence with an acceptance branch, an email fallback and messages you can adapt in the builder.' },
 ];

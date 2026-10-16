@@ -12,7 +12,7 @@ Build app UI in `src/`. Keep `.openai/hosting.json`, `worker/index.js`, `scripts
 
 - How I Work is an unpublished draft while Nabeel revises it. Keep its source, but do not mount /how-i-work, link to it, or include it in the sitemap. It must return the normal noindex 404 until explicitly republished.
 
-- Contact page has a Follow me section with confirmed LinkedIn, Instagram (@nabeel.ht), X, YouTube, and GitHub profiles. Keep contact links, homepage/footer links, and Person sameAs metadata sourced from the shared socialProfiles list. Do not infer additional handles.
+- Contact page has a Follow me section with confirmed LinkedIn, Instagram (@nabeel.ht), Substack (https://substack.com/@nabeelthotti), X, YouTube, and GitHub profiles. Keep contact links, homepage/footer links, and Person sameAs metadata sourced from the shared socialProfiles list. Do not infer additional handles.
 
 - Homepage search/browser title is simply “Nabeel Thotti”, without a role suffix or em dash. Canonical domain is https://nabeelthotti.com; redirect .co, .me, and www aliases permanently to the matching .com path. Keep meaningful, distinct titles on inner pages.
 

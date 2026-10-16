@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { ArrowLeft, ArrowRight, ArrowDown, ArrowUpRight, DownloadSimple } from '@phosphor-icons/react';
-import { articles, profile, projects, socialProfiles } from '../data';
+import { articles, profile, projects, socialProfiles, beelReading } from '../data';
 import ProjectVisual from './ProjectVisual.jsx';
 import ContactForm from './ContactForm.jsx';
 import InteriorGallery from './InteriorGallery.jsx';
@@ -92,6 +92,7 @@ export function ProjectPage({ href, slug }) {
         <h1 className="page-heading">{project.title}</h1>
         <p className="page-lead">{project.summary}</p>
         {project.status && <p className="personal-case-status">{project.status}</p>}
+        {project.slug === 'beel' && <p><a draggable={false} className="text-link" href="https://trybeel.app/blog/">Read the Beel blog <ArrowUpRight size={18} aria-hidden="true" /></a></p>}
         {hasLinks && <div className="project-actions">
           {project.github && <a draggable={false} className="solid-button" href={project.github} target="_blank" rel="noreferrer">View the code on GitHub</a>}
           {project.live && project.slug !== 'rekognize' && <a draggable={false} className="text-link" href={project.live} target="_blank" rel="noreferrer">Visit the project<ArrowUpRight size={18} aria-hidden="true" /></a>}
@@ -134,6 +135,7 @@ export function WritingPage({ href }) {
   return (
     <section className="content-page writing-page personal-writing-page">
       <div className="page-intro"><h1 className="page-heading">Thinking out loud.</h1><p className="page-lead">Essays and things I’m working through. From technology and behavior to the practical details of GTM.</p></div>
+      <p className="writing-substack"><a draggable={false} className="text-link" href={socialProfiles.find(item => item.label === 'Substack').url} target="_blank" rel="me noreferrer">Find me on Substack <ArrowUpRight size={18} aria-hidden="true" /></a></p>
       <h2 className="personal-section-title" id="essays">On paper.</h2>
       <div className="article-list">
         {articles.map((article) => (
@@ -145,6 +147,17 @@ export function WritingPage({ href }) {
           </article>
         ))}
       </div>
+      <section className="beel-reading" aria-labelledby="beel-reading-heading">
+        <h2 className="personal-section-title" id="beel-reading-heading">From the Beel blog.</h2>
+        <p className="page-lead">I’m building Beel, an outreach sequencer. These guides on its blog explore how to choose channels, write the next message, and make the whole sequence make sense.</p>
+        <div className="article-list">{beelReading.map(item => <article className="article-row" key={item.url}>
+          <p className="beel-reading-source">Published on Beel</p>
+          <h3><a draggable={false} href={item.url}>{item.title}</a></h3>
+          <p>{item.description}</p>
+          <a draggable={false} className="text-link" href={item.url}>Read on Beel <ArrowUpRight size={18} aria-hidden="true" /></a>
+        </article>)}</div>
+        <a draggable={false} className="text-link" href="https://trybeel.app/blog/">All Beel articles <ArrowUpRight size={18} aria-hidden="true" /></a>
+      </section>
     </section>
   );
 }
