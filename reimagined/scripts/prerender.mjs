@@ -1,4 +1,5 @@
 import { build } from 'vite';
+import {prepareDelivery} from './delivery.mjs';
 import { readFile, writeFile, mkdir, rm, access } from 'node:fs/promises';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import path from 'node:path';
@@ -16,7 +17,9 @@ await build({ root, logLevel: 'warn', build: {
 } });
 const { render, getIndexableRoutes, getMetadata, renderMetadata, SITE_URL, escapeHtml, getPhotos } =
   await import(pathToFileURL(path.join(server, 'entry-server.mjs')).href);
+const fontPreload = await prepareDelivery(client);
 const template = (await readFile(path.join(client, 'index.html'), 'utf8'))
+  .replace('</head>', fontPreload + '</head>')
   .replace(/\s*<title>[\s\S]*?<\/title>/, '')
   .replace(/\s*<meta name="description"[^>]*\/>/, '');
 const routes = getIndexableRoutes();
@@ -67,7 +70,7 @@ for (const prefix of ['red', 'workbench', 'door', 'poke', 'room']) {
 for (const route of routes.filter(route => route !== '/')) {
   redirects.push(`${route}/index.html ${route} 301!`, `${route} ${route}/index.html 200`);
 }
-redirects.push('/* /404.html 404');
+redirects.push('/index.html / 301!', '/* /404.html 404');
 await writeFile(path.join(client, '_redirects'), redirects.join('\n') + '\n');
 await writeFile(path.join(root, 'dist/seo-manifest.json'), JSON.stringify({ entries, photos: getPhotos() }, null, 2));
 await rm(server, { recursive: true, force: true });

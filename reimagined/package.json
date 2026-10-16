@@ -10,7 +10,8 @@
     "test:sites": "node --test tests/sites-worker.test.mjs",
     "test:seo": "node --test tests/seo-build.test.mjs",
     "test": "node --test tests/*.test.mjs",
-    "audit:seo": "node --test tests/seo-structure.test.mjs"
+    "audit:seo": "node --test tests/seo-structure.test.mjs",
+    "indexnow": "node scripts/indexnow.mjs"
   },
   "dependencies": {
     "@fontsource-variable/archivo": "^5.3.0",

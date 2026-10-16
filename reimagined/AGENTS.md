@@ -126,3 +126,5 @@ Build app UI in `src/`. Keep `.openai/hosting.json`, `worker/index.js`, `scripts
 - Client names are not approved for publication. Use anonymous company types; no internal Syft numbers or private customer records. Metrics in the brief require confirmation and should be omitted meanwhile.
 - Public email, booking link, freelance/advisory availability, and new photos are unconfirmed. Use LinkedIn as the main contact CTA; explicit media placeholders are authorized.
 - Do not make the homepage a services landing page or recruiting pitch. Name, story, product, interests, writing, and relationships make up the personal site.
+
+- October 16 technical SEO/AEO pass: preserve all visible copy, positioning and design. Keep only content-hashed Vite assets immutable; stable photo/PDF URLs and HTML must revalidate. IndexNow submissions run only after the ownership file is live, for genuinely changed canonical URLs; receipt is not indexing or ranking confirmation.

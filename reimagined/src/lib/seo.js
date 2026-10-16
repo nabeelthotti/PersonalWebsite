@@ -50,6 +50,16 @@ export function getMetadata(pathname) {
     ...(path === '/about' && { mainEntity: { '@id': personId } }),
   };
   const graph = [person, { '@type': 'Organization', '@id': 'https://trybeel.app/#organization', name: 'Beel', url: 'https://trybeel.app/', founder: { '@id': personId } }, { '@type': 'WebSite', '@id': websiteId, url: `${SITE_URL}/`, name: profile.name, publisher: { '@id': personId }, inLanguage: 'en' }, page];
+  // Describe the existing navigation hierarchy without adding visible copy.
+  if (known && path !== '/') {
+    const crumbs = [{ name: profile.name, item: `${SITE_URL}/` }];
+    if (project) crumbs.push({ name: 'Work', item: absoluteUrl('/work') });
+    if (article) crumbs.push({ name: 'Notes', item: absoluteUrl('/writing') });
+    crumbs.push({ name: project?.title || article?.shortTitle || title, item: canonical });
+    page.breadcrumb = { '@id': `${canonical}#breadcrumb` };
+    graph.push({ '@type': 'BreadcrumbList', '@id': `${canonical}#breadcrumb`,
+      itemListElement: crumbs.map((crumb, index) => ({ '@type': 'ListItem', position: index + 1, ...crumb })) });
+  }
   if (article) graph.push({
     '@type': 'Article', '@id': `${canonical}#article`, headline: article.title,
     description: article.subtitle, url: canonical, mainEntityOfPage: { '@id': page['@id'] },
