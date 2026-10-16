@@ -193,7 +193,7 @@ export function AboutPage({ href }) {
         <div><p className="personal-location">From Los Angeles, living in San Francisco.</p><h1 className="page-heading">Hi, I’m<br />Nabeel.</h1><p className="page-lead">An engineer who found his way into the customer conversation.</p></div>
         <Portrait />
       </div>
-      <section className="personal-about-story" aria-labelledby="my-story-heading"><h2 id="my-story-heading">How I got here.</h2><div className="prose">{profile.about.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}<a draggable={false} className="text-link" href={href('/how-i-work')}>How I approach the work<ArrowRight size={18} aria-hidden="true" /></a></div></section>
+      <section className="personal-about-story" aria-labelledby="my-story-heading"><h2 id="my-story-heading">How I got here.</h2><div className="prose">{profile.about.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div></section>
       <section className="personal-current" aria-labelledby="current-heading"><h2 id="current-heading">What I’m putting<br />my energy into.</h2><div><article><h3>GTM at Syft Data</h3><p>I help companies figure out who might need their product, how to start a useful conversation with them, and whether those conversations actually turn into customers.</p></article><article><h3>Building Beel</h3><p>My own sequencer, a project I’m building alongside the work that keeps giving me ideas.</p><a draggable={false} className="text-link" href={href('/work/beel')}>Follow the project<ArrowRight size={18} aria-hidden="true" /></a></article></div></section>
       <PersonalSection href={href} />
       <div className="about-outro"><p>Tell me a little about you?</p><a draggable={false} className="text-link" href={href('/contact')}>Say hello<ArrowRight size={18} aria-hidden="true" /></a></div>
@@ -237,6 +237,7 @@ const workflowStages = [
   { name: 'Product feedback', owner: 'Back to the team', question: 'What should this teach the product?', description: 'Bring the patterns, friction, and useful customer context back to the product. The workflow becomes an input to the next improvement.', output: 'Feedback the team can use to improve the system.', check: 'Close the loop between customer-facing work and product decisions.' },
 ];
 
+// Draft retained for revision; intentionally not mounted by the public router.
 export function HowIWorkPage({ href }) {
   const [activeStep, setActiveStep] = useState(0);
   const step = workflowStages[activeStep];

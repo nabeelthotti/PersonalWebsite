@@ -144,3 +144,16 @@ test('metadata safely escapes user-edited copy and canonicals discard retired ed
   assert.deepEqual(JSON.parse(json), value);
   assert.equal(seo.escapeHtml('A & "B" < C'), 'A &amp; &quot;B&quot; &lt; C');
 });
+
+
+test('How I Work stays unpublished while its source is being revised', async () => {
+  assert.ok(!seo.getIndexableRoutes().includes('/how-i-work'));
+  assert.equal(seo.getMetadata('/how-i-work').robots, 'noindex, follow');
+  assert.ok(!(await read('sitemap.xml')).includes('/how-i-work'));
+  assert.ok(!(await read('about/index.html')).includes('href="/how-i-work"'));
+  await assert.rejects(read('how-i-work/index.html'), { code: 'ENOENT' });
+  const { render } = await server.ssrLoadModule('/src/entry-server.jsx');
+  const html = render('/how-i-work');
+  assert.ok(!html.includes('One agent per client.'));
+  assert.equal(html, render('/not-real'));
+});

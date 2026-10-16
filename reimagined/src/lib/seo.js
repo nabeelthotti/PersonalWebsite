@@ -13,7 +13,6 @@ const pages = {
   '/work': ['Work & Projects — Nabeel Thotti', 'Explore Nabeel Thotti’s GTM systems, Beel outbound sequencer, software engineering projects, career history, and résumé.', 'CollectionPage'],
   '/writing': ['Notes & Essays — Nabeel Thotti', 'Original essays by Nabeel Thotti on algorithmic bias, instant gratification, technology, and human behavior.', 'CollectionPage'],
   '/contact': ['Contact Nabeel Thotti', 'Get in touch with Nabeel Thotti and find his official LinkedIn, Instagram, X, YouTube, and GitHub profiles.', 'ContactPage'],
-  '/how-i-work': ['How I Work — Nabeel Thotti', 'How Nabeel Thotti uses AI agents, human approval, CRM verification, and customer feedback in go-to-market work.', 'WebPage'],
   '/resume': ['Résumé — Nabeel Thotti', 'View or download Nabeel Thotti’s résumé and explore his engineering and GTM work.', 'WebPage'],
   '/chess': ['A Little Chess — Nabeel Thotti', 'Play two-player chess in your browser, a software project by Nabeel Thotti.', 'WebPage'],
   '/draw': ['Draw Something — Nabeel Thotti', 'An interactive sketchpad inspired by Nabeel Thotti’s handwriting recognition project, Rekognize.', 'WebPage'],

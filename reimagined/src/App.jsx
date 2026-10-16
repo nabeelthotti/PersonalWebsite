@@ -3,7 +3,7 @@ import { ArrowUpRight, ArrowRight, List, X } from '@phosphor-icons/react';
 import RedHome from './variants/RedHome.jsx';
 import ChessGame from './components/ChessGame.jsx';
 import Sketchpad from './components/Sketchpad.jsx';
-import { WorkPage, ProjectPage, WritingPage, ArticlePage, AboutPage, ContactPage, ResumePage, HowIWorkPage, NotFoundPage } from './components/ContentPages.jsx';
+import { WorkPage, ProjectPage, WritingPage, ArticlePage, AboutPage, ContactPage, ResumePage, NotFoundPage } from './components/ContentPages.jsx';
 import { resolveLocation } from './lib/navigation.js';
 import { socialProfiles } from './data.js';
 import { updatePageMetadata } from './lib/seo.js';
@@ -102,7 +102,6 @@ export function App({ initialPath = '/' }) {
   else if (/^\/work\/[^/]+$/.test(route)) page = <ProjectPage href={href} slug={route.split('/')[2]} />;
   else if (route === '/writing') page = <WritingPage href={href} />;
   else if (/^\/writing\/[^/]+$/.test(route)) page = <ArticlePage href={href} slug={route.split('/')[2]} />;
-  else if (route === '/how-i-work') page = <HowIWorkPage href={href} />;
   else if (route === '/about') page = <AboutPage href={href} />;
   else if (route === '/contact') page = <ContactPage href={href} />;
   else if (route === '/resume') page = <ResumePage href={href} />;
