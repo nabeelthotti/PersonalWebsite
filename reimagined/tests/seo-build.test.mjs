@@ -91,7 +91,7 @@ test('homepage title is just the name and domain aliases redirect before page re
   assert.equal(seo.getMetadata('/').title, 'Nabeel Thotti');
   assert.match(html, /property="og:title" content="Nabeel Thotti"/);
   const rules = await read('_redirects');
-  for (const host of ['nabeelthotti.co', 'www.nabeelthotti.co', 'www.nabeelthotti.com']) {
+  for (const host of ['nabeelthotti.co', 'www.nabeelthotti.co', 'nabeelthotti.me', 'www.nabeelthotti.me', 'www.nabeelthotti.com']) {
     for (const protocol of ['http', 'https']) {
       const rule = `${protocol}://${host}/* https://nabeelthotti.com/:splat 301!`;
       assert.ok(rules.includes(rule));

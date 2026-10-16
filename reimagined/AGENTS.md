@@ -10,7 +10,7 @@ Build app UI in `src/`. Keep `.openai/hosting.json`, `worker/index.js`, `scripts
 
 ## Nabeel's design preferences
 
-- Homepage search/browser title is simply “Nabeel Thotti”, without a role suffix or em dash. Canonical domain is https://nabeelthotti.com; redirect .co and www aliases permanently to the matching .com path. Keep meaningful, distinct titles on inner pages.
+- Homepage search/browser title is simply “Nabeel Thotti”, without a role suffix or em dash. Canonical domain is https://nabeelthotti.com; redirect .co, .me, and www aliases permanently to the matching .com path. Keep meaningful, distinct titles on inner pages.
 
 - Home/interiors album now uses all nine photos supplied in Downloads/Home on October 8. Keep the shared homepage/About slideshow and My sanctuary captions. This supersedes the earlier seven-photo limit; do not truncate the list.
 

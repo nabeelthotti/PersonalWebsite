@@ -54,7 +54,7 @@ await writeFile(path.join(client, 'robots.txt'), `User-agent: *\nAllow: /\nDisal
 // Consolidate domain aliases before asset, proxy, and page rules. A canonical
 // tag alone leaves alternate hosts available as duplicate pages.
 const redirects = [];
-for (const host of ['nabeelthotti.co', 'www.nabeelthotti.co', 'www.nabeelthotti.com']) {
+for (const host of ['nabeelthotti.co', 'www.nabeelthotti.co', 'nabeelthotti.me', 'www.nabeelthotti.me', 'www.nabeelthotti.com']) {
   for (const protocol of ['http', 'https']) redirects.push(`${protocol}://${host}/* ${SITE_URL}/:splat 301!`);
 }
 redirects.push(await readFile(path.join(root, 'public/_redirects'), 'utf8'));
