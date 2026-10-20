@@ -254,4 +254,4 @@ export const beelReading = [
   { title: 'A multichannel outreach sequence example you can build in Beel', url: 'https://trybeel.app/blog/multichannel-sequence-example/', description: 'An illustrative sequence with an acceptance branch, an email fallback and messages you can adapt in the builder.' },
 ];
 
-export const profileSummary = 'Nabeel Thotti is a GTM engineer with a software engineering background and the founder of Beel, an outbound sequencer in development. Originally from Los Angeles, he lives in San Francisco.';
+export const profileSummary = 'Nabeel Thotti is a GTM engineer and founder of Beel. Originally from LA, now in SF.';
