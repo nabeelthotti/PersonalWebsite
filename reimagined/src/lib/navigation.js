@@ -1,3 +1,12 @@
+// Netlify serves prerendered page directories with a trailing slash.
+// Keep page links consistent while leaving files, queries and fragments intact.
+export function pagePath(value) {
+  if (!value.startsWith('/') || value.startsWith('//')) return value;
+  const [, pathname, suffix] = value.match(/^([^?#]*)(.*)$/);
+  if (pathname === '/' || /\.[^/]+$/.test(pathname)) return value;
+  return pathname.replace(/\/+$/, '') + '/' + suffix;
+}
+
 export const routeAliases = { '/home': '/', '/personal': '/about', '/projects': '/work', '/articles': '/writing', '/rekognize': '/work/rekognize', '/portchat': '/work/portchat', '/shopvista': '/work/shopvista', '/findmyparcel': '/work/find-my-parcel', '/dailycommit': '/work/daily-commit', '/chessgame': '/work/chess' };
 
 export function resolveLocation(pathname) {
@@ -9,6 +18,6 @@ export function resolveLocation(pathname) {
   const base = explicitHero ? `/${hero}` : '';
   let route = '/' + parts.join('/');
   route = routeAliases[route] || route;
-  const href = (path = '/') => path === '/' ? (base || '/') : base + path;
+  const href = (path = '/') => pagePath(path === '/' ? (base || '/') : base + path);
   return { variant: 'red', hero, base, route, href, canonicalPath: href(route) };
 }

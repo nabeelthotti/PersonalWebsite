@@ -1,6 +1,6 @@
 import { profileSummary, profile, projects, articles, socialProfiles } from '../data.js';
 import { getPhotos } from './photos.js';
-import { resolveLocation } from './navigation.js';
+import { resolveLocation, pagePath } from './navigation.js';
 
 export const SITE_URL = 'https://nabeelthotti.com';
 export const absoluteUrl = path => new URL(path, `${SITE_URL}/`).href;
@@ -26,7 +26,7 @@ export function getIndexableRoutes() {
 
 export function getMetadata(pathname) {
   const path = resolveLocation(pathname).route;
-  const canonical = absoluteUrl(path);
+  const canonical = absoluteUrl(pagePath(path));
   const project = projects.find(project => path === `/work/${project.slug}`);
   const article = articles.find(article => path === `/writing/${article.slug}`);
   const known = Boolean(pages[path] || project || article);
@@ -38,7 +38,7 @@ export function getMetadata(pathname) {
     : path === '/about' ? getPhotos().map(photo => photo.src)
     : path === '/' && profile.portrait?.src ? [profile.portrait.src] : [];
   const person = {
-    '@type': 'Person', '@id': personId, name: profile.name, url: absoluteUrl('/about'),
+    '@type': 'Person', '@id': personId, name: profile.name, url: absoluteUrl('/about/'),
     jobTitle: profile.role, description: identity,
     worksFor: { '@type': 'Organization', name: profile.company, url: 'https://www.syftdata.com/' },
     sameAs: socialProfiles.map(({ url }) => url),
@@ -53,8 +53,8 @@ export function getMetadata(pathname) {
   // Describe the existing navigation hierarchy without adding visible copy.
   if (known && path !== '/') {
     const crumbs = [{ name: profile.name, item: `${SITE_URL}/` }];
-    if (project) crumbs.push({ name: 'Work', item: absoluteUrl('/work') });
-    if (article) crumbs.push({ name: 'Notes', item: absoluteUrl('/writing') });
+    if (project) crumbs.push({ name: 'Work', item: absoluteUrl('/work/') });
+    if (article) crumbs.push({ name: 'Notes', item: absoluteUrl('/writing/') });
     crumbs.push({ name: project?.title || article?.shortTitle || title, item: canonical });
     page.breadcrumb = { '@id': `${canonical}#breadcrumb` };
     graph.push({ '@type': 'BreadcrumbList', '@id': `${canonical}#breadcrumb`,
@@ -92,7 +92,7 @@ function tagsFor(meta) {
     ['name', 'twitter:card', meta.images.length ? 'summary_large_image' : 'summary'],
     ['name', 'twitter:site', '@nabeelthotti'], ['name', 'twitter:title', meta.title], ['name', 'twitter:description', meta.description],
     ...(meta.images.length ? [['property', 'og:image', meta.images[0]], ['property', 'og:image:alt', meta.imageAlt], ['name', 'twitter:image', meta.images[0]], ['name', 'twitter:image:alt', meta.imageAlt]] : []),
-    ...(meta.published ? [['property', 'article:published_time', meta.published], ['property', 'article:author', absoluteUrl('/about')]] : []),
+    ...(meta.published ? [['property', 'article:published_time', meta.published], ['property', 'article:author', absoluteUrl('/about/')]] : []),
   ];
 }
 

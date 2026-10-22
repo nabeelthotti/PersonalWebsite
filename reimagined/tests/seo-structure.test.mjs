@@ -42,6 +42,7 @@ test('rendered local links and images resolve, and every indexed page is reachab
       const destination = key(target.href);
       if (pages.has(destination)) {
         destinations.push(destination);
+        assert.equal(target.pathname, new URL(pages.get(destination).url).pathname, `${url}: internal link redirects ${href}`);
         if (target.hash) {
           const id = decodeURIComponent(target.hash.slice(1));
           assert.ok(pages.get(destination).html.includes(`id="${id}"`), `${url}: missing anchor ${href}`);

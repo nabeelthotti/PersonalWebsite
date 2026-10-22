@@ -128,3 +128,5 @@ Build app UI in `src/`. Keep `.openai/hosting.json`, `worker/index.js`, `scripts
 - Do not make the homepage a services landing page or recruiting pitch. Name, story, product, interests, writing, and relationships make up the personal site.
 
 - October 16 technical SEO/AEO pass: preserve all visible copy, positioning and design. Keep only content-hashed Vite assets immutable; stable photo/PDF URLs and HTML must revalidate. IndexNow submissions run only after the ownership file is live, for genuinely changed canonical URLs; receipt is not indexing or ranking confirmation.
+
+- October 22 indexing repair: Netlify serves prerendered pages at trailing-slash URLs. Keep canonical/OG/schema URLs, sitemap entries and internal page links aligned with those final URLs. Preserve image/file URLs and query/hash fragments. Keep intended domain, HTTPS and retired-route redirects; their exclusion from Google's index is expected.

@@ -29,6 +29,8 @@ test('every indexable route has real HTML, unique metadata, a canonical and pars
     const graph = JSON.parse(html.match(/<script data-seo type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);
     assert.equal(graph['@graph'].find(node => node['@type'] === 'Person').name, 'Nabeel Thotti');
     assert.ok(!entry.canonical.includes('localhost'));
+    assert.ok(entry.canonical.endsWith('/'), 'Canonical must match Netlify directory URL: ' + entry.canonical);
+    assert.equal(seo.getMetadata(new URL(entry.canonical).pathname).canonical, entry.canonical);
   }
 });
 
@@ -36,7 +38,7 @@ test('biography, all project links, and complete essays are present before JavaS
   const about = await read('about/index.html');
   for (const paragraph of data.profile.about) assert.ok(about.includes(seo.escapeHtml(paragraph)), paragraph);
   const work = await read('work/index.html');
-  for (const project of data.projects) assert.ok(work.includes(`href="/work/${project.slug}"`));
+  for (const project of data.projects) assert.ok(work.includes(`href="/work/${project.slug}/"`));
   for (const article of data.articles) {
     const html = await read(`writing/${article.slug}/index.html`);
     for (const block of article.blocks) assert.ok(html.replaceAll('&#x27;', '&#39;').includes(seo.escapeHtml(block.text)), `${article.slug}: ${block.text.slice(0, 80)}`);
@@ -44,7 +46,7 @@ test('biography, all project links, and complete essays are present before JavaS
   }
   const home = await read('index.html');
   assert.match(home, /<noscript>/);
-  assert.match(home, /href="\/about"/);
+  assert.match(home, /href="\/about\/"/);
 });
 
 test('sitemap only lists canonical pages and real image files', async () => {
@@ -78,7 +80,7 @@ test('unknown routes cannot become indexable successful homepages on Netlify', a
   assert.match(rules, /\/\* \/404.html 404/);
   assert.ok(!rules.includes('/* /index.html 200'));
   assert.match(rules, /\/mcp https:\/\/tech-detect-mcp/);
-  assert.match(rules, /\/projects \/work 301/);
+  assert.match(rules, /\/projects \/work\/ 301/);
   assert.match(rules, /\/poke\/\* \/:splat 301/);
   assert.match(await read('404.html'), /content="noindex, follow"/);
   assert.equal(seo.getMetadata('/not-real').robots, 'noindex, follow');
@@ -95,7 +97,7 @@ test('homepage title is just the name and domain aliases redirect before page re
     for (const protocol of ['http', 'https']) {
       const rule = `${protocol}://${host}/* https://nabeelthotti.com/:splat 301!`;
       assert.ok(rules.includes(rule));
-      assert.ok(rules.indexOf(rule) < rules.indexOf('/about /about/index.html 200'));
+      assert.ok(rules.indexOf(rule) < rules.indexOf('/about/ /about/index.html 200'));
     }
   }
 });
@@ -137,7 +139,7 @@ test('photos stay discoverable on About without standalone album pages', () => {
 });
 
 test('metadata safely escapes user-edited copy and canonicals discard retired editions', () => {
-  assert.equal(seo.getMetadata('/poke/work/beel').canonical, 'https://nabeelthotti.com/work/beel');
+  assert.equal(seo.getMetadata('/poke/work/beel').canonical, 'https://nabeelthotti.com/work/beel/');
   const value = { text: '</script><script>alert("test")</script>' };
   const json = seo.serializeJsonLd(value);
   assert.ok(!json.includes('</script>'));

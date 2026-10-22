@@ -3,7 +3,7 @@ import {prepareDelivery} from './delivery.mjs';
 import { readFile, writeFile, mkdir, rm, access } from 'node:fs/promises';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import path from 'node:path';
-import { routeAliases } from '../src/lib/navigation.js';
+import { routeAliases, pagePath } from '../src/lib/navigation.js';
 
 const root = fileURLToPath(new URL('..', import.meta.url));
 const client = path.join(root, 'dist/client');
@@ -38,7 +38,7 @@ const noScriptHome = `<noscript><style>.is-home{display:none}</style>
   <p>The animated entrance needs JavaScript. You can read the full site here:</p>
   <nav aria-label="Website pages"><ul>${[
     ['/about', 'About Nabeel'], ['/work', 'Work and résumé'], ['/writing', 'Notes and essays'], ['/contact', 'Contact'],
-  ].map(([href, label]) => `<li><a href="${href}">${label}</a></li>`).join('')}</ul></nav></main></noscript>`;
+  ].map(([href, label]) => `<li><a href="${pagePath(href)}">${label}</a></li>`).join('')}</ul></nav></main></noscript>`;
 
 for (const route of [...routes, '/404']) {
   const meta = getMetadata(route);
@@ -61,14 +61,14 @@ for (const host of ['nabeelthotti.co', 'www.nabeelthotti.co', 'nabeelthotti.me',
   for (const protocol of ['http', 'https']) redirects.push(`${protocol}://${host}/* ${SITE_URL}/:splat 301!`);
 }
 redirects.push(await readFile(path.join(root, 'public/_redirects'), 'utf8'));
-for (const [from, to] of Object.entries(routeAliases)) redirects.push(`${from} ${to} 301`);
+for (const [from, to] of Object.entries(routeAliases)) redirects.push(`${from} ${pagePath(to)} 301`);
 for (const prefix of ['red', 'workbench', 'door', 'poke', 'room']) {
   redirects.push(`/${prefix} / 301`, `/${prefix}/* /:splat 301`);
 }
 // Explicit rewrites keep direct loads working without treating unknown URLs as
 // successful homepages. Existing assets continue to be served normally.
 for (const route of routes.filter(route => route !== '/')) {
-  redirects.push(`${route}/index.html ${route} 301!`, `${route} ${route}/index.html 200`);
+  redirects.push(`${route}/index.html ${pagePath(route)} 301!`, `${pagePath(route)} ${route}/index.html 200`);
 }
 redirects.push('/index.html / 301!', '/* /404.html 404');
 await writeFile(path.join(client, '_redirects'), redirects.join('\n') + '\n');
